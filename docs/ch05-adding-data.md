@@ -6,6 +6,11 @@
 
 ## 5.1 添加数据总览
 
+
+![添加数据菜单全览](/img/ch05/ch05-01.png)
+*Layer -> Add Data 菜单全览*
+
+
 GeoLibre 支持的数据源类型极为丰富，涵盖本地文件、Web 服务、云格式、3D 数据和数据库五大类。[已核实] https://geolibre.app/user-guide/adding-data/
 
 **添加数据的入口**：
@@ -36,6 +41,11 @@ GeoLibre 支持以下本地矢量文件格式：[已核实] https://geolibre.app
 
 ### 5.2.2 加载方式
 
+
+![添加矢量图层面板](/img/ch05/ch05-02.png)
+*添加矢量文件时的面板选项*
+
+
 **方式一：Add Data 对话框**
 - Layer -> Add Data -> Vector File
 - 选择文件（桌面端用原生对话框，Web 端用浏览器文件选择器）
@@ -51,6 +61,11 @@ GeoLibre 支持以下本地矢量文件格式：[已核实] https://geolibre.app
 [已核实] https://geolibre.app/user-guide/adding-data/
 
 ### 5.2.3 格式特殊处理
+
+
+![示例数据下拉](/img/ch05/ch05-03.png)
+*示例数据下拉菜单，包含 Countries 等内置数据集*
+
 
 **GeoJSON**：MapLibre 原生渲染，无需转换，加载速度最快。
 

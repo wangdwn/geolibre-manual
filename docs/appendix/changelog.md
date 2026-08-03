@@ -5,6 +5,8 @@
 
 ## v2.4（当前稳定版）
 
+**用户手册**：本版用户手册已全面图文化更新，所有章节均配有 GeoLibre v2.4.0 界面截图。
+
 **新增功能**：
 - STAC 和 NASA Earthdata 目录浏览器
 - Hugging Face Hub 面板（读取和上传）

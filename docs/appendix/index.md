@@ -2,6 +2,9 @@
 
 本部分包含 GeoLibre 使用手册的辅助参考内容：
 
+![入门指南](/img/appendix/appendix-01.png)
+*GeoLibre 入门指南页面*
+
 - [附录 A：术语表](glossary) — 中英对照术语及定义
 - [附录 B：FAQ 与故障排除](faq) — 常见问题及解决方法
 - [附录 C：参考文献](references) — 所有引用来源汇总

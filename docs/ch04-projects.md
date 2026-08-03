@@ -109,6 +109,11 @@ Web 版没有本地文件系统访问权限，因此：
 
 ## 4.3 通过 URL 分享项目
 
+
+![Cloud 端分享页](/img/ch04/ch04-02.png)
+*share.geolibre.app 项目分享页面*
+
+
 ### 4.3.1 Share 功能
 
 File -> Share Project 可以将当前项目上传到 GeoLibre 的分享服务：[已核实] https://geolibre.app/user-guide/projects/
@@ -210,6 +215,11 @@ Settings -> General 中可以清除最近项目历史记录。
 
 ## 4.6 数据源管理器（Data Source Manager）
 
+
+![界面文档页](/img/ch04/ch04-03.png)
+*GeoLibre 官方用户指南文档站界面*
+
+
 ### 4.6.1 概述
 
 数据源管理器是 GeoLibre v2.1 引入的 QGIS 风格浏览器面板，用于统一管理所有数据连接。[已核实] https://geolibre.app/roadmap/ （v2.1 更新）
@@ -239,6 +249,11 @@ View -> Data Source Manager 或工具栏按钮。
 [推断] 数据源类型基于 QGIS 风格的通用设计和官网 v2.1 描述推断。
 
 ## 4.7 本地文件系统集成（桌面端）
+
+
+![桌面端下载页](/img/ch04/ch04-01.png)
+*geolibre.app/downloads 桌面端下载页面*
+
 
 ### 4.7.1 Tauri 原生文件访问
 

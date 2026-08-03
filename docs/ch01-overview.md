@@ -12,9 +12,19 @@ GeoLibre 的核心定位是：为地理空间数据的**可视化、探索和分
 
 ### 1.1.1 项目背景
 
-GeoLibre 由 Qiusheng Wu 发起并主导开发，隶属于 opengeos GitHub 组织。[已核实] https://github.com/opengeos/GeoLibre Qiusheng Wu 同时是 geemap 和 leafmap 等广受欢迎的 Python 地理空间可视化库的作者，[推断] GeoLibre 的设计理念明显继承自这些项目对"降低 GIS 使用门槛"的追求。
+GeoLibre 由 Qiusheng Wu 发起并主导开发，隶属于 opengeos GitHub 组织。[已核实] https://github.com/opengeos/GeoLibre
+
+
+![GeoLibre GitHub 仓库首页](/img/ch01/ch01-01.png)
+*GeoLibre GitHub 仓库首页（5k+ stars，活跃开发中）*
+ Qiusheng Wu 同时是 geemap 和 leafmap 等广受欢迎的 Python 地理空间可视化库的作者，[推断] GeoLibre 的设计理念明显继承自这些项目对"降低 GIS 使用门槛"的追求。
 
 ### 1.1.2 核心特性概览
+
+
+![GeoLibre GitHub README](/img/ch01/ch01-02.png)
+*GitHub README 中的项目介绍与核心特性*
+
 
 GeoLibre v2.4 提供以下核心能力：[已核实] https://geolibre.app/
 
@@ -87,6 +97,11 @@ GeoLibre 采用单一代码库（single npm workspaces monorepo）架构，通�
 4. **3D 数据**：3D Tiles、LiDAR 等通过 deck.gl 或 MapLibre 的 custom layer 渲染
 
 ## 1.3 支持平台对比
+
+
+![GeoLibre Web 版主界面](/img/ch01/ch01-03.png)
+*web.geolibre.app 主界面全貌*
+
 
 GeoLibre 在四个平台上运行，功能存在差异：
 
@@ -169,6 +184,11 @@ geemap 和 leafmap 是 Qiusheng Wu 开发的 Python 库，用于在 Jupyter 中�
 - [推断] 以上"不推荐"场景基于 GeoLibre 当前功能边界，非官方声明
 
 ## 1.6 版本演进与路线图
+
+
+![GeoLibre 文档站](/img/ch01/ch01-04.png)
+*geolibre.app 官方文档站界面*
+
 
 GeoLibre 的版本演进如下：[已核实] https://geolibre.app/roadmap/
 

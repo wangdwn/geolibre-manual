@@ -6,6 +6,11 @@
 
 ## 9.1 Processing 面板概览
 
+
+![主界面](/img/ch09/ch09-01.png)
+*Processing 面板所在的主界面环境*
+
+
 ### 9.1.1 打开 Processing 面板
 
 Processing 面板是 GeoLibre 空间分析的核心入口：[已核实] https://geolibre.app/user-guide/processing/
@@ -15,6 +20,11 @@ Processing 面板是 GeoLibre 空间分析的核心入口：[已核实] https://
 - 工具栏 Processing 按钮
 
 ### 9.1.2 工具分类
+
+
+![处理菜单全览](/img/ch09/ch09-02.png)
+*Processing 菜单全览，按矢量、栅格、转换、Whitebox 分类*
+
 
 Processing 工具按数据类型分为四大类：[已核实] https://geolibre.app/user-guide/processing/
 
@@ -41,6 +51,11 @@ Processing 工具按数据类型分为四大类：[已核实] https://geolibre.a
 
 ## 9.2 缓冲区（Buffer）
 
+
+![矢量子菜单](/img/ch09/ch09-03.png)
+*Vector 子菜单中的几何处理选项*
+
+
 ### 9.2.1 功能说明
 
 缓冲区工具在要素周围创建指定距离的缓冲多边形。[已核实] https://geolibre.app/user-guide/processing/
@@ -49,6 +64,11 @@ Processing 工具按数据类型分为四大类：[已核实] https://geolibre.a
 **输出**：面图层（MultiPolygon）
 
 ### 9.2.2 参数设置
+
+
+![缓冲区参数弹窗](/img/ch09/ch09-08.png)
+*Buffer 参数弹窗，基于 Whitebox WASM 本地运行*
+
 
 | 参数 | 说明 | 示例 |
 |------|------|------|
@@ -84,6 +104,11 @@ Processing 工具按数据类型分为四大类：[已核实] https://geolibre.a
 
 ## 9.4 凸包（Convex Hull）
 
+
+![几何处理子菜单](/img/ch09/ch09-04.png)
+*Geometry Processing 子菜单详细选项*
+
+
 ### 9.4.1 功能说明
 
 计算要素或要素集合的凸包（包含所有点的最小凸多边形）。[已核实] https://geolibre.app/user-guide/processing/
@@ -115,6 +140,11 @@ Processing 工具按数据类型分为四大类：[已核实] https://geolibre.a
 [推断] 融合参数基于通用 GIS 融合工具和 GeoLibre 功能推断。
 
 ## 9.6 边界框（Bounding Box）
+
+
+![GeoLibre 子菜单](/img/ch09/ch09-05.png)
+*GeoLibre 子菜单，包含 Buffer 3D 等 70+ 工具*
+
 
 ### 9.6.1 功能说明
 
@@ -184,6 +214,11 @@ v1.1 引入的规则网格工具，在指定范围内生成规则的点或面网
 - 多部分几何可能被拆分为多个要素
 
 ## 9.11 叠加分析（Intersect / Difference / Union）
+
+
+![叠加分析菜单](/img/ch09/ch09-06.png)
+*Overlay Analysis：Intersect、Union、Clip、Dissolve 等工具*
+
 
 ### 9.11.1 相交（Intersect）
 
@@ -291,6 +326,11 @@ Processing -> Vector -> H3 Grid：[已核实] https://geolibre.app/roadmap/ （v
 
 ## 9.16 空间统计工具箱（v1.3+）
 
+
+![空间统计菜单](/img/ch09/ch09-07.png)
+*Spatial Statistics：Moran's I、Getis-Ord 等空间统计工具*
+
+
 ### 9.16.1 工具列表
 
 v1.3 引入的空间统计工具箱提供以下分析：[已核实] https://geolibre.app/roadmap/ （v1.3 更新）
@@ -312,6 +352,11 @@ v2.3 新增的空间时间立方体 Emerging Hot Spot Analysis：[已核实] htt
 - 等 16 种分类
 
 ## 9.17 批处理运行器与模型链
+
+
+![处理菜单完整展开](/img/ch09/ch09-09.png)
+*Processing 菜单完整展开状态*
+
 
 ### 9.17.1 批处理
 

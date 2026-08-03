@@ -39,9 +39,19 @@ Web 版无需安装，对系统要求最低：[已核实] https://geolibre.app/
 
 ## 2.2 Web 版（零安装）
 
+
+![GeoLibre Web 版主界面](/img/ch02/ch02-01.png)
+*Web 端主界面全貌，零安装即可使用*
+
+
 Web 版是体验 GeoLibre 最快的方式，无需任何安装步骤。
 
 ### 2.2.1 直接访问
+
+
+![左侧浏览器面板](/img/ch02/ch02-02.png)
+*左侧浏览器面板展开状态*
+
 
 打开浏览器，访问以下 URL：
 
@@ -81,6 +91,11 @@ https://web.geolibre.app/?url=https://share.geolibre.app/giswqs/3d-tiles.geolibr
 
 ### 2.2.3 Web 版的限制
 
+
+![左侧图层面板](/img/ch02/ch02-03.png)
+*左侧图层面板，显示图层列表与叠加顺序*
+
+
 Web 版虽然功能完整，但存在以下平台限制：[已核实] https://geolibre.app/
 
 | 功能 | Web 版 | 桌面端 |
@@ -93,6 +108,11 @@ Web 版虽然功能完整，但存在以下平台限制：[已核实] https://ge
 | Python Sidecar | Pyodide（浏览器内）| 可选本地 Python |
 
 ## 2.3 桌面端安装
+
+
+![顶部工具栏](/img/ch02/ch02-04.png)
+*顶部工具栏，包含菜单、快捷操作和地图控制按钮*
+
 
 ### 2.3.1 Windows
 

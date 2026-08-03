@@ -75,6 +75,11 @@
 
 ## 6.3 符号化基础
 
+
+![样式面板与数据地图](/img/ch06/ch06-01.png)
+*样式面板配合 Countries 示例数据渲染的地图效果*
+
+
 ### 6.3.1 符号化概念
 
 **符号化**（Symbology / Styling）是将数据属性映射为视觉外观的过程。GeoLibre 的符号化系统基于 MapLibre GL JS 的样式规范，同时扩展了高级渲染能力。[已核实] https://geolibre.app/user-guide/styling/
@@ -107,6 +112,11 @@
 
 ## 6.4 分类渲染器（Categorized）
 
+
+![样式类型下拉](/img/ch06/ch06-02.png)
+*渲染器类型下拉：单一符号、渐变分级、分类、规则、表达式等*
+
+
 ### 6.4.1 什么是分类渲染
 
 分类渲染按字段的离散值将要素分组，每组分配不同颜色。[已核实] https://geolibre.app/user-guide/styling/
@@ -134,6 +144,11 @@ GeoLibre 内置多种颜色方案（Color Ramp）：
 [已核实] https://geolibre.app/user-guide/styling/
 
 ## 6.5 分级渲染器（Graduated）
+
+
+![完整样式面板](/img/ch06/ch06-03.png)
+*完整样式面板，包含填充、描边、图表符号等详细选项*
+
 
 ### 6.5.1 什么是分级渲染
 

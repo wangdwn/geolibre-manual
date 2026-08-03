@@ -36,6 +36,11 @@ GeoLibre 的插件系统允许扩展应用功能，分为两类：[已核实] ht
 
 ## 12.2 内置插件列表
 
+
+![插件菜单](/img/ch12/ch12-01.png)
+*插件菜单：图层控制、GeoEditor、时间滑块、街景等内置插件*
+
+
 ### 12.2.1 已知的内置插件
 
 GeoLibre 包含以下内置插件（部分需手动激活）：[已核实] https://geolibre.app/user-guide/plugins/
@@ -219,6 +224,11 @@ MapLibre Components 插件封装了 `maplibre-gl-components` 库，提供多种�
 [已核实] https://geolibre.app/user-guide/adding-data/
 
 ## 12.8 常用插件详解
+
+
+![3D 地球视图](/img/ch12/ch12-02.png)
+*CesiumJS 3D 地球视图效果*
+
 
 ### 12.8.1 Swipe（卷帘对比）
 

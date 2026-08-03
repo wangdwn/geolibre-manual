@@ -6,6 +6,11 @@
 
 ## 11.1 SQL 工作区概览
 
+
+![SQL 工作区](/img/ch11/ch11-01.png)
+*SQL 工作区文档页，展示多引擎查询环境*
+
+
 ### 11.1.1 什么是 SQL 工作区
 
 SQL 工作区是 GeoLibre 的 SQL 查询执行环境，支持在浏览器内运行空间 SQL 查询，分析已加载图层、本地文件和远程 URL。[已核实] https://geolibre.app/user-guide/sql-workspace/

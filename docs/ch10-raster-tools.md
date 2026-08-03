@@ -6,6 +6,11 @@
 
 ## 10.1 栅格工具概览
 
+
+![栅格子菜单分类](/img/ch10/ch10-01.png)
+*Raster 子菜单分类：地形分析、变换、转换、统计、代数等*
+
+
 ### 10.1.1 栅格分析引擎
 
 GeoLibre 的栅格分析通过可选的 Python sidecar 运行 rasterio 实现：[已核实] https://geolibre.app/user-guide/processing/
@@ -264,6 +269,11 @@ band1 * 0.3 + band2 * 0.5 + band3 * 0.2
 
 ## 10.15 光谱指数工具箱（NDVI、NDWI、EVI）
 
+
+![栅格 GeoLibre 工具列表](/img/ch10/ch10-02.png)
+*栅格 GeoLibre 工具列表，Spectral Index 中包含 NDVI 等指数*
+
+
 ### 10.15.1 功能说明
 
 光谱指数工具箱提供遥感常用植被/水体指数的一键计算。[已核实] https://geolibre.app/user-guide/processing/
@@ -285,6 +295,11 @@ band1 * 0.3 + band2 * 0.5 + band3 * 0.2
 - 自定义波段配置
 
 ## 10.16 地理配准器（Georeferencer）
+
+
+![1000+ 地理处理工具箱](/img/ch10/ch10-03.png)
+*1000+ 地理处理工具箱总览*
+
 
 ### 10.16.1 功能说明
 

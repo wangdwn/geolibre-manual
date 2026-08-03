@@ -6,6 +6,11 @@
 
 ## 8.1 导航控制
 
+
+![控件菜单全览](/img/ch08/ch08-01.png)
+*控件菜单全览：导航、全屏、指南针、测量、书签、采集等*
+
+
 ### 8.1.1 地图导航控件
 
 地图导航控件默认显示在地图右上角，提供以下按钮：[已核实] https://geolibre.app/user-guide/map-controls/
@@ -40,6 +45,11 @@
 
 ## 8.2 测量工具
 
+
+![测量工具激活状态](/img/ch08/ch08-02.png)
+*测量工具在地图上的激活状态*
+
+
 ### 8.2.1 距离测量
 
 Tools -> Measure -> Distance：[已核实] https://geolibre.app/user-guide/map-controls/
@@ -73,6 +83,11 @@ Tools -> Measure -> Area：
 单位可在设置中配置。
 
 ## 8.3 书签工具
+
+
+![书签功能](/img/ch08/ch08-03.png)
+*书签工具保存的视图状态列表*
+
 
 ### 8.3.1 保存书签
 
@@ -170,6 +185,11 @@ Field Collection 是 GeoLibre 的移动端数据采集工具，支持通过 GPS 
 
 ## 8.7 时间滑块插件（Time Slider）
 
+
+![控件菜单中的时间滑块入口](/img/ch08/ch08-04.png)
+*控件菜单中显示的时间滑块入口*
+
+
 ### 8.7.1 时间滑块概述
 
 Time Slider 是内置插件，用于浏览和动画化时序数据：[已核实] https://geolibre.app/user-guide/map-controls/
@@ -183,6 +203,11 @@ Time Slider 是内置插件，用于浏览和动画化时序数据：[已核实]
 [已核实] https://geolibre.app/roadmap/ （v2.3、v2.4 更新）
 
 ### 8.7.2 操作方式
+
+
+![时间滑块插件](/img/ch08/ch08-05.png)
+*时间滑块插件面板，支持时序数据浏览与动画*
+
 
 - 拖动滑块浏览不同时间点的数据
 - 播放/暂停按钮自动播放时间序列
