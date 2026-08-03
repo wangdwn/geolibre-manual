@@ -17,6 +17,11 @@ const config: Config = {
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
+  markdown: {
+    format: 'md',
+    mermaid: false,
+  },
+
   i18n: {
     defaultLocale: 'zh-Hans',
     locales: ['zh-Hans'],
