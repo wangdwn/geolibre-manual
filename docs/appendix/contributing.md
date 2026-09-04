@@ -1,6 +1,13 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 附录 E：贡献指南
 
-> 检索日期：2026-07-31
+> 检索日期：2026-09-04
+> 手册内容最后更新：2026-09-04
 
 ![致谢与贡献页](/img/appendix/appendix-02.png)
 *GeoLibre 致谢与贡献页面*
@@ -73,8 +80,9 @@
 |--------|----------|------|
 | 王胜 | 项目发起、目录规划、终审 | 2026-07 |
 | 凤飞飞 | 全文撰写、事实核验、站点搭建 | 2026-07 |
+| 社区内容刷新 | 对照 GeoLibre v2.9.0 更新事实、修复失效链接、补充 QGIS 互通 | 2026-09 |
 
 ---
 
 **本章信息源**
-- [1] GeoLibre GitHub：https://github.com/opengeos/GeoLibre [检索日期 2026-07-31]
+- [1] GeoLibre GitHub：https://github.com/opengeos/GeoLibre [检索日期 2026-09-04]

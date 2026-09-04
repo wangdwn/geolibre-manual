@@ -35,6 +35,8 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           routeBasePath: '/',
           numberPrefixParser: false,
+          showLastUpdateTime: true,
+          showLastUpdateAuthor: true,
         },
         blog: false,
         theme: {
@@ -92,7 +94,11 @@ const config: Config = {
           items: [
             {
               label: 'GeoLibre 官方',
-              href: 'https://geolibre.org',
+              href: 'https://geolibre.app',
+            },
+            {
+              label: '平台对比（含 QGIS）',
+              href: 'https://geolibre.app/comparison/',
             },
             {
               label: 'GitHub',

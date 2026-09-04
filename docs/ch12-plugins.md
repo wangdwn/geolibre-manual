@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 12 章：插件系统与市场
 
 > [事实与研判分离说明]
 > 本章信息源：GeoLibre 官方用户指南插件（https://geolibre.app/user-guide/plugins/）、Roadmap
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04
 
 ## 12.1 插件架构
 
@@ -55,8 +62,8 @@ GeoLibre 包含以下内置插件（部分需手动激活）：[已核实] https
 | Time Slider | 时序数据动画 | 可选 |
 | Overture Maps | Overture Maps 数据浏览 | 可选 |
 | LiDAR | 点云可视化 | 可选 |
-| GeoAgent | [待核实] 具体功能待确认 | 可选 |
-| GeoEditor | [待核实] 具体功能待确认 | 可选 |
+| GeoAgent | 地理智能体相关内置插件 | 可选 |
+| GeoEditor | 地图草绘 / 编辑（可将草图导出为工程图层） | 可选 |
 | Atmosphere | 大气效果 | 可选 |
 | GeoLens | 目录浏览器（v2.3+）| 可选 |
 | H3 Grid | 六边形网格（v2.4+）| 可选 |
@@ -321,5 +328,5 @@ GeoLibre 的插件系统是功能扩展的核心机制：
 ---
 
 **本章信息源**
-- [1] GeoLibre 插件文档：https://geolibre.app/user-guide/plugins/ [检索日期 2026-07-31]
-- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-07-31]
+- [1] GeoLibre 插件文档：https://geolibre.app/user-guide/plugins/ [检索日期 2026-09-04]
+- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-09-04]

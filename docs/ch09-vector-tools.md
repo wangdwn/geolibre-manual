@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 9 章：空间分析 - 矢量工具
 
 > [事实与研判分离说明]
 > 本章信息源：GeoLibre 官方用户指南处理工具（https://geolibre.app/user-guide/processing/）、Roadmap
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04
 
 ## 9.1 Processing 面板概览
 
@@ -31,9 +38,9 @@ Processing 工具按数据类型分为四大类：[已核实] https://geolibre.a
 | 类别 | 说明 | 引擎 |
 |------|------|------|
 | Vector | 矢量几何分析 | Turf.js / GeoPandas |
-| Raster | 栅格分析 | rasterio |
+| Raster | 栅格分析 | rasterio sidecar + 浏览器回退 |
 | Conversion | 格式转换 | DuckDB-WASM / GDAL |
-| Whitebox | WhiteboxTools 工具箱 | WhiteboxTools (sidecar) |
+| Whitebox | 1,000+ 地理处理工具 | **WebAssembly（浏览器内，无需 Python sidecar）** |
 
 ### 9.1.3 执行引擎
 
@@ -369,7 +376,7 @@ Processing 面板支持批量运行工具：[已核实] https://geolibre.app/use
 
 ### 9.17.2 模型构建器
 
-模型构建器（Model Builder）允许将多个工具串联为处理模型：[推断] 基于通用 GIS 模型构建器和官网"model/pipeline chaining"描述推断
+v2.7 增加 ArcGIS 风格的 Model Builder 画布，可将工具串联为处理模型，并支持「复制 Python 脚本」；AI 助手也可创建 Model Builder 工作流。[已核实] https://github.com/opengeos/GeoLibre/releases/tag/v2.7.0 https://geolibre.app/
 
 **应用场景**：
 - 重复性分析工作流的自动化
@@ -404,7 +411,9 @@ Python sidecar 是可选的本地 Python 环境，提供更强大的分析能力
 **功能**：
 - GeoPandas 矢量分析
 - rasterio 栅格分析
-- WhiteboxTools 批处理
+- 部分需要本机 Python 的流水线
+
+Whitebox 工具箱本身在浏览器 WASM 中运行，**不依赖** sidecar。[已核实] https://geolibre.app/
 
 ### 9.19.2 配置
 
@@ -426,5 +435,5 @@ GeoLibre 的矢量工具集覆盖了从基础几何操作到高级空间统计�
 ---
 
 **本章信息源**
-- [1] GeoLibre 处理工具文档：https://geolibre.app/user-guide/processing/ [检索日期 2026-07-31]
-- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-07-31]
+- [1] GeoLibre 处理工具文档：https://geolibre.app/user-guide/processing/ [检索日期 2026-09-04]
+- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-09-04]

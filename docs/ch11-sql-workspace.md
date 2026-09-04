@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 11 章：SQL 工作区与高级查询
 
 > [事实与研判分离说明]
 > 本章信息源：GeoLibre 官方用户指南 SQL 工作区（https://geolibre.app/user-guide/sql-workspace/）、Roadmap
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04
 
 ## 11.1 SQL 工作区概览
 
@@ -325,6 +332,6 @@ SQL 工作区使 GeoLibre 超越了纯 GUI 工具，为熟悉 SQL 的用户提�
 ---
 
 **本章信息源**
-- [1] GeoLibre SQL 工作区文档：https://geolibre.app/user-guide/sql-workspace/ [检索日期 2026-07-31]
-- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-07-31]
-- [3] DuckDB Spatial 文档：https://duckdb.org/docs/extensions/spatial.html [检索日期 2026-07-31]
+- [1] GeoLibre SQL 工作区文档：https://geolibre.app/user-guide/sql-workspace/ [检索日期 2026-09-04]
+- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-09-04]
+- [3] DuckDB Spatial 文档：https://duckdb.org/docs/stable/core_extensions/spatial/overview [检索日期 2026-09-04]

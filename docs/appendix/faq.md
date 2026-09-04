@@ -1,6 +1,13 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 附录 B：FAQ 与故障排除
 
-> 检索日期：2026-07-31
+> 检索日期：2026-09-04
+> 手册内容最后更新：2026-09-04（对照 GeoLibre v2.9.0）
 
 ## B.1 常见问题
 
@@ -25,21 +32,21 @@
 
 ### Q3: CesiumJS 3D 地球视图不显示？
 
-**A**: 3D 地球视图需要 Cesium Ion token。请：
+**A**: v2.9 起即使没有 Cesium Ion token 也可以打开 3D 地球窗格（使用商店底图）。若需要 Cesium World Imagery / Terrain：
 1. 访问 https://cesium.com/ion/ 注册免费账户
 2. 创建 Access Token
 3. 在 GeoLibre Settings -> Environment Variables 中输入 token
-4. 2D/3D 切换按钮将自动出现
 
-[已核实] https://geolibre.app/user-guide/interface/
+[已核实] https://geolibre.app/user-guide/interface/ https://github.com/opengeos/GeoLibre/releases/tag/v2.9.0
 
 ### Q4: WhiteboxTools 工具无法运行？
 
-**A**: WhiteboxTools 需要 Python sidecar 环境。请确保：
-- 桌面端已安装并配置 sidecar
-- 或在浏览器内使用 Pyodide GeoPandas 引擎（功能可能受限）
+**A**: Whitebox 工具箱在浏览器 **WebAssembly** 中运行，**不需要** Python sidecar，Web / 桌面 / Android / iOS 均可使用完整工具集。若失败，请检查：
+- 浏览器是否支持 WebAssembly
+- 首次加载是否已完成 WASM 运行时下载
+- 栅格 sidecar 工具（rasterio）与 Whitebox 不是同一套引擎
 
-[已核实] https://geolibre.app/user-guide/processing/
+[已核实] https://geolibre.app/
 
 ### Q5: AI 助手无法使用？
 
@@ -54,21 +61,22 @@
 ### Q6: 如何分享我的项目？
 
 **A**: 三种方式：
-1. **Share 功能**：File -> Share Project，上传后获得公开 URL
-2. **下载项目文件**：File -> Save，分享 `.geolibre.json` 文件
+1. **Share 功能**：Project -> Share...，上传后获得公开 URL
+2. **下载项目文件**：Project -> Save，分享 `.geolibre.json` 文件
 3. **嵌入 iframe**：使用 URL 参数嵌入到网页
 
 [已核实] https://geolibre.app/user-guide/projects/ https://geolibre.app/user-guide/embedding/
 
 ### Q7: GeoLibre 与 QGIS 的区别是什么？
 
-**A**: 核心差异：
-- **部署**：GeoLibre 支持 Web/桌面/移动/Jupyter，QGIS 仅桌面
-- **启动**：GeoLibre Web 版即开即用，QGIS 需要安装
-- **分析**：QGIS 分析能力更强（GRASS、SAGA），GeoLibre 侧重轻量分析
-- **插件**：QGIS 插件生态更丰富（20 年积累），GeoLibre 在成长中
+**A**: 官方对比页把二者写成互补：QGIS 是功能最深的桌面 GIS；GeoLibre 是浏览器即开即用、跨平台的云原生 GIS。[已核实] https://geolibre.app/comparison/
 
-[推断] 基于两个产品的公开文档对比。
+- **部署**：GeoLibre 支持 Web / 桌面 / Android / iOS / Jupyter；QGIS 以桌面为主（外业常用独立的 QField）
+- **工程互通**：GeoLibre v2.5 起可导入 QGIS `.qgs` / `.qgz`，并交换 QML / SLD 样式
+- **分析**：QGIS 格式与工具广度仍最大（GDAL/OGR、GRASS、SAGA）；GeoLibre 在浏览器内提供 1,000+ Whitebox 工具
+- **何时选 QGIS**：最广格式、最深制图/标签、超过浏览器内存的本地处理、特定成熟插件
+
+[已核实] https://geolibre.app/comparison/ https://geolibre.app/user-guide/projects/
 
 ### Q8: 如何安装第三方插件？
 
@@ -82,18 +90,25 @@
 
 ### Q9: 协作编辑功能如何使用？
 
-**A**: 协作功能为 MVP 阶段，需要配置协作服务器 URL（`VITE_GEOLIBRE_COLLAB_URL`）。当前可能不适合生产环境使用。
-
-[已核实] https://geolibre.app/collaboration/
+**A**: 需要配置协作中继 URL（`VITE_GEOLIBRE_COLLAB_URL`）。v2.5 起可自托管分享与协作服务，不必使用 Cloudflare 或官方托管。[已核实] https://geolibre.app/collaboration/ https://github.com/opengeos/GeoLibre/releases/tag/v2.5.0
 
 ### Q10: 支持哪些编程语言 API？
 
-**A**: 
+**A**:
 - **Python**：`geolibre` 包（Jupyter / anywidget）
-- **JavaScript**：插件开发 API
+- **R**：`geolibre` R 包（RStudio / Quarto / Shiny）
+- **JavaScript**：插件开发 API 与 `@geolibre/embed`
 - **SQL**：DuckDB Spatial / PostGIS / Sedona
 
-[已核实] https://geolibre.app/python/ https://geolibre.app/user-guide/plugins/
+[已核实] https://geolibre.app/python/ https://geolibre.app/r/ https://geolibre.app/user-guide/plugins/
+
+### Q11: 如何把现有 QGIS 工程转到 GeoLibre？
+
+**A**: 在桌面端使用 Project → Import → Import QGIS Project…，选择 `.qgs` 或 `.qgz`。导入器会重建图层、分组、可见性、顺序、样式和地图视图，并列出无法导入的图层及原因。浏览器无法重开本机路径，请用 Desktop 导入后再分享。[已核实] https://geolibre.app/user-guide/projects/
+
+### Q12: 托管的 web.geolibre.app 会上传我的数据吗？
+
+**A**: 数据在浏览器会话中客户端处理。只有当你主动添加远程 URL 或明确分享工程时，数据才会离开浏览器。托管站点用 Google Analytics 统计**页面访问**，看不到你加载的图层；自行托管的构建不含分析。[已核实] https://geolibre.app/ https://geolibre.app/privacy/
 
 ## B.2 故障排除
 
@@ -141,5 +156,5 @@
 ---
 
 **本章信息源**
-- [1] GeoLibre 官方文档：https://geolibre.app/user-guide/ [检索日期 2026-07-31]
-- [2] GeoLibre GitHub：https://github.com/opengeos/GeoLibre [检索日期 2026-07-31]
+- [1] GeoLibre 官方文档：https://geolibre.app/user-guide/ [检索日期 2026-09-04]
+- [2] GeoLibre GitHub：https://github.com/opengeos/GeoLibre [检索日期 2026-09-04]

@@ -1,23 +1,39 @@
 ---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
 sidebar_position: 0
 slug: /
 ---
 
 # GeoLibre 使用手册
 
-> GeoLibre v2.4 官方使用手册
-> 检索日期：2026-07-31
-> 本手册基于 GeoLibre 官方文档、GitHub 仓库及项目实测整理，所有 [已核实] 声明附信息源 URL。
+> 对照 GeoLibre **v2.9.0**（2026-09-03 发布）整理的社区使用手册
+> **手册内容最后更新：2026-09-04**
+> 本手册基于 GeoLibre 官方文档、GitHub 仓库及 Release Notes 核实，所有 [已核实] 声明附信息源 URL。
 
 ## 关于本手册
 
 本手册是 GeoLibre 的完整使用指南，面向从初学者到高级用户的全阶段读者。内容覆盖 GeoLibre 的全部功能模块，包括：
 
 - **基础操作**：安装部署、界面导航、项目管理
-- **数据工作流**：添加数据、图层管理、符号化、属性编辑
-- **空间分析**：矢量工具、栅格工具、SQL 查询、Whitebox 工具箱
+- **数据工作流**：添加数据、图层管理、符号化、属性编辑；**可导入 QGIS（`.qgs` / `.qgz`）与 ArcGIS Pro 工程**
+- **空间分析**：矢量工具、栅格工具、SQL 查询、浏览器内 1,000+ Whitebox 工具（WebAssembly）
 - **高级功能**：AI 助手、插件系统、实时协作、故事地图、3D 地球视图
-- **集成开发**：Python 控制台、Jupyter 集成、嵌入与分享
+- **集成开发**：Python / R 包、Jupyter 集成、嵌入与分享
+
+## 2026-09 内容刷新要点
+
+相对上一版（对照 GeoLibre v2.4、检索日期 2026-07-31），本次已用公开来源核验并写入：
+
+| 主题 | 变化 | 来源 |
+|------|------|------|
+| 当前版本 | 稳定版更新为 **v2.9.0** | [GitHub Releases](https://github.com/opengeos/GeoLibre/releases/tag/v2.9.0) |
+| QGIS 互通 | v2.5 起可导入 `.qgs` / `.qgz`，并交换 QGIS QML 样式 | [项目管理](https://geolibre.app/user-guide/projects/) · [平台对比](https://geolibre.app/comparison/) |
+| Whitebox | 1,000+ 工具在浏览器 WASM 中运行，无需 Python sidecar | [官网首页](https://geolibre.app/) |
+| iOS / Mac | iOS App Store 与 Mac App Store 已上架 | [下载页](https://geolibre.app/downloads/) |
+| 隐私说明 | 托管站点使用 Google Analytics 统计访问，**看不到你加载的数据**；自托管构建无分析 | [官网](https://geolibre.app/) · [隐私政策](https://geolibre.app/privacy/) |
+| 失效链接 | 页脚 `geolibre.org` 已改为 `geolibre.app`（原域名无法解析） | 2026-09-04 实测 |
 
 ## 快速开始
 
@@ -72,6 +88,8 @@ slug: /
 - GitHub 仓库：https://github.com/opengeos/GeoLibre
 - 官方教程：https://geolibre.app/tutorials/
 - 官方用户指南：https://geolibre.app/user-guide/interface/
+- 与 QGIS / ArcGIS 等对比：https://geolibre.app/comparison/
+- 支持格式参考：https://geolibre.app/tutorials/supported-formats-en/
 
 ---
 

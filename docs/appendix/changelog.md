@@ -1,11 +1,75 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 附录 D：版本历史
 
-> 基于 GeoLibre 官方 Roadmap 和 Release Notes 整理
-> 检索日期：2026-07-31
+> 基于 GeoLibre 官方 Roadmap 和 GitHub Release Notes 整理
+> 检索日期：2026-09-04
+> 手册内容最后更新：2026-09-04
 
-## v2.4（当前稳定版）
+## v2.9.0（当前稳定版，2026-09-03）
 
-**用户手册**：本版用户手册已全面图文化更新，所有章节均配有 GeoLibre v2.4.0 界面截图。
+**手册对照**：本手册此次内容刷新以 v2.9.0 为当前稳定版；章节截图仍多采集自 v2.4.0 界面，菜单名称以官方用户指南为准。
+
+**新增功能**（摘自 Release）：
+- 无 Cesium Ion token 也可打开 3D 地球窗格并渲染商店底图
+- Plotly Dash 的 DashMap 支持
+- Vantor Open Data、Planet Open Data 内置 Web Services 插件
+- 完整标注图层编辑；改进 identify
+- 拖放 / 从桌面打开 GeoLibre 工程
+- 无密钥全球 DEM 下载器
+- 课堂/kiosk 部署能力模型
+
+[已核实] https://github.com/opengeos/GeoLibre/releases/tag/v2.9.0
+
+## v2.8.0（2026-08-27）
+
+- 交互式 SamGeo 分割插件
+- 图层属性搜索、按图层的快速过滤
+- 弹窗 / 工具提示设计器
+- 综合适宜性评分构建器
+- `@geolibre` npm 包；Python API 增加 Earth Engine 图层与 xarray 栅格
+- 托管站点可选 Google Analytics
+- 处理工具简体中文本地化
+
+[已核实] https://github.com/opengeos/GeoLibre/releases/tag/v2.8.0
+
+## v2.7.0（2026-08-22）
+
+- Excel XY 点图层导入
+- Chrome 扩展「Open data in GeoLibre」
+- ArcGIS 风格 Model Builder 画布
+- STAC 静态目录树浏览；STAC 资产可加 PMTiles / GeoParquet
+- 按属性驱动 geometry-generator 尺寸与缓冲距离
+- 高程剖面（选中线要素）
+
+[已核实] https://github.com/opengeos/GeoLibre/releases/tag/v2.7.0
+
+## v2.6.0（2026-08-14）
+
+- GeoLibre **R 包**
+- `?data=` / `?style=` 深链；`panels=collapsed`
+- Python MCP 服务器；Jupyter widget 可运行 Whitebox
+- ArcGIS MapServer / ImageServer
+- 拓扑多边形数字化
+
+[已核实] https://github.com/opengeos/GeoLibre/releases/tag/v2.6.0
+
+## v2.5.0（2026-08-06）
+
+- **QGIS（`.qgs` / `.qgz`）与 ArcGIS Pro（`.aprx` / `.mapx`）工程导入**
+- 锚定评论与实时同步；可自托管分享/协作
+- DGGS 插件（A5、DGGRID、DGGAL）
+- 高光谱 NetCDF/HDF 与 3D 影像立方体
+- 自动保存、崩溃恢复、工程历史与模板
+- Mac App Store 沙箱桌面版；泰语等 16 种非英语语言 100% 覆盖
+
+[已核实] https://github.com/opengeos/GeoLibre/releases/tag/v2.5.0
+
+## v2.4.0（2026-07-29）
 
 **新增功能**：
 - STAC 和 NASA Earthdata 目录浏览器
@@ -223,4 +287,5 @@
 ---
 
 **本章信息源**
-- [1] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-07-31]
+- [1] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-09-04]
+- [2] GitHub Releases：https://github.com/opengeos/GeoLibre/releases [检索日期 2026-09-04]

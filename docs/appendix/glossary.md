@@ -1,7 +1,14 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 附录 A：术语表
 
-> 本术语表基于 GeoLibre v2.4 官方文档与代码仓库整理。
-> 检索日期：2026-07-31
+> 本术语表基于 GeoLibre v2.9 官方文档与代码仓库整理。
+> 检索日期：2026-09-04
+> 手册内容最后更新：2026-09-04
 
 ## A
 
@@ -108,6 +115,12 @@
 - **Polygonize / 矢量化** — 将分类栅格转换为矢量多边形。[已核实]
 - **Pyodide** — CPython 的 WebAssembly 版本，在浏览器内运行 Python。[已核实]
 
+## Q
+
+- **QGIS** — 开源桌面 GIS。GeoLibre 官方对比页将其定位为互补产品；v2.5 起可导入 `.qgs` / `.qgz` 工程，并交换 QML / SLD 样式。[已核实]
+- **QML** — QGIS 图层样式 XML；GeoLibre 支持导入与导出。[已核实]
+- **.qgs / .qgz** — QGIS 工程文件；`.qgz` 为压缩包。GeoLibre 用 DOMParser 解析 XML，不执行 QGIS 代码。[已核实]
+
 ## R
 
 - **Raster / 栅格** — 像素化空间数据。[已核实]
@@ -145,7 +158,7 @@
 ## W
 
 - **WMS / Web Map Service** — OGC 标准的地图服务协议。[已核实]
-- **WhiteboxTools** — Qiusheng Wu 维护的开源地理空间处理工具集。[已核实]
+- **WhiteboxTools** — 开源地理空间处理工具集。GeoLibre 将 1,000+ 工具运行在浏览器 WebAssembly 中，无需 Python sidecar。[已核实]
 - **WKT / Well-Known Text** — 地理空间数据的文本表示格式。[已核实]
 
 ## Z
