@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 13 章：高级功能与集成
 
 > [事实与研判分离说明]
-> 本章信息源：GeoLibre 官网功能列表、用户指南各章节、Roadmap
+> 本章信息源：GeoLibre 官网功能列表、用户指南各章节、Roadmap、GitHub Releases
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04
 
 ## 13.1 AI 助手
 
@@ -208,16 +215,23 @@ m.load("my_project.geolibre.json")
 
 [已核实] https://geolibre.app/python/
 
+## 13.6.4 geolibre R 包
+
+官网同时提供 **R 包**，可在 RStudio、Quarto、R Markdown 和 Shiny 中构建交互地图：添加 GeoJSON、`sf` 对象和远程栅格，控制相机，并与 Web/桌面交换 `.geolibre.json`。[已核实] https://geolibre.app/ https://geolibre.app/r/
+
+v2.9 还增加面向 Plotly Dash 的 DashMap 支持。[已核实] https://github.com/opengeos/GeoLibre/releases/tag/v2.9.0
+
 ## 13.7 实时协作编辑
 
 ### 13.7.1 功能概述
 
-GeoLibre 支持多人实时协作编辑同一项目（MVP 阶段）。[已核实] https://geolibre.app/collaboration/
+GeoLibre 支持多人实时协作编辑同一项目。[已核实] https://geolibre.app/collaboration/
 
 **特点**：
 - 多人同时查看和编辑
 - 操作实时同步
-- 冲突处理
+- v2.5 起支持地图锚定评论（钉到位置或要素、线程回复、随 `.geolibre.json` 保存）
+- 分享与协作可**自托管**（文档化的 projects/identity API + Node 协作中继，Docker 部署；运行时指向自有端点，无需重编译）[已核实] https://geolibre.app/ https://github.com/opengeos/GeoLibre/releases/tag/v2.5.0
 
 ### 13.7.2 配置要求
 
@@ -297,17 +311,16 @@ GeoLibre v2.0+ 支持通过 CesiumJS 切换到 3D 地球视图。[已核实] htt
 
 **特点**：
 - 每个地图面板可独立切换 2D/3D
-- Cesium World Imagery 和 Terrain 需要 Cesium Ion token
-- 无 token 时 2D/3D 切换按钮隐藏
+- Cesium World Imagery 和 Terrain 仍可使用 Cesium Ion token
+- **v2.9 起**：即使没有 Cesium Ion token，也可以打开 3D 地球窗格，并用商店底图渲染 [已核实] https://github.com/opengeos/GeoLibre/releases/tag/v2.9.0
 
 ### 13.11.2 配置
 
-1. 获取 Cesium Ion token（https://cesium.com/ion/）
+1. （可选）获取 Cesium Ion token（https://cesium.com/ion/）以加载 Cesium 影像/地形
 2. Settings -> Environment Variables -> Cesium Ion token
-3. 输入 token 后地图面板显示 2D/3D 切换按钮
-4. 切换后地图以 3D 地球模式渲染
+3. 在地图面板切换 2D/3D 地球模式
 
-[已核实] https://geolibre.app/user-guide/interface/
+[已核实] https://geolibre.app/user-guide/interface/ https://github.com/opengeos/GeoLibre/releases/tag/v2.9.0
 
 ## 13.12 行星映射（Planetary Mapping）
 
@@ -365,10 +378,12 @@ GeoLibre Web 版支持丰富的 URL 参数控制嵌入行为：[已核实] https
 | 参数 | 值 | 效果 |
 |------|-----|------|
 | `url` | 项目 URL | 打开指定项目 |
-| `layout` | `compact` | 精简布局 |
-| `panels` | `none`/`hidden`/`off` | 隐藏面板 |
-| `toolbar` | `icons` | 仅图标工具栏 |
+| `layout` | `compact` / `viewer` | 精简布局；`viewer` 为只读浏览（保留图层列表与底图，隐藏会改工程的操作） |
+| `panels` | `none`/`hidden`/`off`/`collapsed` | 隐藏或折叠面板 |
+| `toolbar` | `icons` / `none` | 仅图标工具栏，或隐藏顶栏 |
 | `maponly` | 无值 | 纯地图模式 |
+| `data` | 数据 URL | 直接打开托管 GeoJSON / GeoParquet / PMTiles / COG 等（v2.6+，可重复） |
+| `style` | 样式 URL | 应用托管矢量/栅格符号 |
 | `tool` | Whitebox 工具名 | 深度链接到工具（v2.3+）|
 
 ### 13.14.2 iframe 嵌入
@@ -451,11 +466,11 @@ GeoLibre 的高级功能覆盖 AI、开发集成、协作和多媒体：
 ---
 
 **本章信息源**
-- [1] GeoLibre AI 助手文档：https://geolibre.app/user-guide/ai-assistant/ [检索日期 2026-07-31]
-- [2] GeoLibre AI 分割文档：https://geolibre.app/user-guide/segmentation/ [检索日期 2026-07-31]
-- [3] GeoLibre Python 控制台：https://geolibre.app/user-guide/python-console/ [检索日期 2026-07-31]
-- [4] GeoLibre Python 包：https://geolibre.app/python/ [检索日期 2026-07-31]
-- [5] GeoLibre 协作：https://geolibre.app/collaboration/ [检索日期 2026-07-31]
-- [6] GeoLibre 故事地图：https://geolibre.app/user-guide/storymaps/ [检索日期 2026-07-31]
-- [7] GeoLibre 嵌入与分享：https://geolibre.app/user-guide/embedding/ [检索日期 2026-07-31]
-- [8] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-07-31]
+- [1] GeoLibre AI 助手文档：https://geolibre.app/user-guide/ai-assistant/ [检索日期 2026-09-04]
+- [2] GeoLibre AI 分割文档：https://geolibre.app/user-guide/segmentation/ [检索日期 2026-09-04]
+- [3] GeoLibre Python 控制台：https://geolibre.app/user-guide/python-console/ [检索日期 2026-09-04]
+- [4] GeoLibre Python 包：https://geolibre.app/python/ [检索日期 2026-09-04]
+- [5] GeoLibre 协作：https://geolibre.app/collaboration/ [检索日期 2026-09-04]
+- [6] GeoLibre 故事地图：https://geolibre.app/user-guide/storymaps/ [检索日期 2026-09-04]
+- [7] GeoLibre 嵌入与分享：https://geolibre.app/user-guide/embedding/ [检索日期 2026-09-04]
+- [8] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-09-04]

@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 8 章：地图控制与工具
 
 > [事实与研判分离说明]
 > 本章信息源：GeoLibre 官方用户指南地图控制（https://geolibre.app/user-guide/map-controls/）、Roadmap
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04
 
 ## 8.1 导航控制
 
@@ -240,7 +247,7 @@ v2.2 引入的 Live GPS Tracking 功能：[已核实] https://geolibre.app/roadm
 
 ### 8.9.1 打印功能
 
-File -> Print 提供地图打印和导出功能：[已核实] https://geolibre.app/user-guide/map-controls/
+Project -> Print Layout... 提供地图打印和导出功能：[已核实] https://geolibre.app/user-guide/projects/
 
 **导出格式**：
 - PNG 图片
@@ -333,5 +340,5 @@ GeoLibre 的地图控制与工具集覆盖了日常 GIS 工作的常用辅助功
 ---
 
 **本章信息源**
-- [1] GeoLibre 地图控制文档：https://geolibre.app/user-guide/map-controls/ [检索日期 2026-07-31]
-- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-07-31]
+- [1] GeoLibre 地图控制文档：https://geolibre.app/user-guide/map-controls/ [检索日期 2026-09-04]
+- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-09-04]

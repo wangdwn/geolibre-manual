@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 10 章：空间分析 - 栅格工具
 
 > [事实与研判分离说明]
 > 本章信息源：GeoLibre 官方用户指南处理工具（https://geolibre.app/user-guide/processing/）、Roadmap
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04
 
 ## 10.1 栅格工具概览
 
@@ -377,5 +384,5 @@ GeoLibre 的栅格工具集覆盖地形分析、栅格变换、统计分析和�
 ---
 
 **本章信息源**
-- [1] GeoLibre 处理工具文档：https://geolibre.app/user-guide/processing/ [检索日期 2026-07-31]
-- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-07-31]
+- [1] GeoLibre 处理工具文档：https://geolibre.app/user-guide/processing/ [检索日期 2026-09-04]
+- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-09-04]

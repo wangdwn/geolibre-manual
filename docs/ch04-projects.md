@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 4 章：项目与数据管理
 
 > [事实与研判分离说明]
 > 本章信息源：GeoLibre 官方用户指南项目管理（https://geolibre.app/user-guide/projects/）、GitHub Roadmap
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04
 
 ## 4.1 项目概念与 .geolibre.json 格式
 
@@ -64,7 +71,7 @@ GeoLibre 的**项目**（Project）是一个工作单元，保存了当前地图
 ### 4.2.1 新建项目
 
 **操作路径**：
-- File -> New Project
+- Project -> New...
 - 或工具栏 "New" 按钮
 - 快捷键：Ctrl+N
 
@@ -75,26 +82,29 @@ GeoLibre 的**项目**（Project）是一个工作单元，保存了当前地图
 ### 4.2.2 打开项目
 
 **从本地文件打开**（桌面端）：
-- File -> Open Project
+- Project -> Open From -> File...
 - 或工具栏 "Open" 按钮
 - 快捷键：Ctrl+O
 - 选择 `.geolibre.json` 文件
 
 **从 URL 打开**：
-- File -> Open from URL
+- Project -> Open From -> URL...
 - 输入项目的公开 URL
+
+**从图库打开**：
+- Project -> Open From -> Gallery... [已核实] https://geolibre.app/user-guide/projects/
 
 [已核实] https://geolibre.app/user-guide/projects/
 
 ### 4.2.3 保存项目
 
 **保存到本地**（桌面端）：
-- File -> Save Project
+- Project -> Save
 - 快捷键：Ctrl+S
 - 首次保存会弹出文件对话框
 
 **另存为**：
-- File -> Save As
+- Project -> Save As...
 - 快捷键：Ctrl+Shift+S
 
 [已核实] https://geolibre.app/user-guide/projects/
@@ -116,7 +126,7 @@ Web 版没有本地文件系统访问权限，因此：
 
 ### 4.3.1 Share 功能
 
-File -> Share Project 可以将当前项目上传到 GeoLibre 的分享服务：[已核实] https://geolibre.app/user-guide/projects/
+Project -> Share... 可以将当前项目上传到 GeoLibre 的分享服务：[已核实] https://geolibre.app/user-guide/projects/
 
 **要求**：
 - 需要 GeoLibre 分享服务的个人 API token
@@ -275,11 +285,33 @@ GeoLibre 支持注册外部原生图层（External Native Layers）：[已核实
 
 ### 4.7.3 文件类型关联
 
-桌面端安装后，可以关联 `.geolibre.json` 文件类型，双击即可用 GeoLibre 打开。
+桌面端安装后可以打开本地 `.geolibre.json` 工程。v2.9 起支持从桌面拖放或直接打开 GeoLibre 工程文件。[已核实] https://github.com/opengeos/GeoLibre/releases/tag/v2.9.0
 
-[推断] 基于 Tauri 的标准能力和桌面应用通用实践推断。
+## 4.8 导入 QGIS / ArcGIS Pro 工程（v2.5+）
 
-## 4.8 本章小结
+### 4.8.1 导入 QGIS 工程
+
+Project → Import → Import QGIS Project… 读取 `.qgs` 或 `.qgz`，并在 GeoLibre 中重建图层、嵌套分组、组可见性、图层顺序、样式和保存的地图视图。[已核实] https://geolibre.app/user-guide/projects/
+
+导入器针对文件型矢量图层以及应用能打开的栅格。无法导入的图层不会导致整份工程失败，而是按原因汇总报告（不支持的数据提供者 / 格式、缺失源、网络共享路径、远程源等）。[已核实] https://geolibre.app/user-guide/projects/
+
+官方格式参考补充：解析使用 DOMParser 读 XML，**不执行 QGIS 代码**；仅导入已识别的矢量格式与 GeoTIFF。[已核实] https://geolibre.app/tutorials/supported-formats-en/
+
+浏览器构建无法重开本机磁盘路径，这类图层会列为跳过；请在 GeoLibre Desktop 中打开同一工程。[已核实] https://geolibre.app/user-guide/projects/
+
+### 4.8.2 导入 ArcGIS Pro 工程
+
+Project → Import → Import ArcGIS Pro Project… 读取 `.aprx` 或独立 `.mapx`。GeoLibre 直接读文件内 CIM JSON，**无需安装** ArcGIS Pro 或 ArcPy。[已核实] https://geolibre.app/user-guide/projects/
+
+多地图工程只导入第一张 2D 地图。文件地理数据库等不受支持的源会在导入后按原因列出；桌面端可用 Add Data → File Geodatabase (GDB) 补加要素类。[已核实] https://geolibre.app/user-guide/projects/
+
+### 4.8.3 自动保存、崩溃恢复与模板
+
+GeoLibre 会在编辑停顿约 3 秒后把快照写入本机 IndexedDB，**不会**改写 `.geolibre.json`。Project → History... 可浏览并恢复快照（上限约每项目 20 份、单份 10 MB、合计 50 MB）。崩溃恢复提示仅出现在独立浏览器构建（非 iframe）。[已核实] https://geolibre.app/user-guide/projects/
+
+Project → Save as template... 可将当前工程存为个人模板；可选 Strip data layers，只保留底图、分组、样式与布局。[已核实] https://geolibre.app/user-guide/projects/
+
+## 4.9 本章小结
 
 GeoLibre 的项目管理围绕 `.geolibre.json` 这一开放格式展开：
 
@@ -287,12 +319,15 @@ GeoLibre 的项目管理围绕 `.geolibre.json` 这一开放格式展开：
 2. **分享工作流**：Share -> 获得 URL -> 他人通过 URL 打开
 3. **嵌入工作流**：URL 参数 -> iframe 嵌入 -> 自定义界面
 4. **数据源管理**：统一的面板管理本地文件、数据库、Web 服务
+5. **从 QGIS / ArcGIS Pro 导入**：保留图层结构与样式，不支持的源按原因报告
 
-项目的开放格式设计确保了数据的可移植性和长期可访问性，不锁定在特定平台或软件中。
+项目的开放格式设计确保了数据的可移植性和长期可访问性，不锁定在特定平台或软件中。也可以在 QGIS 中制图后导入 GeoLibre 发布或嵌入。[已核实] https://geolibre.app/comparison/
 
 ---
 
 **本章信息源**
-- [1] GeoLibre 项目管理：https://geolibre.app/user-guide/projects/ [检索日期 2026-07-31]
-- [2] GeoLibre 嵌入与分享：https://geolibre.app/user-guide/embedding/ [检索日期 2026-07-31]
-- [3] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-07-31]
+- [1] GeoLibre 项目管理：https://geolibre.app/user-guide/projects/ [检索日期 2026-09-04]
+- [2] GeoLibre 嵌入与分享：https://geolibre.app/user-guide/embedding/ [检索日期 2026-09-04]
+- [3] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-09-04]
+- [4] 支持格式参考（含 QGIS 工程）：https://geolibre.app/tutorials/supported-formats-en/ [检索日期 2026-09-04]
+- [5] 平台对比：https://geolibre.app/comparison/ [检索日期 2026-09-04]

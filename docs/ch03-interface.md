@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 3 章：界面与基本操作
 
 > [事实与研判分离说明]
 > 本章信息源：GeoLibre 官方用户指南界面概览（https://geolibre.app/user-guide/interface/）、产品实测
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04
 
 ## 3.1 首次启动
 
@@ -55,7 +62,8 @@ GeoLibre 的界面采用经典的 GIS 应用布局，包含四个主要区域：
 工具栏位于界面顶部，包含以下元素（从左到右）：
 
 - **GeoLibre Logo**：点击返回主页
-- **菜单按钮**：File / Edit / View / Layer / Processing / Tools / Settings / Help
+- **菜单按钮**：Project / Edit / View / Layer / Processing / Tools / Settings / Help
+  （当前官方文档将工程操作归在 **Project** 菜单；本章部分截图仍可能显示旧版 File 菜单。）
 - **快速操作按钮**：新建项目、打开项目、保存、撤销、重做
 - **地图控制按钮**：缩放、全屏、定位
 - **插件控制按钮**（动态显示）
@@ -116,11 +124,11 @@ GeoLibre 的界面采用经典的 GIS 应用布局，包含四个主要区域：
 
 ## 3.3 工具栏详解
 
-### 3.3.1 File 菜单
+### 3.3.1 Project 菜单（工程）
 
 
 ![分享项目弹窗](/img/ch03/ch03-03.png)
-*File -> Share Project 弹窗，可将项目上传至分享服务*
+*Project -> Share 弹窗，可将项目上传至分享服务*
 
 
 | 选项 | 功能 | 快捷键 |
@@ -135,6 +143,8 @@ GeoLibre 的界面采用经典的 GIS 应用布局，包含四个主要区域：
 | Print | 打印/导出地图 | Ctrl+P |
 
 [已核实] https://geolibre.app/user-guide/projects/ https://geolibre.app/user-guide/interface/
+
+当前官方用户指南把新建 / 打开 / 保存 / 分享 / 导入 QGIS 或 ArcGIS Pro 工程都放在 **Project** 菜单下。[已核实] https://geolibre.app/user-guide/projects/
 
 ### 3.3.2 Edit 菜单
 
@@ -353,9 +363,9 @@ GeoLibre 的界面设计遵循 GIS 应用的经典范式：
 ---
 
 **本章信息源**
-- [1] GeoLibre 界面概览：https://geolibre.app/user-guide/interface/ [检索日期 2026-07-31]
-- [2] GeoLibre 图层面板：https://geolibre.app/user-guide/layers/ [检索日期 2026-07-31]
-- [3] GeoLibre 样式面板：https://geolibre.app/user-guide/styling/ [检索日期 2026-07-31]
-- [4] GeoLibre 属性表：https://geolibre.app/user-guide/attribute-table/ [检索日期 2026-07-31]
-- [5] GeoLibre 地图控制：https://geolibre.app/user-guide/map-controls/ [检索日期 2026-07-31]
-- [6] GeoLibre 项目管理：https://geolibre.app/user-guide/projects/ [检索日期 2026-07-31]
+- [1] GeoLibre 界面概览：https://geolibre.app/user-guide/interface/ [检索日期 2026-09-04]
+- [2] GeoLibre 图层面板：https://geolibre.app/user-guide/layers/ [检索日期 2026-09-04]
+- [3] GeoLibre 样式面板：https://geolibre.app/user-guide/styling/ [检索日期 2026-09-04]
+- [4] GeoLibre 属性表：https://geolibre.app/user-guide/attribute-table/ [检索日期 2026-09-04]
+- [5] GeoLibre 地图控制：https://geolibre.app/user-guide/map-controls/ [检索日期 2026-09-04]
+- [6] GeoLibre 项目管理：https://geolibre.app/user-guide/projects/ [检索日期 2026-09-04]

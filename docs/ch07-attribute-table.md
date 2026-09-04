@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 7 章：属性表与数据编辑
 
 > [事实与研判分离说明]
 > 本章信息源：GeoLibre 官方用户指南属性表（https://geolibre.app/user-guide/attribute-table/）、Roadmap
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04
 
 ## 7.1 属性表面板
 
@@ -252,5 +259,5 @@ GeoLibre 的属性表与数据编辑功能覆盖数据管理的完整生命周�
 ---
 
 **本章信息源**
-- [1] GeoLibre 属性表文档：https://geolibre.app/user-guide/attribute-table/ [检索日期 2026-07-31]
-- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-07-31]
+- [1] GeoLibre 属性表文档：https://geolibre.app/user-guide/attribute-table/ [检索日期 2026-09-04]
+- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-09-04]

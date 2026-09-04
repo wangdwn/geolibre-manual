@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 6 章：图层管理与符号化
 
 > [事实与研判分离说明]
 > 本章信息源：GeoLibre 官方用户指南图层管理（https://geolibre.app/user-guide/layers/）、样式（https://geolibre.app/user-guide/styling/）、Roadmap
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04
 
 ## 6.1 图层面板操作
 
@@ -335,7 +342,7 @@ GeoLibre 的符号化系统从简单到复杂提供了完整的能力梯度：
 ---
 
 **本章信息源**
-- [1] GeoLibre 图层面板：https://geolibre.app/user-guide/layers/ [检索日期 2026-07-31]
-- [2] GeoLibre 样式面板：https://geolibre.app/user-guide/styling/ [检索日期 2026-07-31]
-- [3] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-07-31]
-- [4] Mapbox GL JS 表达式规范：https://docs.mapbox.com/style-spec/reference/expressions/ [检索日期 2026-07-31]
+- [1] GeoLibre 图层面板：https://geolibre.app/user-guide/layers/ [检索日期 2026-09-04]
+- [2] GeoLibre 样式面板：https://geolibre.app/user-guide/styling/ [检索日期 2026-09-04]
+- [3] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-09-04]
+- [4] Mapbox GL JS 表达式规范：https://docs.mapbox.com/style-spec/reference/expressions/ [检索日期 2026-09-04]

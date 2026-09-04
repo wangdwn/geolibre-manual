@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 2 章：安装与部署
 
 > [事实与研判分离说明]
 > 本章信息源：GeoLibre 官网下载页（https://geolibre.app/downloads/）、Getting Started（https://geolibre.app/getting-started/）、GitHub README
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04（对照 GeoLibre v2.9.0）
 
 ## 2.1 系统要求
 
@@ -124,13 +131,25 @@ GeoLibre 已在 Microsoft Store 上架，支持自动更新：[已核实] https:
 2. 搜索 "GeoLibre"
 3. 点击 "获取" 安装
 
-**方法二：直接下载安装包**
+**方法二：winget**
 
-1. 访问 https://geolibre.app/downloads/
+Windows Package Manager 分发 GitHub Release 构建，包名为 `OpenGeos.GeoLibre`：[已核实] https://geolibre.app/downloads/
+
+```bash
+winget install OpenGeos.GeoLibre
+```
+
+**方法三：直接下载安装包**
+
+1. 访问 https://geolibre.app/downloads/ 或镜像 https://downloads.geolibre.app/
 2. 下载 Windows 安装程序（.msi 或 .exe）
 3. 双击运行安装程序，按向导完成安装
 
-**方法三：Docker**
+GitHub Release 的 Windows 构建**未签名**，SmartScreen 可能提示；选「更多信息 → 仍要运行」。Microsoft Store 构建已签名并自动更新。[已核实] https://geolibre.app/downloads/
+
+也可下载 `*-x64-portable.zip` 解压即用，无需安装。[已核实] https://geolibre.app/downloads/
+
+**方法四：Docker**
 
 ```bash
 docker run -p 3000:3000 ghcr.io/opengeos/geolibre:latest
@@ -156,7 +175,13 @@ brew install --cask geolibre
 2. 下载 macOS 安装包（.dmg）
 3. 双击挂载 DMG，将 GeoLibre 拖入 Applications 文件夹
 
-macOS 安装包已使用 Apple Developer ID 证书签名并经过 Apple Notarization，打开时无需 Gatekeeper 绕过。[已核实] https://geolibre.app/roadmap/ （v1.3 更新说明）
+macOS 安装包已使用 Apple Developer ID 证书签名并经过 Apple Notarization，打开时无需 Gatekeeper 绕过。[已核实] https://geolibre.app/downloads/
+
+**方法三：Mac App Store**
+
+GeoLibre Desktop 已上架 Mac App Store（沙箱构建，包 ID `org.geolibre.desktop`）：https://apps.apple.com/app/geolibre-desktop/id6796848769
+
+沙箱版**不含** Python sidecar、本地 JupyterLab 服务器、从 zip/市场安装外部插件、Earth Engine 登录、以及通过 martin 的 PostgreSQL/PostGIS。需要这些能力请用 Homebrew / DMG 完整版。[已核实] https://geolibre.app/downloads/ https://geolibre.app/mac-app-store/
 
 ### 2.3.3 Linux
 
@@ -169,11 +194,21 @@ macOS 安装包已使用 Apple Developer ID 证书签名并经过 Apple Notariza
 
 [已核实] v2.4 新增自更新 Linux AppImage。https://geolibre.app/roadmap/
 
-**方法二：其他包格式**
+**方法二：发行版软件源**
 
-官网也提供 .deb（Debian/Ubuntu）和 .rpm（Fedora/RHEL）格式的安装包。[推断] 具体包名和安装命令需查看下载页面最新信息。
+| 渠道 | 命令 | 来源 |
+|------|------|------|
+| Arch / Manjaro（AUR `geolibre-bin`） | `yay -S geolibre-bin` | [已核实] https://geolibre.app/downloads/ |
+| Fedora / RHEL（COPR） | `sudo dnf copr enable giswqs/geolibre && sudo dnf install geolibre` | 同上 |
+| Flatpak（FlatPark） | `flatpak install flatpark app.geolibre.GeoLibre` | 同上 |
+| Debian / Ubuntu（.deb） | `sudo apt install ./GeoLibre.Desktop_<version>_amd64.deb` | 同上 |
+| 其他 RPM | `sudo dnf install ./GeoLibre.Desktop-<version>-1.x86_64.rpm` | 同上 |
 
-## 2.4 移动端安装
+[已核实] https://geolibre.app/downloads/
+
+AppImage 在 v2.3.0 之后内嵌更新信息，可用 AppImageUpdate 做增量更新；v2.4 起文档也强调自更新 Linux AppImage。[已核实] https://geolibre.app/downloads/ https://geolibre.app/roadmap/
+
+## 2.4 移动端与浏览器扩展
 
 ### 2.4.1 Android
 
@@ -189,7 +224,21 @@ Android 版本采用响应式触摸布局，针对手机屏幕优化。支持离
 
 ### 2.4.2 iOS
 
-[待核实] iOS 支持目前处于脚手架阶段（scaffolded iOS support，v2.3）。正式 App Store 版本可能尚未发布。官网下载页面未明确列出 iOS 安装方式。
+GeoLibre 已作为原生 iPhone / iPad 应用上架 App Store（包 ID `org.geolibre.app`，与 Mac App Store 桌面版不是同一个应用）：[已核实] https://geolibre.app/downloads/ https://geolibre.app/ios/
+
+1. 打开 App Store，搜索 "GeoLibre"
+2. 或直接访问：https://apps.apple.com/app/geolibre/id6796039674
+
+官方**不向最终用户提供可侧载的 IPA**。Release 里的 `*_ios_app-store.ipa` 仅用于商店提交，不能直接安装。测试版走 TestFlight。[已核实] https://geolibre.app/downloads/
+
+与 Android 相同：需要本机桌面进程的 Raster / Conversion / AI Segmentation 工具箱和 PostgreSQL 数据源在 iOS 上隐藏；Whitebox 工具箱走 WebAssembly，仍然可用。[已核实] https://geolibre.app/downloads/
+
+### 2.4.3 Chrome 扩展
+
+「Open data in GeoLibre」可在网页上发现地理空间数据集和地图服务，并在 GeoLibre 中打开。[已核实] https://geolibre.app/downloads/ https://geolibre.app/user-guide/chrome-extension/
+
+- Chrome Web Store：https://chromewebstore.google.com/detail/open-data-in-geolibre/joinecgbfoldanidcoakpjgkbaceaooj
+- 也可从 GitHub Release 下载 `geolibre-chrome-*.zip` 以未打包方式加载
 
 ## 2.5 Docker 部署
 
@@ -292,18 +341,23 @@ VITE_GEOLIBRE_COLLAB_URL=https://your-collab-server.example.com
 GeoLibre 的安装和部署非常灵活：
 
 - **最快体验**：Web 版（https://web.geolibre.app），零安装
-- **日常使用**：桌面端（Microsoft Store / Homebrew / AppImage）
-- **移动场景**：Android 版（Google Play）
-- **服务器部署**：Docker 镜像
+- **日常使用**：桌面端（Microsoft Store / winget / Homebrew / Mac App Store / AppImage / AUR / COPR / Flatpak）
+- **移动场景**：Android（Google Play）与 iOS（App Store）
+- **服务器部署**：Docker 镜像；GitHub 不可达时可走 https://downloads.geolibre.app/
 
 桌面端独有的能力（本地文件系统、MBTiles、完整 JupyterLab）使其成为重度用户的首选。Web 版则适合快速数据探索和教学演示。
 
 ---
 
 **本章信息源**
-- [1] GeoLibre 下载页：https://geolibre.app/downloads/ [检索日期 2026-07-31]
-- [2] GeoLibre 快速开始：https://geolibre.app/getting-started/ [检索日期 2026-07-31]
-- [3] GeoLibre Android 文档：https://geolibre.app/android/ [检索日期 2026-07-31]
-- [4] Google Play 商店：https://play.google.com/store/apps/details?id=org.geolibre.app [检索日期 2026-07-31]
-- [5] GitHub README 环境变量：https://github.com/opengeos/GeoLibre [检索日期 2026-07-31]
-- [6] 嵌入与分享文档：https://geolibre.app/user-guide/embedding/ [检索日期 2026-07-31]
+- [1] GeoLibre 下载页：https://geolibre.app/downloads/ [检索日期 2026-09-04]
+- [2] GeoLibre 快速开始：https://geolibre.app/getting-started/ [检索日期 2026-09-04]
+- [3] GeoLibre Android 文档：https://geolibre.app/android/ [检索日期 2026-09-04]
+- [4] Google Play 商店：https://play.google.com/store/apps/details?id=org.geolibre.app [检索日期 2026-09-04]
+- [5] GitHub README 环境变量：https://github.com/opengeos/GeoLibre [检索日期 2026-09-04]
+- [6] 嵌入与分享文档：https://geolibre.app/user-guide/embedding/ [检索日期 2026-09-04]
+- [7] GeoLibre iOS：https://geolibre.app/ios/ [检索日期 2026-09-04]
+- [8] Mac App Store 说明：https://geolibre.app/mac-app-store/ [检索日期 2026-09-04]
+- [9] App Store（iOS）：https://apps.apple.com/app/geolibre/id6796039674 [检索日期 2026-09-04]
+- [10] 下载镜像：https://downloads.geolibre.app/ [检索日期 2026-09-04]
+- [11] Chrome 扩展指南：https://geolibre.app/user-guide/chrome-extension/ [检索日期 2026-09-04]

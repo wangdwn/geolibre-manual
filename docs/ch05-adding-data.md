@@ -1,8 +1,15 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 第 5 章：添加数据
 
 > [事实与研判分离说明]
 > 本章信息源：GeoLibre 官方用户指南添加数据（https://geolibre.app/user-guide/adding-data/）、官网功能列表
 > 标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+> 手册内容最后更新：2026-09-04
 
 ## 5.1 添加数据总览
 
@@ -38,6 +45,8 @@ GeoLibre 支持以下本地矢量文件格式：[已核实] https://geolibre.app
 | GML | .gml | DuckDB-WASM Spatial | |
 | FlatGeobuf | .fgb | DuckDB-WASM | 云原生优化 |
 | GeoParquet | .parquet | DuckDB-WASM | 云原生优化 |
+
+桌面端还可添加 **File Geodatabase（`.gdb`）** 要素类。v2.5 起支持 KML Super-Overlay；v2.7 起支持 Excel XY 点图层导入。[已核实] https://geolibre.app/comparison/ https://github.com/opengeos/GeoLibre/releases/tag/v2.5.0 https://github.com/opengeos/GeoLibre/releases/tag/v2.7.0
 
 ### 5.2.2 加载方式
 
@@ -401,6 +410,6 @@ GeoLibre 的数据加载能力覆盖了整个地理空间数据生态：
 ---
 
 **本章信息源**
-- [1] GeoLibre 添加数据文档：https://geolibre.app/user-guide/adding-data/ [检索日期 2026-07-31]
-- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-07-31]
-- [3] GeoLibre SQL 工作区：https://geolibre.app/user-guide/sql-workspace/ [检索日期 2026-07-31]
+- [1] GeoLibre 添加数据文档：https://geolibre.app/user-guide/adding-data/ [检索日期 2026-09-04]
+- [2] GeoLibre Roadmap：https://geolibre.app/roadmap/ [检索日期 2026-09-04]
+- [3] GeoLibre SQL 工作区：https://geolibre.app/user-guide/sql-workspace/ [检索日期 2026-09-04]

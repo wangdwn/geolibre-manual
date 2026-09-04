@@ -1,7 +1,14 @@
+---
+last_update:
+  date: 2026-09-04
+  author: 手册维护
+---
+
 # 附录 C：参考文献
 
 > 本附录汇总手册中引用的所有外部信息源。
-> 检索日期：2026-07-31
+> 检索日期：2026-09-04
+> 手册内容最后更新：2026-09-04
 
 ## 官方来源
 
@@ -35,13 +42,23 @@
 | 26 | GeoLibre Roadmap | https://geolibre.app/roadmap/ | 多章 |
 | 27 | GeoLibre Web 版 | https://web.geolibre.app/ | 多章 |
 | 28 | Google Play 商店 | https://play.google.com/store/apps/details?id=org.geolibre.app | 第 2 章 |
+| 28a | App Store（iOS） | https://apps.apple.com/app/geolibre/id6796039674 | 第 2 章 |
+| 28b | Mac App Store | https://apps.apple.com/app/geolibre-desktop/id6796848769 | 第 2 章 |
+| 28c | 下载镜像 | https://downloads.geolibre.app/ | 第 2 章 |
+| 28d | 平台对比（含 QGIS） | https://geolibre.app/comparison/ | 第 1、4 章，附录 B |
+| 28e | 支持格式参考 | https://geolibre.app/tutorials/supported-formats-en/ | 第 4、5 章 |
+| 28f | GeoLibre R 包 | https://geolibre.app/r/ | 第 1、13 章 |
+| 28g | iOS 文档 | https://geolibre.app/ios/ | 第 2 章 |
+| 28h | Chrome 扩展指南 | https://geolibre.app/user-guide/chrome-extension/ | 第 2 章 |
+| 28i | 隐私政策 | https://geolibre.app/privacy/ | 第 1 章，附录 B |
+| 28j | GitHub Releases | https://github.com/opengeos/GeoLibre/releases | 附录 D |
 
 ## 技术标准
 
 | 序号 | 来源 | URL | 引用章节 |
 |------|------|-----|----------|
 | 29 | Mapbox GL JS 表达式规范 | https://docs.mapbox.com/style-spec/reference/expressions/ | 第 6 章 |
-| 30 | DuckDB Spatial 文档 | https://duckdb.org/docs/extensions/spatial.html | 第 11 章 |
+| 30 | DuckDB Spatial 文档 | https://duckdb.org/docs/stable/core_extensions/spatial/overview | 第 11 章 |
 | 31 | OGC 标准 | https://www.ogc.org/standards/ | 第 5 章 |
 | 32 | STAC 规范 | https://stacspec.org/ | 第 5 章 |
 
