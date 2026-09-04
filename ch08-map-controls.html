@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ch08-map-controls" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">第 8 章：地图控制与工具 | GeoLibre 使用手册</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" property="og:url" content="https://wangdwn.github.io/geolibre-manual/ch08-map-controls"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="第 8 章：地图控制与工具 | GeoLibre 使用手册"><meta data-rh="true" name="description" content="[事实与研判分离说明]"><meta data-rh="true" property="og:description" content="[事实与研判分离说明]"><link data-rh="true" rel="icon" href="/geolibre-manual/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://wangdwn.github.io/geolibre-manual/ch08-map-controls"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch08-map-controls" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch08-map-controls" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"第 8 章：地图控制与工具","item":"https://wangdwn.github.io/geolibre-manual/ch08-map-controls"}]}</script><link rel="stylesheet" href="/geolibre-manual/assets/css/styles.0354a724.css">
+<script src="/geolibre-manual/assets/js/runtime~main.36c008b1.js" defer="defer"></script>
+<script src="/geolibre-manual/assets/js/main.d37c321e.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/geolibre-manual/"><div class="navbar__logo"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">GeoLibre 手册</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/geolibre-manual/">文档</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GeoLibre<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/wangdwn/geolibre-manual" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/geolibre-manual/"><span class="linkLabel_WmDU">GeoLibre 使用手册</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/geolibre-manual/ch01-overview"><span class="categoryLinkLabel_W154">入门</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch01-overview"><span class="linkLabel_WmDU">第 1 章：GeoLibre 概述</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch02-installation"><span class="linkLabel_WmDU">第 2 章：安装与部署</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch03-interface"><span class="linkLabel_WmDU">第 3 章：界面与基本操作</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/geolibre-manual/ch04-projects"><span class="categoryLinkLabel_W154">数据</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch04-projects"><span class="linkLabel_WmDU">第 4 章：项目与数据管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch05-adding-data"><span class="linkLabel_WmDU">第 5 章：添加数据</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch06-layers-styling"><span class="linkLabel_WmDU">第 6 章：图层管理与符号化</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch07-attribute-table"><span class="linkLabel_WmDU">第 7 章：属性表与数据编辑</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/geolibre-manual/ch08-map-controls"><span class="categoryLinkLabel_W154">分析</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/geolibre-manual/ch08-map-controls"><span class="linkLabel_WmDU">第 8 章：地图控制与工具</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch09-vector-tools"><span class="linkLabel_WmDU">第 9 章：空间分析 - 矢量工具</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch10-raster-tools"><span class="linkLabel_WmDU">第 10 章：空间分析 - 栅格工具</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch11-sql-workspace"><span class="linkLabel_WmDU">第 11 章：SQL 工作区与高级查询</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/ch12-plugins"><span class="categoryLinkLabel_W154">扩展</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/appendix/glossary"><span class="categoryLinkLabel_W154">附录</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/geolibre-manual/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">分析</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">第 8 章：地图控制与工具</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>第 8 章：地图控制与工具</h1></header>
+<blockquote>
+<p>[事实与研判分离说明]
+本章信息源：GeoLibre 官方用户指南地图控制（<a href="https://geolibre.app/user-guide/map-controls/%EF%BC%89%E3%80%81Roadmap" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/）、Roadmap</a>
+标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+手册内容最后更新：2026-09-04</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="81-导航控制">8.1 导航控制<a href="#81-导航控制" class="hash-link" aria-label="8.1 导航控制的直接链接" title="8.1 导航控制的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="控件菜单全览" src="/geolibre-manual/assets/images/ch08-01-fda9cb665be4bb7d34085564d922c576.png" width="1280" height="577" class="img_ev3q">
+<em>控件菜单全览：导航、全屏、指南针、测量、书签、采集等</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="811-地图导航控件">8.1.1 地图导航控件<a href="#811-地图导航控件" class="hash-link" aria-label="8.1.1 地图导航控件的直接链接" title="8.1.1 地图导航控件的直接链接" translate="no">​</a></h3>
+<p>地图导航控件默认显示在地图右上角，提供以下按钮：[已核实] <a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a></p>
+<ul>
+<li class=""><strong>放大</strong>（+）：点击或长按连续放大</li>
+<li class=""><strong>缩小</strong>（-）：点击或长按连续缩小</li>
+<li class=""><strong>指南针</strong>：显示当前地图旋转角度，点击恢复正北</li>
+<li class=""><strong>定位</strong>：定位到当前设备位置（需浏览器定位权限）</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="812-定位功能">8.1.2 定位功能<a href="#812-定位功能" class="hash-link" aria-label="8.1.2 定位功能的直接链接" title="8.1.2 定位功能的直接链接" translate="no">​</a></h3>
+<p>点击定位按钮后：</p>
+<ol>
+<li class="">浏览器请求位置权限</li>
+<li class="">获取 GPS 坐标</li>
+<li class="">地图平移到当前位置</li>
+<li class="">显示定位精度圆圈</li>
+</ol>
+<p>[已核实] <a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a></p>
+<p><strong>隐私说明</strong>：定位功能仅在用户主动触发时使用，GeoLibre 不会后台追踪位置。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="813-键盘导航">8.1.3 键盘导航<a href="#813-键盘导航" class="hash-link" aria-label="8.1.3 键盘导航的直接链接" title="8.1.3 键盘导航的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>快捷键</th><th>功能</th></tr></thead><tbody><tr><td>+ / =</td><td>放大</td></tr><tr><td>-</td><td>缩小</td></tr><tr><td>方向键</td><td>平移</td></tr><tr><td>0</td><td>恢复正北</td></tr></tbody></table>
+<p>[推断] 键盘快捷键基于 MapLibre GL JS 标准行为和通用 GIS 应用推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="82-测量工具">8.2 测量工具<a href="#82-测量工具" class="hash-link" aria-label="8.2 测量工具的直接链接" title="8.2 测量工具的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="测量工具激活状态" src="/geolibre-manual/assets/images/ch08-02-0a3b4fe1b88ad95d1c1318ccf914f8b2.png" width="1280" height="577" class="img_ev3q">
+<em>测量工具在地图上的激活状态</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="821-距离测量">8.2.1 距离测量<a href="#821-距离测量" class="hash-link" aria-label="8.2.1 距离测量的直接链接" title="8.2.1 距离测量的直接链接" translate="no">​</a></h3>
+<p>Tools -&gt; Measure -&gt; Distance：[已核实] <a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a></p>
+<p><strong>操作步骤</strong>：</p>
+<ol>
+<li class="">点击起点</li>
+<li class="">移动鼠标，实时显示线段长度</li>
+<li class="">点击添加中间点</li>
+<li class="">双击或按 Enter 结束测量</li>
+<li class="">显示总长度</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="822-面积测量">8.2.2 面积 测量<a href="#822-面积测量" class="hash-link" aria-label="8.2.2 面积测量的直接链接" title="8.2.2 面积测量的直接链接" translate="no">​</a></h3>
+<p>Tools -&gt; Measure -&gt; Area：</p>
+<p><strong>操作步骤</strong>：</p>
+<ol>
+<li class="">依次点击多边形的顶点</li>
+<li class="">实时显示当前面积</li>
+<li class="">双击或按 Enter 闭合多边形</li>
+<li class="">显示总面积</li>
+</ol>
+<p>[已核实] <a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="823-测量单位">8.2.3 测量单位<a href="#823-测量单位" class="hash-link" aria-label="8.2.3 测量单位的直接链接" title="8.2.3 测量单位的直接链接" translate="no">​</a></h3>
+<p>测量结果支持多种单位：[推断] 基于通用测量工具和 GeoLibre 功能推断</p>
+<ul>
+<li class="">距离：米、千米、英尺、英里、海里</li>
+<li class="">面积：平方米、公顷、平方千米、英亩、平方英里</li>
+</ul>
+<p>单位可在设置中配置。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="83-书签工具">8.3 书签工具<a href="#83-书签工具" class="hash-link" aria-label="8.3 书签工具的直接链接" title="8.3 书签工具的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="书签功能" src="/geolibre-manual/assets/images/ch08-03-abbb75af9d95068cfae0b5c13b74f730.png" width="1280" height="577" class="img_ev3q">
+<em>书签工具保存的视图状态列表</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="831-保存书签">8.3.1 保存书签<a href="#831-保存书签" class="hash-link" aria-label="8.3.1 保存书签的直接链接" title="8.3.1 保存书签的直接链接" translate="no">​</a></h3>
+<p>Tools -&gt; Bookmark -&gt; Add Bookmark：[已核实] <a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a></p>
+<p><strong>保存内容</strong>：</p>
+<ul>
+<li class="">地图中心坐标</li>
+<li class="">缩放级别</li>
+<li class="">旋转角度</li>
+<li class="">倾斜角度</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="832-管理书签">8.3.2 管理书签<a href="#832-管理书签" class="hash-link" aria-label="8.3.2 管理书签的直接链接" title="8.3.2 管理书签的直接链接" translate="no">​</a></h3>
+<p>书签管理器提供：</p>
+<ul>
+<li class="">书签列表（名称、缩略图预览）</li>
+<li class="">跳转到书签</li>
+<li class="">删除书签</li>
+<li class="">重命名书签</li>
+</ul>
+<p>书签随项目保存，可在不同设备间共享（通过项目文件）。</p>
+<p>[已核实] <a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="84-小地图">8.4 小地图<a href="#84-小地图" class="hash-link" aria-label="8.4 小地图的直接链接" title="8.4 小地图的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="841-小地图控件">8.4.1 小地图控件<a href="#841-小地图控件" class="hash-link" aria-label="8.4.1 小地图控件的直接链接" title="8.4.1 小地图控件的直接链接" translate="no">​</a></h3>
+<p>Tools -&gt; Minimap 打开/关闭小地图：[已核实] <a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a></p>
+<p><strong>功能</strong>：</p>
+<ul>
+<li class="">在主地图角落显示缩略概览图</li>
+<li class="">矩形框表示主地图当前视图范围</li>
+<li class="">拖拽矩形框可快速跳转位置</li>
+<li class="">点击小地图任意位置跳转</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="842-配置">8.4.2 配置<a href="#842-配置" class="hash-link" aria-label="8.4.2 配置的直接链接" title="8.4.2 配置的直接链接" translate="no">​</a></h3>
+<p>小地图可配置：[推断] 基于通用小地图控件和 GeoLibre 功能推断</p>
+<ul>
+<li class="">位置：左下角、右下角、左上角、右上角</li>
+<li class="">大小：小、中、大</li>
+<li class="">底图：使用主地图底图或简化底图</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="85-视图状态工具">8.5 视图状态工具<a href="#85-视图状态工具" class="hash-link" aria-label="8.5 视图状态工具的直接链接" title="8.5 视图状态工具的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="851-保存视图">8.5.1 保存视图<a href="#851-保存视图" class="hash-link" aria-label="8.5.1 保存视图的直接链接" title="8.5.1 保存视图的直接链接" translate="no">​</a></h3>
+<p>Tools -&gt; View State -&gt; Save View：[已核实] <a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a></p>
+<p>保存当前地图视图为命名视图，包括：</p>
+<ul>
+<li class="">中心坐标</li>
+<li class="">缩放级别</li>
+<li class="">旋转和倾斜</li>
+<li class="">可见图层状态（推断）</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="852-恢复视图">8.5.2 恢复视图<a href="#852-恢复视图" class="hash-link" aria-label="8.5.2 恢复视图的直接链接" title="8.5.2 恢复视图的直接链接" translate="no">​</a></h3>
+<p>Tools -&gt; View State -&gt; 选择已保存的视图名称，地图平滑动画过渡到该视图状态。</p>
+<p>[已核实] <a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="86-野外采集工具field-collection">8.6 野外采集工具（Field Collection）<a href="#86-野外采集工具field-collection" class="hash-link" aria-label="8.6 野外采集工具（Field Collection）的直接链接" title="8.6 野外采集工具（Field Collection）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="861-功能概述">8.6.1 功能概述<a href="#861-功能概述" class="hash-link" aria-label="8.6.1 功能概述的直接链接" title="8.6.1 功能概述的直接链接" translate="no">​</a></h3>
+<p>Field Collection 是 GeoLibre 的移动端数据采集工具，支持通过 GPS 或地图点击采集空间数据。[已核实] <a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a></p>
+<p><strong>采集的几何类型</strong>：</p>
+<ul>
+<li class="">点（Point）：GPS 定位或地图点击</li>
+<li class="">线（Line）：GPS 轨迹记录或地图绘制</li>
+<li class="">面（Polygon）：GPS 边界追踪或地图绘制</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="862-自定义表单">8.6.2 自定义表单<a href="#862-自定义表单" class="hash-link" aria-label="8.6.2 自定义表单的直接链接" title="8.6.2 自定义表单的直接链接" translate="no">​</a></h3>
+<p>采集时可使用属性表单设计器创建的自定义表单录入属性数据：[推断] 基于 Field Collection 和表单设计器的关联推断</p>
+<p><strong>表单字段类型</strong>：</p>
+<ul>
+<li class="">文本输入</li>
+<li class="">数字输入</li>
+<li class="">下拉选择</li>
+<li class="">日期/时间</li>
+<li class="">照片附件</li>
+<li class="">开关（布尔值）</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="863-采集工作流">8.6.3 采集工作流<a href="#863-采集工作流" class="hash-link" aria-label="8.6.3 采集工作流的直接链接" title="8.6.3 采集工作流的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">激活 Field Collection 工具</li>
+<li class="">选择几何类型</li>
+<li class="">选择或创建采集表单</li>
+<li class="">采集几何（GPS 自动记录或手动绘制）</li>
+<li class="">填写属性表单</li>
+<li class="">保存到新图层或追加到现有图层</li>
+</ol>
+<p>[推断] 采集工作流基于通用野外采集应用和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="87-时间滑块插件time-slider">8.7 时间滑块插件（Time Slider）<a href="#87-时间滑块插件time-slider" class="hash-link" aria-label="8.7 时间滑块插件（Time Slider）的直接链接" title="8.7 时间滑块插件（Time Slider）的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="控件菜单中的时间滑块入口" src="/geolibre-manual/assets/images/ch08-04-c1fc43ef65d2ee26baa690417867317b.png" width="1280" height="577" class="img_ev3q">
+<em>控件菜单中显示的时间滑块入口</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="871-时间滑块概述">8.7.1 时间滑块概述<a href="#871-时间滑块概述" class="hash-link" aria-label="8.7.1 时间滑块概述的直接链接" title="8.7.1 时间滑块概述的直接链接" translate="no">​</a></h3>
+<p>Time Slider 是内置插件，用于浏览和动画化时序数据：[已核实] <a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a></p>
+<p><strong>支持的时序数据源</strong>：</p>
+<ul>
+<li class="">MosaicJSON 时序瓦片</li>
+<li class="">STAC 镶嵌数据源</li>
+<li class="">MBTiles/PMTiles 内部时间维度</li>
+<li class="">Zarr 数据立方体的时间维度（v2.4+）</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.3、v2.4 更新）</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="872-操作方式">8.7.2 操作方式<a href="#872-操作方式" class="hash-link" aria-label="8.7.2 操作方式的直接链接" title="8.7.2 操作方式的直接链接" translate="no">​</a></h3>
+<p><img decoding="async" loading="lazy" alt="时间滑块插件" src="/geolibre-manual/assets/images/ch08-05-a1057a6ad490fd9ba3619d0e7e947db9.png" width="1280" height="577" class="img_ev3q">
+<em>时间滑块插件面板，支持时序数据浏览与动画</em></p>
+<ul>
+<li class="">拖动滑块浏览不同时间点的数据</li>
+<li class="">播放/暂停按钮自动播放时间序列</li>
+<li class="">设置播放速度</li>
+<li class="">配置时间范围和步长</li>
+</ul>
+<p>[推断] 时间滑块操作基于通用时序可视化工具和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="88-实时-gps-追踪v22">8.8 实时 GPS 追踪（v2.2+）<a href="#88-实时-gps-追踪v22" class="hash-link" aria-label="8.8 实时 GPS 追踪（v2.2+）的直接链接" title="8.8 实时 GPS 追踪（v2.2+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="881-gps-追踪">8.8.1 GPS 追踪<a href="#881-gps-追踪" class="hash-link" aria-label="8.8.1 GPS 追踪的直接链接" title="8.8.1 GPS 追踪的直接链接" translate="no">​</a></h3>
+<p>v2.2 引入的 Live GPS Tracking 功能：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<p><strong>功能</strong>：</p>
+<ul>
+<li class="">实时显示当前 GPS 位置</li>
+<li class="">记录移动轨迹为线图层</li>
+<li class="">显示速度和航向信息</li>
+<li class="">轨迹导出为 GPX</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="882-应用场景">8.8.2 应用场景<a href="#882-应用场景" class="hash-link" aria-label="8.8.2 应用场景的直接链接" title="8.8.2 应用场景的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">野外巡查路线记录</li>
+<li class="">运动轨迹跟踪</li>
+<li class="">车辆/人员位置监控</li>
+</ul>
+<p>[推断] GPS 追踪应用场景基于通用 GPS 跟踪应用推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="89-打印布局print--layout">8.9 打印布局（Print / Layout）<a href="#89-打印布局print--layout" class="hash-link" aria-label="8.9 打印布局（Print / Layout）的直接链接" title="8.9 打印布局（Print / Layout）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="891-打印功能">8.9.1 打印功能<a href="#891-打印功能" class="hash-link" aria-label="8.9.1 打印功能的直接链接" title="8.9.1 打印功能的直接链接" translate="no">​</a></h3>
+<p>Project -&gt; Print Layout... 提供地图打印和导出功能：[已核实] <a href="https://geolibre.app/user-guide/projects/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/projects/</a></p>
+<p><strong>导出格式</strong>：</p>
+<ul>
+<li class="">PNG 图片</li>
+<li class="">JPEG 图片</li>
+<li class="">PDF 文档</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="892-布局设置">8.9.2 布局设置<a href="#892-布局设置" class="hash-link" aria-label="8.9.2 布局设置的直接链接" title="8.9.2 布局设置的直接链接" translate="no">​</a></h3>
+<p>Layout 设置控制输出外观：[推断] 基于通用打印功能和 GeoLibre 功能推断</p>
+<ul>
+<li class="">页面尺寸（A4、A3、Letter、自定义）</li>
+<li class="">方向（横向/纵向）</li>
+<li class="">分辨率（72、150、300 DPI）</li>
+<li class="">边距</li>
+<li class="">标题和图例</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="893-atlas--地图系列v22">8.9.3 Atlas / 地图系列（v2.2+）<a href="#893-atlas--地图系列v22" class="hash-link" aria-label="8.9.3 Atlas / 地图系列（v2.2+）的直接链接" title="8.9.3 Atlas / 地图系列（v2.2+）的直接链接" translate="no">​</a></h3>
+<p>v2.2 引入的 Atlas（地图系列）功能可自动生成多页地图：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<p><strong>应用场景</strong>：</p>
+<ul>
+<li class="">按行政区划生成系列地图</li>
+<li class="">每个页面显示一个区域，统一布局</li>
+</ul>
+<p><strong>配置</strong>：</p>
+<ul>
+<li class="">选择覆盖图层（每个要素生成一页）</li>
+<li class="">设置每页的缩放和范围</li>
+<li class="">配置统一的标题、图例、比例尺</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="810-地图图例面板v23">8.10 地图图例面板（v2.3+）<a href="#810-地图图例面板v23" class="hash-link" aria-label="8.10 地图图例面板（v2.3+）的直接链接" title="8.10 地图图例面板（v2.3+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8101-自动图例">8.10.1 自动图例<a href="#8101-自动图例" class="hash-link" aria-label="8.10.1 自动图例的直接链接" title="8.10.1 自动图例的直接链接" translate="no">​</a></h3>
+<p>v2.3 引入的自动图例面板根据可见图层的符号化生成图例：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.3 更新）</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li class="">自动从图层样式提取图例项</li>
+<li class="">实时更新（图层可见性/样式变化时）</li>
+<li class="">与 Print Layout 共享图例</li>
+<li class="">图层符号预览（v2.3+，图层面板中的 swatches）</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8102-图例显示">8.10.2 图例显示<a href="#8102-图例显示" class="hash-link" aria-label="8.10.2 图例显示的直接链接" title="8.10.2 图例显示的直接链接" translate="no">​</a></h3>
+<p>图例面板显示：</p>
+<ul>
+<li class="">图层名称</li>
+<li class="">分类/分级渲染的色带和标签</li>
+<li class="">简单样式的颜色和符 号</li>
+<li class="">栅格图层的色带</li>
+</ul>
+<p>[推断] 图例内容基于通用图例行为和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="811-仪表盘面板dashboardv24">8.11 仪表盘面板（Dashboard，v2.4+）<a href="#811-仪表盘面板dashboardv24" class="hash-link" aria-label="8.11 仪表盘面板（Dashboard，v2.4+）的直接链接" title="8.11 仪表盘面板（Dashboard，v2.4+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8111-仪表盘概述">8.11.1 仪表盘概述<a href="#8111-仪表盘概述" class="hash-link" aria-label="8.11.1 仪表盘概述的直接链接" title="8.11.1 仪表盘概述的直接链接" translate="no">​</a></h3>
+<p>v2.4 引入的 Dashboard 面板提供关键指标的可视化展示：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.4 更新）</p>
+<p><strong>指标瓦片</strong>（Indicator/KPI Tiles）：</p>
+<ul>
+<li class="">数值指标（如要素总数、面积总和）</li>
+<li class="">自动更新（数据变化时）</li>
+<li class="">可配置计算表达式</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="8112-配置仪表盘">8.11.2 配置仪表盘<a href="#8112-配置仪表盘" class="hash-link" aria-label="8.11.2 配置仪表盘的直接链接" title="8.11.2 配置仪表盘的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">打开 Dashboard 面板</li>
+<li class="">添加指标瓦片</li>
+<li class="">配置指标名称和计算表达式</li>
+<li class="">设置数据来源图层和字段</li>
+<li class="">选择显示格式（数字、百分比、货币等）</li>
+</ol>
+<p>[推断] 仪表盘配置流程基于通用仪表盘工具和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="812-本章小结">8.12 本章小结<a href="#812-本章小结" class="hash-link" aria-label="8.12 本章小结的直接链接" title="8.12 本章小结的直接链接" translate="no">​</a></h2>
+<p>GeoLibre 的地图控制与工具集覆盖了日常 GIS 工作的常用辅助功能：</p>
+<ol>
+<li class=""><strong>导航</strong>：缩放、旋转、定位、键盘快捷键</li>
+<li class=""><strong>测量</strong>：距离、面积，多单位支持</li>
+<li class=""><strong>书签与视图</strong>：保存/恢复常用视图</li>
+<li class=""><strong>小地图</strong>：全局概览和快速定位</li>
+<li class=""><strong>野外采集</strong>：GPS 数据采集与自定义表单</li>
+<li class=""><strong>时间滑块</strong>：时序数据浏览和动画</li>
+<li class=""><strong>GPS 追踪</strong>：实时轨迹记录（v2.2+）</li>
+<li class=""><strong>打印布局</strong>：地图导出、Atlas 地图系列（v2.2+）</li>
+<li class=""><strong>图例</strong>：自动生成和打印共享（v2.3+）</li>
+<li class=""><strong>仪表盘</strong>：关键指标可视化（v2.4+）</li>
+</ol>
+<p>这些工具使 GeoLibre 从单纯的地图查看器进化为完整的 GIS 工作站。</p>
+<hr>
+<p><strong>本章信息源</strong></p>
+<ul>
+<li class="">[1] GeoLibre 地图控制文档：<a href="https://geolibre.app/user-guide/map-controls/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/map-controls/</a> [检索日期 2026-09-04]</li>
+<li class="">[2] GeoLibre Roadmap：<a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> [检索日期 2026-09-04]</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>手册维护</b> <!-- -->于 <b><time datetime="2026-09-04T00:00:00.000Z" itemprop="dateModified">2026年9月4日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件 选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/geolibre-manual/ch07-attribute-table"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">第 7 章：属性表与数据编辑</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/geolibre-manual/ch09-vector-tools"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">第 9 章：空间分析 - 矢量工具</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#81-导航控制" class="table-of-contents__link toc-highlight">8.1 导航控制</a><ul><li><a href="#811-地图导航控件" class="table-of-contents__link toc-highlight">8.1.1 地图导航控件</a></li><li><a href="#812-定位功能" class="table-of-contents__link toc-highlight">8.1.2 定位功能</a></li><li><a href="#813-键盘导航" class="table-of-contents__link toc-highlight">8.1.3 键盘导航</a></li></ul></li><li><a href="#82-测量工具" class="table-of-contents__link toc-highlight">8.2 测量工具</a><ul><li><a href="#821-距离测量" class="table-of-contents__link toc-highlight">8.2.1 距离测量</a></li><li><a href="#822-面积测量" class="table-of-contents__link toc-highlight">8.2.2 面积测量</a></li><li><a href="#823-测量单位" class="table-of-contents__link toc-highlight">8.2.3 测量单位</a></li></ul></li><li><a href="#83-书签工具" class="table-of-contents__link toc-highlight">8.3 书签工具</a><ul><li><a href="#831-保存书签" class="table-of-contents__link toc-highlight">8.3.1 保存书签</a></li><li><a href="#832-管理书签" class="table-of-contents__link toc-highlight">8.3.2 管理书签</a></li></ul></li><li><a href="#84-小地图" class="table-of-contents__link toc-highlight">8.4 小地图</a><ul><li><a href="#841-小地图控件" class="table-of-contents__link toc-highlight">8.4.1 小地图控件</a></li><li><a href="#842-配置" class="table-of-contents__link toc-highlight">8.4.2 配置</a></li></ul></li><li><a href="#85-视图状态工具" class="table-of-contents__link toc-highlight">8.5 视图状态工具</a><ul><li><a href="#851-保存视图" class="table-of-contents__link toc-highlight">8.5.1 保存视图</a></li><li><a href="#852-恢复视图" class="table-of-contents__link toc-highlight">8.5.2 恢复视图</a></li></ul></li><li><a href="#86-野外采集工具field-collection" class="table-of-contents__link toc-highlight">8.6 野外采集工具（Field Collection）</a><ul><li><a href="#861-功能概述" class="table-of-contents__link toc-highlight">8.6.1 功能概述</a></li><li><a href="#862-自定义表单" class="table-of-contents__link toc-highlight">8.6.2 自定义表单</a></li><li><a href="#863-采集工作流" class="table-of-contents__link toc-highlight">8.6.3 采集工作流</a></li></ul></li><li><a href="#87-时间滑块插件time-slider" class="table-of-contents__link toc-highlight">8.7 时间滑块插件（Time Slider）</a><ul><li><a href="#871-时间滑块概述" class="table-of-contents__link toc-highlight">8.7.1 时间滑块概述</a></li><li><a href="#872-操作方式" class="table-of-contents__link toc-highlight">8.7.2 操作方式</a></li></ul></li><li><a href="#88-实时-gps-追踪v22" class="table-of-contents__link toc-highlight">8.8 实时 GPS 追踪（v2.2+）</a><ul><li><a href="#881-gps-追踪" class="table-of-contents__link toc-highlight">8.8.1 GPS 追踪</a></li><li><a href="#882-应用场景" class="table-of-contents__link toc-highlight">8.8.2 应用场景</a></li></ul></li><li><a href="#89-打印布局print--layout" class="table-of-contents__link toc-highlight">8.9 打印布局（Print / Layout）</a><ul><li><a href="#891-打印功能" class="table-of-contents__link toc-highlight">8.9.1 打印功能</a></li><li><a href="#892-布局设置" class="table-of-contents__link toc-highlight">8.9.2 布局设置</a></li><li><a href="#893-atlas--地图系列v22" class="table-of-contents__link toc-highlight">8.9.3 Atlas / 地图系列（v2.2+）</a></li></ul></li><li><a href="#810-地图图例面板v23" class="table-of-contents__link toc-highlight">8.10 地图图例面板（v2.3+）</a><ul><li><a href="#8101-自动图例" class="table-of-contents__link toc-highlight">8.10.1 自动图例</a></li><li><a href="#8102-图例显示" class="table-of-contents__link toc-highlight">8.10.2 图例显示</a></li></ul></li><li><a href="#811-仪表盘面板dashboardv24" class="table-of-contents__link toc-highlight">8.11 仪表盘面板（Dashboard，v2.4+）</a><ul><li><a href="#8111-仪表盘概述" class="table-of-contents__link toc-highlight">8.11.1 仪表盘概述</a></li><li><a href="#8112-配置仪表盘" class="table-of-contents__link toc-highlight">8.11.2 配置仪表盘</a></li></ul></li><li><a href="#812-本章小结" class="table-of-contents__link toc-highlight">8.12 本章小结</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">文档</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch01-overview">GeoLibre 概述</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch02-installation">安装与部署</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/appendix/glossary">术语表</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">社区</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://geolibre.app" target="_blank" rel="noopener noreferrer" class="footer__link-item">GeoLibre 官方<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://geolibre.app/comparison/" target="_blank" rel="noopener noreferrer" class="footer__link-item">平台对比（含 QGIS）<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">更多</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/wangdwn" target="_blank" rel="noopener noreferrer" class="footer__link-item">作者 GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/wangdwn/geolibre-manual/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">报告问题<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 GeoLibre 手册项目。基于 MIT 协议发布。</div></div></div></footer></div>
+</body>
+</html>

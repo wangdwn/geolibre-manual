@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ch12-plugins" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">第 12 章：插件系统与市场 | GeoLibre 使用手册</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" property="og:url" content="https://wangdwn.github.io/geolibre-manual/ch12-plugins"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="第 12 章：插件系统与市场 | GeoLibre 使用手册"><meta data-rh="true" name="description" content="[事实与研判分离说明]"><meta data-rh="true" property="og:description" content="[事实与研判分离说明]"><link data-rh="true" rel="icon" href="/geolibre-manual/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://wangdwn.github.io/geolibre-manual/ch12-plugins"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch12-plugins" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch12-plugins" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"第 12 章：插件系统与市场","item":"https://wangdwn.github.io/geolibre-manual/ch12-plugins"}]}</script><link rel="stylesheet" href="/geolibre-manual/assets/css/styles.0354a724.css">
+<script src="/geolibre-manual/assets/js/runtime~main.36c008b1.js" defer="defer"></script>
+<script src="/geolibre-manual/assets/js/main.d37c321e.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/geolibre-manual/"><div class="navbar__logo"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">GeoLibre 手册</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/geolibre-manual/">文档</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GeoLibre<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/wangdwn/geolibre-manual" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/geolibre-manual/"><span class="linkLabel_WmDU">GeoLibre 使用手册</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/geolibre-manual/ch01-overview"><span class="categoryLinkLabel_W154">入门</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch01-overview"><span class="linkLabel_WmDU">第 1 章：GeoLibre 概述</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch02-installation"><span class="linkLabel_WmDU">第 2 章：安装与部署</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch03-interface"><span class="linkLabel_WmDU">第 3 章：界面与基本操作</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/geolibre-manual/ch04-projects"><span class="categoryLinkLabel_W154">数据</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch04-projects"><span class="linkLabel_WmDU">第 4 章：项目与数据管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch05-adding-data"><span class="linkLabel_WmDU">第 5 章：添加数据</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch06-layers-styling"><span class="linkLabel_WmDU">第 6 章：图层管理与符号化</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch07-attribute-table"><span class="linkLabel_WmDU">第 7 章：属性表与数据编辑</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/ch08-map-controls"><span class="categoryLinkLabel_W154">分析</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/geolibre-manual/ch12-plugins"><span class="categoryLinkLabel_W154">扩展</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/geolibre-manual/ch12-plugins"><span class="linkLabel_WmDU">第 12 章：插件系统与市场</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch13-advanced"><span class="linkLabel_WmDU">第 13 章：高级功能与集成</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/appendix/glossary"><span class="categoryLinkLabel_W154">附录</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/geolibre-manual/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">扩展</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">第 12 章：插件系统与市场</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>第 12 章：插件系统与市场</h1></header>
+<blockquote>
+<p>[事实与研判分离说明]
+本章信息源：GeoLibre 官方用户指南插件（<a href="https://geolibre.app/user-guide/plugins/%EF%BC%89%E3%80%81Roadmap" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/）、Roadmap</a>
+标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+手册内容最后更新：2026-09-04</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="121-插件架构">12.1 插件架构<a href="#121-插件架构" class="hash-link" aria-label="12.1 插件架构的直接链接" title="12.1 插件架构的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1211-插件系统概述">12.1.1 插件系统概述<a href="#1211-插件系统概述" class="hash-link" aria-label="12.1.1 插件系统概述的直接链接" title="12.1.1 插件系统概述的直接链接" translate="no">​</a></h3>
+<p>GeoLibre 的插件系统允许扩展应用功能，分为两类：[已核实] <a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型</th><th>说明</th><th>来源</th></tr></thead><tbody><tr><td>内置插件</td><td>随 GeoLibre 打包，需手动激活</td><td>官方</td></tr><tr><td>外部插件</td><td>从插件市场安装，第三方开发</td><td>社区</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1212-插件技术基础">12.1.2 插件技术基础<a href="#1212-插件技术基础" class="hash-link" aria-label="12.1.2 插件技术基础的直接链接" title="12.1.2 插件技术基础的直接链接" translate="no">​</a></h3>
+<p>插件基于 GeoLibre 的 Plugin API 开发：[已核实] <a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a></p>
+<p><strong>插件结构</strong>：</p>
+<ul>
+<li class=""><code>plugin.json</code>：插件元数据（名称、版本、入口点、权限）</li>
+<li class="">前端代码：React 组件或原生 JS</li>
+<li class="">可选：后端代码（通过 sidecar 或 WASM）</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1213-插件生命周期">12.1.3 插件生命周期<a href="#1213-插件生命周期" class="hash-link" aria-label="12.1.3 插件生命周期的直接链接" title="12.1.3 插件生命周期的直接链接" translate="no">​</a></h3>
+<ol>
+<li class=""><strong>注册</strong>：GeoLibre 启动时扫描内置插件和已安装的外部插件</li>
+<li class=""><strong>激活</strong>：用户在插件管理器中激活插件</li>
+<li class=""><strong>加载</strong>：动态加载插件代码（桌面端 CSP 允许 <code>blob:</code> 脚本执行）</li>
+<li class=""><strong>运行</strong>：插件 UI 集成到界面</li>
+<li class=""><strong>停用</strong>：用户停用或卸载插件</li>
+</ol>
+<p>[已核实] <a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a> <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="122-内置插件列表">12.2 内置插件列表<a href="#122-内置插件列表" class="hash-link" aria-label="12.2 内置插件列表的直接链接" title="12.2 内置插件列表的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="插件菜单" src="/geolibre-manual/assets/images/ch12-01-8a31c9a4c8e8e478461fe28a6dfee657.png" width="1280" height="577" class="img_ev3q">
+<em>插件菜单：图层控制、GeoEditor、时间滑块、街景等内置插件</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1221-已知的内置插件">12.2.1 已知的内置插件<a href="#1221-已知的内置插件" class="hash-link" aria-label="12.2.1 已知的内置插件的直接链接" title="12.2.1 已知的内置插件的直接链接" translate="no">​</a></h3>
+<p>GeoLibre 包含以下内置插件（部分需手动激活）：[已核实] <a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>插件</th><th>功能</th><th>默认状态</th></tr></thead><tbody><tr><td>Layer Control</td><td>图层控制增强</td><td>激活</td></tr><tr><td>Basemaps</td><td>底图管理</td><td>激活</td></tr><tr><td>MapLibre Components</td><td>FlatGeobuf/PMTiles/Zarr/LiDAR/Gaussian splat 面板</td><td>可选</td></tr><tr><td>Swipe</td><td>卷帘对比</td><td>可选</td></tr><tr><td>Street View</td><td>街景查看</td><td>可选</td></tr><tr><td>Time Slider</td><td>时序数据动画</td><td>可选</td></tr><tr><td>Overture Maps</td><td>Overture Maps 数据浏览</td><td>可选</td></tr><tr><td>LiDAR</td><td>点云可视化</td><td>可选</td></tr><tr><td>GeoAgent</td><td>地理智能体相关内置插件</td><td>可选</td></tr><tr><td>GeoEditor</td><td>地图草绘 / 编辑（可将草图导出为工程图层）</td><td>可选</td></tr><tr><td>Atmosphere</td><td>大气效果</td><td>可选</td></tr><tr><td>GeoLens</td><td>目录浏览器（v2.3+）</td><td>可选</td></tr><tr><td>H3 Grid</td><td>六边形网格（v2.4+）</td><td>可选</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1222-激活内置插件">12.2.2 激活内置插件<a href="#1222-激活内置插件" class="hash-link" aria-label="12.2.2 激活内置插件的直接链接" title="12.2.2 激活内置插件的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">打开插件管理器（Tools -&gt; Plugins）</li>
+<li class="">在内置插件列表中找到目标插件</li>
+<li class="">点击开关激活</li>
+<li class="">插件 UI 出现在工具栏或面板中</li>
+</ol>
+<p>[已核实] <a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="123-插件市场">12.3 插件市场<a href="#123-插件市场" class="hash-link" aria-label="12.3 插件市场的直接链接" title="12.3 插件市场的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1231-市场概述">12.3.1 市场概述<a href="#1231-市场概述" class="hash-link" aria-label="12.3.1 市场概述的直接链接" title="12.3.1 市场概述的直接链接" translate="no">​</a></h3>
+<p>GeoLibre 内置插件市场，支持浏览、安装、更新和卸载第三方插件。[已核实] <a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a></p>
+<p><strong>市场特点</strong>：</p>
+<ul>
+<li class="">Curated registry：人工审核的插件列表</li>
+<li class="">显式安装确认：用户必须明确同意安装</li>
+<li class="">版本检查：检测插件更新</li>
+<li class="">卸载确认：防止误操作</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v1.0 市场设计）</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1232-安装插件">12.3.2 安装插件<a href="#1232-安装插件" class="hash-link" aria-label="12.3.2 安装插件的直接链接" title="12.3.2 安装插件的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">Tools -&gt; Plugins -&gt; Marketplace</li>
+<li class="">浏览或搜索插件</li>
+<li class="">查看插件详情（描述、版本、作者、权限）</li>
+<li class="">点击 &quot;Install&quot;</li>
+<li class="">确认安装</li>
+<li class="">安装完成后自动激活或手动激活</li>
+</ol>
+<p>[已核实] <a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1233-更新与卸载">12.3.3 更新与卸载<a href="#1233-更新与卸载" class="hash-link" aria-label="12.3.3 更新与卸载的直接链接" title="12.3.3 更新与卸载的直接链接" translate="no">​</a></h3>
+<p><strong>更新</strong>：</p>
+<ul>
+<li class="">插件管理器显示可更新插件列表</li>
+<li class="">点击 &quot;Update&quot; 进行更新</li>
+<li class="">支持原地重新获取（in-place re-fetch）</li>
+</ul>
+<p><strong>卸载</strong>：</p>
+<ul>
+<li class="">插件管理器中找到已安装插件</li>
+<li class="">点击 &quot;Uninstall&quot;</li>
+<li class="">确认卸载</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v1.0 市场设计）</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="124-插件控制位置">12.4 插件控 制位置<a href="#124-插件控制位置" class="hash-link" aria-label="12.4 插件控制位置的直接链接" title="12.4 插件控制位置的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1241-ui-集成">12.4.1 UI 集成<a href="#1241-ui-集成" class="hash-link" aria-label="12.4.1 UI 集成的直接链接" title="12.4.1 UI 集成的直接链接" translate="no">​</a></h3>
+<p>插件可以在以下位置添加 UI 控件：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v0.5 更新）</p>
+<ul>
+<li class=""><strong>工具栏</strong>：添加按钮或下拉菜单</li>
+<li class=""><strong>左侧面板</strong>：添加标签页</li>
+<li class=""><strong>右侧面板</strong>：添加标签页</li>
+<li class=""><strong>地图覆盖层</strong>：添加自定义 HTML 覆盖</li>
+<li class=""><strong>菜单栏</strong>：添加菜单项</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1242-控制位置配置">12.4.2 控制位置配置<a href="#1242-控制位置配置" class="hash-link" aria-label="12.4.2 控制位置配置的直接链接" title="12.4.2 控制位置配置的直接链接" translate="no">​</a></h3>
+<p>插件的 <code>plugin.json</code> 中声明 UI 入口点，GeoLibre 根据声明将插件 UI 挂载到对应位置。</p>
+<p>[推断] 插件 UI 集成机制基于 Plugin API 设计和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="125-外部插件开发入门">12.5 外部插件开发入门<a href="#125-外部插件开发入门" class="hash-link" aria-label="12.5 外部插件开发入门的直接链接" title="12.5 外部插件开发入门的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1251-开发环境">12.5.1 开发环境<a href="#1251-开发环境" class="hash-link" aria-label="12.5.1 开发环境的直接链接" title="12.5.1 开发环境的直接链接" translate="no">​</a></h3>
+<p>开发 GeoLibre 插件需要：[推断] 基于 GeoLibre 开源代码和通用插件开发实践推断</p>
+<ul>
+<li class="">Node.js 和 npm/yarn</li>
+<li class="">React 和 TypeScript 基础</li>
+<li class="">GeoLibre Plugin API 了解</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1252-插件包结构">12.5.2 插件包结构<a href="#1252-插件包结构" class="hash-link" aria-label="12.5.2 插件包结构的直接链接" title="12.5.2 插件包结构的直接链接" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">my-plugin/</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  plugin.json          # 插件元数据</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  index.js / index.tsx  # 入口文件</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  package.json         # 依赖</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  README.md            # 文档</span><br></div></code></pre></div></div>
+<p><strong>plugin.json 示例</strong>：</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">{</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;id&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;my-plugin&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;name&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;My Plugin&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;version&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;1.0.0&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;description&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;Plugin description&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;author&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;Your Name&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;entry&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;index.js&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token property" style="color:#36acaa">&quot;permissions&quot;</span><span class="token operator" style="color:#393A34">:</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">[</span><span class="token string" style="color:#e3116c">&quot;layer:read&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;map:write&quot;</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">}</span><br></div></code></pre></div></div>
+<p>[推断] plugin.json 结构基于官网&quot;plugin.json contract&quot;描述和通用插件元数据推断。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1253-打包与分发">12.5.3 打包与分发<a href="#1253-打包与分发" class="hash-link" aria-label="12.5.3 打包与分发的直接链接" title="12.5.3 打包与分发的直接链接" translate="no">​</a></h3>
+<p><strong>方式一：Curated Registry（当前）</strong></p>
+<ul>
+<li class="">提交插件到 GeoLibre 的 curated registry</li>
+<li class="">通过市场安装</li>
+</ul>
+<p><strong>方式二：直接 Manifest URL</strong></p>
+<ul>
+<li class="">托管 plugin.json 和代码  到任意 HTTP 服务器</li>
+<li class="">用户通过 manifest URL 安装</li>
+</ul>
+<p><strong>方式三：Zip 安装（v1.6+）</strong></p>
+<ul>
+<li class="">打包为 zip 文件</li>
+<li class="">用户直接上传安装</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v1.0、v1.6 更新）</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="126-插件注册表设计">12.6 插件注册表设计<a href="#126-插件注册表设计" class="hash-link" aria-label="12.6 插件注册表设计的直接链接" title="12.6 插件注册表设计的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1261-注册表阶段">12.6.1 注册表阶段<a href="#1261-注册表阶段" class="hash-link" aria-label="12.6.1 注册表阶段的直接链接" title="12.6.1 注册表阶段的直接链接" translate="no">​</a></h3>
+<p>GeoLibre 的插件注册表分三个阶段实现：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v1.0 市场设计）</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>阶段</th><th>状态</th><th>说明</th></tr></thead><tbody><tr><td>Phase 1</td><td>已完成</td><td>Curated static registry + 浏览/安装 UI</td></tr><tr><td>Phase 2</td><td>进行中</td><td>版本检查、更新和卸载流</td></tr><tr><td>Phase 3</td><td>计划中</td><td>第三方作者提交工作流</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1262-安全模型">12.6.2 安全模型<a href="#1262-安全模型" class="hash-link" aria-label="12.6.2 安全模型的直接链接" title="12.6.2 安全模型的直接链接" translate="no">​</a></h3>
+<p>插件安全通过以下机制保障：[已核实] <a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a></p>
+<ul>
+<li class=""><strong>Curated registry</strong>：人工审核插件</li>
+<li class=""><strong>显式安装确认</strong>：用户必须同意安装</li>
+<li class=""><strong>权限声明</strong>：插件必须声明所需权限</li>
+<li class=""><strong>代码审查</strong>：curated registry 中的插件经过审核</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v1.0 安全说明）</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="127-maplibre-components-插件">12.7 MapLibre Components 插件<a href="#127-maplibre-components-插件" class="hash-link" aria-label="12.7 MapLibre Components 插件的直接链接" title="12.7 MapLibre Components 插件的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1271-功能概述">12.7.1 功能概述<a href="#1271-功能概述" class="hash-link" aria-label="12.7.1 功能概述的直接链接" title="12.7.1 功能概述的直接链接" translate="no">​</a></h3>
+<p>MapLibre Components 插件封装了 <code>maplibre-gl-components</code> 库，提供多种高级数据格式的可视化面板。[已核实] <a href="https://geolibre.app/user-guide/adding-data/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/adding-data/</a></p>
+<p><strong>包含的面板</strong>：</p>
+<ul>
+<li class="">FlatGeobuf 面板</li>
+<li class="">PMTiles 面板</li>
+<li class="">Zarr 面板</li>
+<li class="">LiDAR 面板</li>
+<li class="">Gaussian splat 面板</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1272-使用方法">12.7.2 使用方法<a href="#1272-使用方法" class="hash-link" aria-label="12.7.2 使用方法的直接链接" title="12.7.2 使用方法的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">激活 MapLibre Components 插件</li>
+<li class="">在 Add Data 或图层面板中使用对应的面板</li>
+<li class="">输入数据源 URL 或选择本地文件</li>
+<li class="">面板渲染对应格式的数据</li>
+</ol>
+<p>[已核实] <a href="https://geolibre.app/user-guide/adding-data/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/adding-data/</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="128-常用插件详解">12.8 常用插件详解<a href="#128-常用插件详解" class="hash-link" aria-label="12.8 常用插件详解的直接链接" title="12.8 常用插件详解的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="3D 地球视图" src="/geolibre-manual/assets/images/ch12-02-cc07ee7a9e7b1f05781a5bfdcbe27fc0.png" width="1280" height="577" class="img_ev3q">
+<em>CesiumJS 3D 地球视图效果</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1281-swipe卷帘对比">12.8.1 Swipe（卷帘对比）<a href="#1281-swipe卷帘对比" class="hash-link" aria-label="12.8.1 Swipe（卷帘对比）的直接链接" title="12.8.1 Swipe（卷帘对比）的直接链接" translate="no">​</a></h3>
+<p>Swipe 插件提供卷帘对比功能，用于比较两个图层的差异。[已核实] <a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a></p>
+<p><strong>操作</strong>：</p>
+<ol>
+<li class="">激活 Swipe 插件</li>
+<li class="">选择左右两个图层</li>
+<li class="">在地图上拖拽卷帘线对比</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1282-street-view街景">12.8.2 Street View（街景）<a href="#1282-street-view街景" class="hash-link" aria-label="12.8.2 Street View（街景）的直接链接" title="12.8.2 Street View（街景）的直接链接" translate="no">​</a></h3>
+<p>Street View 插件集成街景查看功能：[已核实] <a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a></p>
+<p><strong>操作</strong>：</p>
+<ol>
+<li class="">激活 Street View 插  件</li>
+<li class="">在地图上点击位置</li>
+<li class="">显示该位置的街景图像</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1283-overture-maps">12.8.3 Overture Maps<a href="#1283-overture-maps" class="hash-link" aria-label="12.8.3 Overture Maps的直接链接" title="12.8.3 Overture Maps的直接链接" translate="no">​</a></h3>
+<p>Overture Maps 插件浏览 Overture Maps Foundation 提供的开放地图数据：[已核实] <a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a></p>
+<p><strong>数据类型</strong>：</p>
+<ul>
+<li class="">行政区划</li>
+<li class="">交通网络</li>
+<li class="">建筑轮廓</li>
+<li class="">地名</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1284-time-slider时间滑块">12.8.4 Time Slider（时间滑块）<a href="#1284-time-slider时间滑块" class="hash-link" aria-label="12.8.4 Time Slider（时间滑块）的直接链接" title="12.8.4 Time Slider（时间滑块）的直接链接" translate="no">​</a></h3>
+<p>Time Slider 插件已在第 8 章详细介绍，此处不重复。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1285-mapillaryv21">12.8.5 Mapillary（v2.1+）<a href="#1285-mapillaryv21" class="hash-link" aria-label="12.8.5 Mapillary（v2.1+）的直接链接" title="12.8.5 Mapillary（v2.1+）的直接链接" translate="no">​</a></h3>
+<p>v2.1 引入的 Mapillary 插件集成 Mapillary 街景图像：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.1 更新）</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1286-historical-imageryv21">12.8.6 Historical Imagery（v2.1+）<a href="#1286-historical-imageryv21" class="hash-link" aria-label="12.8.6 Historical Imagery（v2.1+）的直接链接" title="12.8.6 Historical Imagery（v2.1+）的直接链接" translate="no">​</a></h3>
+<p>v2.1 引入的历史影像插件，浏览历史卫星/航拍图像：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.1 更新）</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1287-elevation-profilev21">12.8.7 Elevation Profile（v2.1+）<a href="#1287-elevation-profilev21" class="hash-link" aria-label="12.8.7 Elevation Profile（v2.1+）的直接链接" title="12.8.7 Elevation Profile（v2.1+）的直接链接" translate="no">​</a></h3>
+<p>v2.1 引入的高程剖面插件，沿选定的线要素生成高程剖面图：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.1 更新）</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="129-geolens-目录浏览器v23">12.9 GeoLens 目录浏览器（v2.3+）<a href="#129-geolens-目录浏览器v23" class="hash-link" aria-label="12.9 GeoLens 目录浏览器（v2.3+）的直接链接" title="12.9 GeoLens 目录浏览器（v2.3+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1291-功能概述">12.9.1 功能概述<a href="#1291-功能概述" class="hash-link" aria-label="12.9.1 功能概述的直接链接" title="12.9.1 功能概述的直接链接" translate="no">​</a></h3>
+<p>GeoLens 是 v2.3 引入的目录浏览器插件，用于浏览和发现地理空间数据集。[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.3 更新）</p>
+<p><strong>功能</strong>：</p>
+<ul>
+<li class="">浏览公开地理空间数据目录</li>
+<li class="">搜索数据集</li>
+<li class="">预览数据</li>
+<li class="">一键加载到 GeoLibre</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1292-数据源">12.9.2 数据源<a href="#1292-数据源" class="hash-link" aria-label="12.9.2 数据源的直接链接" title="12.9.2 数据源的直接链接" translate="no">​</a></h3>
+<p>GeoLens 可能连接的数据源：[推断] 基于&quot;catalog browser&quot;描述和通用地理空间数据目录推断</p>
+<ul>
+<li class="">公开数据门户</li>
+<li class="">STAC 目录</li>
+<li class="">研究机构数据发布</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1210-h3-六边形网格插件v24">12.10 H3 六边形网格插件（v2.4+）<a href="#1210-h3-六边形网格插件v24" class="hash-link" aria-label="12.10 H3 六边形网格插件（v2.4+）的直接链接" title="12.10 H3 六边形网格插件（v2.4+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="12101-功能概述">12.10.1 功能概述<a href="#12101-功能概述" class="hash-link" aria-label="12.10.1 功能概述的直接链接" title="12.10.1 功能概述的直接链接" translate="no">​</a></h3>
+<p>v2.4 将 H3 功能扩展为独立插件，提供六边形网格的生成和分析。[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.4 更新）</p>
+<p><strong>功能</strong>：</p>
+<ul>
+<li class="">在指定范围生成 H3 网格</li>
+<li class="">点数据聚合到 H3 网格</li>
+<li class="">H3 网格的空间分析</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1211-本章小结">12.11 本章小结<a href="#1211-本章小结" class="hash-link" aria-label="12.11 本章小结的直接链接" title="12.11 本章小结的直接链接" translate="no">​</a></h2>
+<p>GeoLibre 的插件系统是功能扩展的核心机制：</p>
+<ol>
+<li class=""><strong>内置插件</strong>：Layer Control、Basemaps、MapLibre Components、Swipe、Street View、Time Slider、Overture Maps、LiDAR、Atmosphere 等</li>
+<li class=""><strong>外部插件</strong>：通过市场浏览、安装、更新、卸载</li>
+<li class=""><strong>市场机制</strong>：Curated registry + 显式确认 + 权限声明</li>
+<li class=""><strong>开发入口</strong>：Plugin API + plugin.json + React/TypeScript</li>
+<li class=""><strong>安全模型</strong>：人工审核 + 用户确认 + 权限控制</li>
+<li class=""><strong>特色插件</strong>：Mapillary、Historical Imagery、Elevation Profile（v2.1+）、GeoLens（v2.3+）、H3 Grid（v2.4+）</li>
+</ol>
+<p>插件生态是 GeoLibre 长期竞争力的关键，Phase 3 的第三方提交工作流将进一步丰富插件库。</p>
+<hr>
+<p><strong>本章信息源</strong></p>
+<ul>
+<li class="">[1] GeoLibre 插件文档：<a href="https://geolibre.app/user-guide/plugins/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/plugins/</a> [检索日期 2026-09-04]</li>
+<li class="">[2] GeoLibre Roadmap：<a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> [检索日期 2026-09-04]</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>手册维护</b> <!-- -->于 <b><time datetime="2026-09-04T00:00:00.000Z" itemprop="dateModified">2026年9月4日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/geolibre-manual/ch11-sql-workspace"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">第 11 章：SQL 工作区与高级查询</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/geolibre-manual/ch13-advanced"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">第 13 章：高级功能与集成</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#121-插件架构" class="table-of-contents__link toc-highlight">12.1 插件架构</a><ul><li><a href="#1211-插件系统概述" class="table-of-contents__link toc-highlight">12.1.1 插件系统概述</a></li><li><a href="#1212-插件技术基础" class="table-of-contents__link toc-highlight">12.1.2 插件技术基础</a></li><li><a href="#1213-插件生命周期" class="table-of-contents__link toc-highlight">12.1.3 插件生命周期</a></li></ul></li><li><a href="#122-内置插件列表" class="table-of-contents__link toc-highlight">12.2 内置插件列表</a><ul><li><a href="#1221-已知的内置插件" class="table-of-contents__link toc-highlight">12.2.1 已知的内置插件</a></li><li><a href="#1222-激活内置插件" class="table-of-contents__link toc-highlight">12.2.2 激活内置插件</a></li></ul></li><li><a href="#123-插件市场" class="table-of-contents__link toc-highlight">12.3 插件市场</a><ul><li><a href="#1231-市场概述" class="table-of-contents__link toc-highlight">12.3.1 市场概述</a></li><li><a href="#1232-安装插件" class="table-of-contents__link toc-highlight">12.3.2 安装插件</a></li><li><a href="#1233-更新与卸载" class="table-of-contents__link toc-highlight">12.3.3 更新与卸载</a></li></ul></li><li><a href="#124-插件控制位置" class="table-of-contents__link toc-highlight">12.4 插件控制位置</a><ul><li><a href="#1241-ui-集成" class="table-of-contents__link toc-highlight">12.4.1 UI 集成</a></li><li><a href="#1242-控制位置配置" class="table-of-contents__link toc-highlight">12.4.2 控制位置配置</a></li></ul></li><li><a href="#125-外部插件开发入门" class="table-of-contents__link toc-highlight">12.5 外部插件开发入门</a><ul><li><a href="#1251-开发环境" class="table-of-contents__link toc-highlight">12.5.1 开发环境</a></li><li><a href="#1252-插件包结构" class="table-of-contents__link toc-highlight">12.5.2 插件包结构</a></li><li><a href="#1253-打包与分发" class="table-of-contents__link toc-highlight">12.5.3 打包与分发</a></li></ul></li><li><a href="#126-插件注册表设计" class="table-of-contents__link toc-highlight">12.6 插件注册表设计</a><ul><li><a href="#1261-注册表阶段" class="table-of-contents__link toc-highlight">12.6.1 注册表阶段</a></li><li><a href="#1262-安全模型" class="table-of-contents__link toc-highlight">12.6.2 安全模型</a></li></ul></li><li><a href="#127-maplibre-components-插件" class="table-of-contents__link toc-highlight">12.7 MapLibre Components 插件</a><ul><li><a href="#1271-功能概述" class="table-of-contents__link toc-highlight">12.7.1 功能概述</a></li><li><a href="#1272-使用方法" class="table-of-contents__link toc-highlight">12.7.2 使用方法</a></li></ul></li><li><a href="#128-常用插件详解" class="table-of-contents__link toc-highlight">12.8 常用插件详解</a><ul><li><a href="#1281-swipe卷帘对比" class="table-of-contents__link toc-highlight">12.8.1 Swipe（卷帘对比）</a></li><li><a href="#1282-street-view街景" class="table-of-contents__link toc-highlight">12.8.2 Street View（街景）</a></li><li><a href="#1283-overture-maps" class="table-of-contents__link toc-highlight">12.8.3 Overture Maps</a></li><li><a href="#1284-time-slider时间滑块" class="table-of-contents__link toc-highlight">12.8.4 Time Slider（时间滑块）</a></li><li><a href="#1285-mapillaryv21" class="table-of-contents__link toc-highlight">12.8.5 Mapillary（v2.1+）</a></li><li><a href="#1286-historical-imageryv21" class="table-of-contents__link toc-highlight">12.8.6 Historical Imagery（v2.1+）</a></li><li><a href="#1287-elevation-profilev21" class="table-of-contents__link toc-highlight">12.8.7 Elevation Profile（v2.1+）</a></li></ul></li><li><a href="#129-geolens-目录浏览器v23" class="table-of-contents__link toc-highlight">12.9 GeoLens 目录浏览器（v2.3+）</a><ul><li><a href="#1291-功能概述" class="table-of-contents__link toc-highlight">12.9.1 功能概述</a></li><li><a href="#1292-数据源" class="table-of-contents__link toc-highlight">12.9.2 数据源</a></li></ul></li><li><a href="#1210-h3-六边形网格插件v24" class="table-of-contents__link toc-highlight">12.10 H3 六边形网格插件（v2.4+）</a><ul><li><a href="#12101-功能概述" class="table-of-contents__link toc-highlight">12.10.1 功能概述</a></li></ul></li><li><a href="#1211-本章小结" class="table-of-contents__link toc-highlight">12.11 本章小结</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">文档</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch01-overview">GeoLibre 概述</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch02-installation">安装与部署</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/appendix/glossary">术语表</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">社区</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://geolibre.app" target="_blank" rel="noopener noreferrer" class="footer__link-item">GeoLibre 官方<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://geolibre.app/comparison/" target="_blank" rel="noopener noreferrer" class="footer__link-item">平台对比（含 QGIS）<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">更多</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/wangdwn" target="_blank" rel="noopener noreferrer" class="footer__link-item">作者 GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/wangdwn/geolibre-manual/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">报告问题<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 GeoLibre 手册项目。基于 MIT 协议发布。</div></div></div></footer></div>
+</body>
+</html>

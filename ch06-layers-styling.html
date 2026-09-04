@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ch06-layers-styling" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">第 6 章：图层管理与符号化 | GeoLibre 使用手册</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" property="og:url" content="https://wangdwn.github.io/geolibre-manual/ch06-layers-styling"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="第 6 章：图层管理与符号化 | GeoLibre 使用手册"><meta data-rh="true" name="description" content="[事实与研判分离说明]"><meta data-rh="true" property="og:description" content="[事实与研判分离说明]"><link data-rh="true" rel="icon" href="/geolibre-manual/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://wangdwn.github.io/geolibre-manual/ch06-layers-styling"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch06-layers-styling" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch06-layers-styling" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"第 6 章：图层管理与符号化","item":"https://wangdwn.github.io/geolibre-manual/ch06-layers-styling"}]}</script><link rel="stylesheet" href="/geolibre-manual/assets/css/styles.0354a724.css">
+<script src="/geolibre-manual/assets/js/runtime~main.36c008b1.js" defer="defer"></script>
+<script src="/geolibre-manual/assets/js/main.d37c321e.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/geolibre-manual/"><div class="navbar__logo"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">GeoLibre 手册</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/geolibre-manual/">文档</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GeoLibre<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/wangdwn/geolibre-manual" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/geolibre-manual/"><span class="linkLabel_WmDU">GeoLibre 使用手册</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/geolibre-manual/ch01-overview"><span class="categoryLinkLabel_W154">入门</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch01-overview"><span class="linkLabel_WmDU">第 1 章：GeoLibre 概述</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch02-installation"><span class="linkLabel_WmDU">第 2 章：安装与部署</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch03-interface"><span class="linkLabel_WmDU">第 3 章：界面与基本操作</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/geolibre-manual/ch04-projects"><span class="categoryLinkLabel_W154">数据</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch04-projects"><span class="linkLabel_WmDU">第 4 章：项目与数据管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch05-adding-data"><span class="linkLabel_WmDU">第 5 章：添加数据</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/geolibre-manual/ch06-layers-styling"><span class="linkLabel_WmDU">第 6 章：图层管理与符号化</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch07-attribute-table"><span class="linkLabel_WmDU">第 7 章：属性表与数据编辑</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/ch08-map-controls"><span class="categoryLinkLabel_W154">分析</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/ch12-plugins"><span class="categoryLinkLabel_W154">扩展</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/appendix/glossary"><span class="categoryLinkLabel_W154">附录</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/geolibre-manual/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">数据</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">第 6 章：图层管理与符号化</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>第 6 章：图层管理与符号化</h1></header>
+<blockquote>
+<p>[事实与研判分离说明]
+本章信息源：GeoLibre 官方用户指南图层管理（<a href="https://geolibre.app/user-guide/layers/%EF%BC%89%E3%80%81%E6%A0%B7%E5%BC%8F%EF%BC%88https://geolibre.app/user-guide/styling/%EF%BC%89%E3%80%81Roadmap" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/layers/）、样式（https://geolibre.app/user-guide/styling/）、Roadmap</a>
+标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+手册内容最后更新：2026-09-04</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="61-图层面板操作">6.1 图层面板操作<a href="#61-图层面板操作" class="hash-link" aria-label="6.1 图层面板操作的直接链接" title="6.1 图层面板操作的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="611-图层列表">6.1.1 图层列表<a href="#611-图层列表" class="hash-link" aria-label="6.1.1 图层列表的直接链接" title="6.1.1 图层列表的直接链接" translate="no">​</a></h3>
+<p>图层面板以垂直列表显示所有图层，顶部图层在地图上显示在最上层。[已核实] <a href="https://geolibre.app/user-guide/layers/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/layers/</a></p>
+<p>每个图层项显示：</p>
+<ul>
+<li class="">可见性开关（眼睛图标）</li>
+<li class="">图层类  型图标（点/线/面/栅格）</li>
+<li class="">图层名称</li>
+<li class="">展开/折叠箭头（有子项时）</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="612-显示与隐藏">6.1.2 显示与隐藏<a href="#612-显示与隐藏" class="hash-link" aria-label="6.1.2 显示与隐藏的直接链接" title="6.1.2 显示与隐藏的直接链接" translate="no">​</a></h3>
+<p>点击图层项左侧的眼睛图标切换图层可见性。隐藏图层不渲染，但仍保留在项目中。</p>
+<p>批量操作：</p>
+<ul>
+<li class="">按住 Shift/Ctrl 多选图层后统一切换可见性</li>
+<li class="">图层组可以整组切换</li>
+</ul>
+<p>[推断] 批量操作基于通用 UI 模式推断，官网未明确说明多选行为。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="613-排序">6.1.3 排序<a href="#613-排序" class="hash-link" aria-label="6.1.3 排序的直接链接" title="6.1.3 排序的直接链接" translate="no">​</a></h3>
+<p>拖拽图层项上下移动可改变叠加顺序。操作有即时视觉反馈，地图会实时更新渲染顺序。</p>
+<p>[已核实] <a href="https://geolibre.app/user-guide/layers/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/layers/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="614-分组">6.1.4 分组<a href="#614-分组" class="hash-link" aria-label="6.1.4 分组的直接链接" title="6.1.4 分组的直接链接" translate="no">​</a></h3>
+<p>右键图层面板空白处 -&gt; &quot;New Group&quot; 创建图层组。[已核实] <a href="https://geolibre.app/user-guide/layers/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/layers/</a></p>
+<p>分组功能：</p>
+<ul>
+<li class="">支持嵌套分组（组内再建组）</li>
+<li class="">组可整体显示/隐藏</li>
+<li class="">组可整体删除（可选是否删除组内图层）</li>
+<li class="">拖拽图层到组内或移出组</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="615-删除图层">6.1.5 删除图层<a href="#615-删除图层" class="hash-link" aria-label="6.1.5 删除图层的直接链接" title="6.1.5 删除图层的直接链接" translate="no">​</a></h3>
+<p>右键图层 -&gt; &quot;Remove Layer&quot; 或按 Delete 键。</p>
+<p>删除时可选择：</p>
+<ul>
+<li class="">仅从项目中移除引用</li>
+<li class="">同时删除本地源文件（桌面端，谨慎操作）</li>
+</ul>
+<p>[推断] 删除选项基于通用 GIS 应用行为推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="62-图层属性查看">6.2 图层属性查看<a href="#62-图层属性查看" class="hash-link" aria-label="6.2 图层属性查看的直接链接" title="6.2 图层属性查看的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="621-图层信息">6.2.1 图层信息<a href="#621-图层信息" class="hash-link" aria-label="6.2.1 图层信息的直接链接" title="6.2.1 图层信息的直接链接" translate="no">​</a></h3>
+<p>右键图层 -&gt; &quot;Layer Properties&quot; 查看图层元数据：</p>
+<ul>
+<li class="">数据源路径/URL</li>
+<li class="">坐标参考系统（CRS）</li>
+<li class="">要素数量</li>
+<li class="">字段列表及类型</li>
+<li class="">空间范围（边界框）</li>
+<li class="">图层类型</li>
+</ul>
+<p>[推断] 图层属性面板的具体字段基于通用 GIS 应用和 GeoLibre 功能推断。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="622-缩放到图层">6.2.2 缩放到图层<a href="#622-缩放到图层" class="hash-link" aria-label="6.2.2 缩放到图层的直接链接" title="6.2.2 缩放到图层的直接链接" translate="no">​</a></h3>
+<p>右键图层 -&gt; &quot;Zoom to Layer&quot; 将地图视图缩放到该图层的空间范围。[已核实] <a href="https://geolibre.app/user-guide/layers/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/layers/</a></p>
+<p>对于跨大范围的图层（如全球数据），此操作会 将地图缩放到能完整显示该图层的最小缩放级别。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="63-符号化基础">6.3 符号化基础<a href="#63-符号化基础" class="hash-link" aria-label="6.3 符号化基础的直接链接" title="6.3 符号化基础的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="样式面板与数据地图" src="/geolibre-manual/assets/images/ch06-01-31a8fa7a32a9cdc5baedf002708ef611.png" width="1280" height="577" class="img_ev3q">
+<em>样式面板配合 Countries 示例数据渲染的地图效果</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="631-符号化概念">6.3.1 符号化概念<a href="#631-符号化概念" class="hash-link" aria-label="6.3.1 符号化概念的直接链接" title="6.3.1 符号化概念的直接链接" translate="no">​</a></h3>
+<p><strong>符号化</strong>（Symbology / Styling）是将数据属性映射为视觉外观的过程。GeoLibre 的符号化系统基于 MapLibre GL JS 的样式规范，同时扩展了高级渲染能力。[已核实] <a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="632-打开样式面板">6.3.2 打开样式面板<a href="#632-打开样式面板" class="hash-link" aria-label="6.3.2 打开样式面板的直接链接" title="6.3.2 打开样式面板的直接链接" translate="no">​</a></h3>
+<p>选中图层后，右侧面板自动切换为样式面板。也可以通过 View -&gt; Style Panel 手动打开。</p>
+<p>[已核实] <a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="633-样式属性">6.3.3 样式属性<a href="#633-样式属性" class="hash-link" aria-label="6.3.3 样式属性的直接链接" title="6.3.3 样式属性的直接链接" translate="no">​</a></h3>
+<p>不同几何类型有不同的样式属性：</p>
+<p><strong>点图层</strong>：</p>
+<ul>
+<li class="">圆点：颜色、半径、描边、透明度</li>
+<li class="">图标：图标图片、大小、旋转</li>
+<li class="">文本标签：字体、大小、颜色、偏移</li>
+</ul>
+<p><strong>线图层</strong>：</p>
+<ul>
+<li class="">线颜色、线宽、线型（实线/虚线）</li>
+<li class="">描边、透明度</li>
+</ul>
+<p><strong>面图层</strong>：</p>
+<ul>
+<li class="">填充颜色、填充透明度</li>
+<li class="">描边颜色、描边宽度</li>
+<li class="">描边线型</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="64-分类渲染器categorized">6.4 分类渲染器（Categorized）<a href="#64-分类渲染器categorized" class="hash-link" aria-label="6.4 分类渲染器（Categorized）的直接链接" title="6.4 分类渲染器（Categorized）的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="样式类型下拉" src="/geolibre-manual/assets/images/ch06-02-86bfcf13d31030179b1a0ed935cf9423.png" width="1280" height="577" class="img_ev3q">
+<em>渲染器类型下拉：单一符号、渐变分级、分类、规则、表达式等</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="641-什么是分类渲染">6.4.1 什么是分类渲染<a href="#641-什么是分类渲染" class="hash-link" aria-label="6.4.1 什么是分类渲染的直接链接" title="6.4.1 什么是分类渲染的直接链接" translate="no">​</a></h3>
+<p>分类渲染按字段的离散值将要素分组，每组分配不同颜色。[已核实] <a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a></p>
+<p><strong>适用场景</strong>：土地类型、行政区划、道路等级等分类数据。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="642-配置分类渲染">6.4.2 配置分类渲染<a href="#642-配置分类渲染" class="hash-link" aria-label="6.4.2 配置分类渲染的直接链接" title="6.4.2 配置分类渲染的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">选中矢量图层</li>
+<li class="">样式面板 -&gt; 渲染器类型选择 &quot;Categorized&quot;</li>
+<li class="">选择分类字段</li>
+<li class="">GeoLibre 自动提取唯一值列表</li>
+<li class="">为每个值分配颜色（自动分配或手动选择）</li>
+<li class="">点击 &quot;Apply&quot; 应用</li>
+</ol>
+<p>[已核实] <a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="643-颜色方案">6.4.3 颜色方案<a href="#643-颜色方案" class="hash-link" aria-label="6.4.3 颜色方案的直接链接" title="6.4.3 颜色方案的直接链接" translate="no">​</a></h3>
+<p>GeoLibre 内置多种颜色方案（Color Ramp）：</p>
+<ul>
+<li class="">定性方案（Qualitative）：适用于分类数据</li>
+<li class="">渐变色方案（Sequential）：适用于有序分类</li>
+<li class="">发散色方案（Diverging）：适用于有正负意义的数据</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="65-分级渲染器graduated">6.5 分级渲染器（Graduated）<a href="#65-分级渲染器graduated" class="hash-link" aria-label="6.5 分级渲染器（Graduated）的直接链接" title="6.5 分级渲染器（Graduated）的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="完整样式面板" src="/geolibre-manual/assets/images/ch06-03-86bfcf13d31030179b1a0ed935cf9423.png" width="1280" height="577" class="img_ev3q">
+<em>完整样式面板，包含填充、描边、图表符号等详细选项</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="651-什么是分级渲染">6.5.1 什么是分级渲染<a href="#651-什么是分级渲染" class="hash-link" aria-label="6.5.1 什么是分级渲染的直接链接" title="6.5.1 什么是分级渲染的直接链接" translate="no">​</a></h3>
+<p>分级渲染按数值字段的范围将要素分级，每级分配不同颜色或大小。[已核实] <a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a></p>
+<p><strong>适用场景</strong>：人口密度、温度分布、收入等级等连续数据。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="652-配置分级渲染">6.5.2 配置分级渲染<a href="#652-配置分级渲染" class="hash-link" aria-label="6.5.2 配置分级渲染的直接链接" title="6.5.2 配置分级渲染的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">选中矢量图层</li>
+<li class="">样式面板 -&gt; 渲染器类型选择 &quot;Graduated&quot;</li>
+<li class="">选择数值字段</li>
+<li class="">选择分级方法：
+<ul>
+<li class=""><strong>等间隔</strong>（Equal Interval）：每级范围相等</li>
+<li class=""><strong>等数量</strong>（Quantile）：每级要素数量相等</li>
+<li class=""><strong>自然断点</strong>（Natural Breaks/Jenks）：基于数据分布的断点</li>
+<li class=""><strong>标准差</strong>（Standard Deviation）：以均值为中心的分级</li>
+</ul>
+</li>
+<li class="">设置分级数量</li>
+<li class="">选择颜色方案</li>
+<li class="">点击 &quot;Apply&quot;</li>
+</ol>
+<p>[已核实] <a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="66-表达式渲染器expression">6.6 表达式渲染器（Expression）<a href="#66-表达式渲染  器expression" class="hash-link" aria-label="6.6 表达式渲染器（Expression）的直接链接" title="6.6 表达式渲染器（Expression）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="661-mapbox-gl-表达式">6.6.1 Mapbox GL 表达式<a href="#661-mapbox-gl-表达式" class="hash-link" aria-label="6.6.1 Mapbox GL 表达式的直接链接" title="6.6.1 Mapbox GL 表达式的直接链接" translate="no">​</a></h3>
+<p>GeoLibre 支持 Mapbox GL 表达式语法，可以实现基于数据属性的动态样式：[已核实] <a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a></p>
+<p><strong>基本语法</strong>：</p>
+<div class="language-json codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-json codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">[</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token string" style="color:#e3116c">&quot;interpolate&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">[</span><span class="token string" style="color:#e3116c">&quot;linear&quot;</span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token punctuation" style="color:#393A34">[</span><span class="token string" style="color:#e3116c">&quot;get&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;population&quot;</span><span class="token punctuation" style="color:#393A34">]</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token number" style="color:#36acaa">0</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;#f7fbff&quot;</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token number" style="color:#36acaa">1000000</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&quot;#08306b&quot;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">]</span><br></div></code></pre></div></div>
+<p><strong>支持的表达式类型</strong>：</p>
+<ul>
+<li class=""><code>get</code>：获取属性值</li>
+<li class=""><code>has</code>：检查属性存在</li>
+<li class=""><code>match</code>：条件匹配</li>
+<li class=""><code>interpolate</code>：插值</li>
+<li class=""><code>step</code>：阶梯函数</li>
+<li class="">数学运算：+、-、*、/、%、^、abs、round、floor、ceil</li>
+</ul>
+<p>[已核实] Mapbox GL JS 表达式规范。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="662-表达式构建器v22">6.6.2 表达式构建器（v2.2+）<a href="#662-表达式构建器v22" class="hash-link" aria-label="6.6.2 表达式构建器（v2.2+）的直接链接" title="6.6.2 表达式构建器（v2.2+）的直接链接" translate="no">​</a></h3>
+<p>GeoLibre v2.2 引入了可视化的 Expression Builder，降低了表达式编写门槛：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<ul>
+<li class="">图形化拖拽构建表达式</li>
+<li class="">字段列表自动提示</li>
+<li class="">实时预览结果</li>
+<li class="">应用于：筛选器、标签、样式、选择</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="67-热力图与聚类">6.7 热力图与聚类<a href="#67-热力图与聚类" class="hash-link" aria-label="6.7 热力图与聚类的直接链接" title="6.7 热力图与聚类的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="671-热力图">6.7.1 热力图<a href="#671-热力图" class="hash-link" aria-label="6.7.1 热力图的直接链接" title="6.7.1 热力图的直接链接" translate="no">​</a></h3>
+<p>热力图用于可视化点密度，颜色从冷色（低密度）到暖色（高密度）渐变。[已核实] <a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a></p>
+<p><strong>配置参数</strong>：</p>
+<ul>
+<li class="">半径：影响热力图的扩散范围</li>
+<li class="">强度：密度权重</li>
+<li class="">颜色渐变：自定义或预设方案</li>
+<li class="">透明度</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="672-聚类">6.7.2 聚类<a href="#672-聚类" class="hash-link" aria-label="6.7.2 聚类的直接链接" title="6.7.2 聚类的直接链接" translate="no">​</a></h3>
+<p>点聚类将相邻的点合并为一个聚合点，显示聚合数量。[已核实] <a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a></p>
+<p><strong>配置参数</strong>：</p>
+<ul>
+<li class="">聚类半径：多少像素范围内的点合并</li>
+<li class="">最大缩放级别：超过此级别停止聚类</li>
+<li class="">聚合点样式：按数量分级的大小/颜色</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="68-规则渲染器rule-basedv22">6.8 规则渲染器（Rule-based，v2.2+）<a href="#68-规则渲染器rule-basedv22" class="hash-link" aria-label="6.8 规则渲染器（Rule-based，v2.2+）的直接链接" title="6.8 规则渲染器（Rule-based，v2.2+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="681-规则渲染概述">6.8.1 规则渲染概述<a href="#681-规则渲染概述" class="hash-link" aria-label="6.8.1 规则渲染概述的直接链接" title="6.8.1 规则渲染概述的直接链接" translate="no">​</a></h3>
+<p>规则渲染允许为图层定义多个渲染规则，每个规则包含一个条件表达式和对应的符号设置。[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li class="">多条规则按顺序匹配</li>
+<li class="">支持嵌套规则（子规则）</li>
+<li class="">支持比例尺依赖的可见性</li>
+<li class="">每条规则有独立的符号属性</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="682-应用场景">6.8.2 应用场景<a href="#682-应用场景" class="hash-link" aria-label="6.8.2 应用场景的直接链接" title="6.8.2 应用场景的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">同一图层中按不同条件显示不同样式（如：主干道用粗线、次干道用细线）</li>
+<li class="">比例尺依赖的简化显示（放大后才显示细节）</li>
+<li class="">复杂的多条件分类</li>
+</ul>
+<p>[推断] 规则渲染的具体行为基于 QGIS 的规则渲染器和官网 v2.2 描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="69-符号交换">6.9 符号交换<a href="#69-符号交换" class="hash-link" aria-label="6.9 符号交换的直接链接" title="6.9 符号交换的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="691-支持的交换格式">6.9.1 支持的交换格式<a href="#691-支持的交换格式" class="hash-link" aria-label="6.9.1 支持的交换格式的直接链接" title="6.9.1 支持的交换格式的直接链接" translate="no">​</a></h3>
+<p>GeoLibre v2.0+ 支持三种符号交换格式：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.0 更新）</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>格式</th><th>说明</th><th>支持</th></tr></thead><tbody><tr><td>OGC SLD</td><td>OGC 样式图层描述符标准</td><td>导入/导出</td></tr><tr><td>QGIS QML</td><td>QGIS 样式文件</td><td>导入/导出</td></tr><tr><td>Mapbox GL Style JSON</td><td>MapLibre/Mapbox 样式规范</td><td>导入/导出</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="692-导入符号">6.9.2 导入符号<a href="#692-导入符号" class="hash-link" aria-label="6.9.2 导入符号的直接链接" title="6.9.2 导入符号的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">选中图层</li>
+<li class="">样式面板 -&gt; &quot;Import Style&quot;</li>
+<li class="">选择样式文件（.sld / .qml / .json）</li>
+<li class="">映射字段（如需要）</li>
+<li class="">应用</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="693-导出符号">6.9.3 导出符号<a href="#693-导出符号" class="hash-link" aria-label="6.9.3 导出符号的直接链接" title="6.9.3 导出符号的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">选中图层</li>
+<li class="">样式面板 -&gt; &quot;Export Style&quot;</li>
+<li class="">选择目标格式</li>
+<li class="">保存文件</li>
+</ol>
+<p>[推断] 导入/导出流程基 于通用 GIS 应用行为和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="610-样式管理器预设库v22">6.10 样式管理器预设库（v2.2+）<a href="#610-样式管理器预设库v22" class="hash-link" aria-label="6.10 样式管理器预设库（v2.2+）的直接链接" title="6.10 样式管理器预设库（v2.2+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6101-预设库">6.10.1 预设库<a href="#6101-预设库" class="hash-link" aria-label="6.10.1 预设库的直接链接" title="6.10.1 预设库的直接链接" translate="no">​</a></h3>
+<p>GeoLibre v2.2 引入了 Style Manager，提供预设符号库：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<p><strong>功能</strong>：</p>
+<ul>
+<li class="">浏览内置预设样式</li>
+<li class="">保存自定义样式到预设库</li>
+<li class="">按类别浏览（基础、交通、自然、行政区划等）</li>
+<li class="">快速应用到图层</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6102-符号包v22">6.10.2 符号包（v2.2+）<a href="#6102-符号包v22" class="hash-link" aria-label="6.10.2 符号包（v2.2+）的直接链接" title="6.10.2 符号包（v2.2+）的直接链接" translate="no">​</a></h3>
+<p>v2.2 还引入了符号包（Symbology Pack），包含：</p>
+<ul>
+<li class="">倒多边形遮罩（Inverted polygon masks）</li>
+<li class="">箭头和标记线（Arrow and marker lines）</li>
+<li class="">几何生成器（Geometry generators）</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="611-图层间样式复制v23">6.11 图层间样式复制（v2.3+）<a href="#611-图层间样式复制v23" class="hash-link" aria-label="6.11 图层间  样式复制（v2.3+）的直接链接" title="6.11 图层间样式复制（v2.3+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6111-复制样式">6.11.1 复制样式<a href="#6111-复制样式" class="hash-link" aria-label="6.11.1 复制样式的直接链接" title="6.11.1 复制样式的直接链接" translate="no">​</a></h3>
+<p>v2.3 支持在图层间复制和粘贴样式：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.3 更新）</p>
+<p><strong>操作</strong>：</p>
+<ol>
+<li class="">右键源图层 -&gt; &quot;Copy Style&quot;</li>
+<li class="">右键目标图层 -&gt; &quot;Paste Style&quot;</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6112-适用条件">6.11.2 适用条件<a href="#6112-适用条件" class="hash-link" aria-label="6.11.2 适用条件的直接链接" title="6.11.2 适用条件的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">源图层和目标图层几何类型相同（点-点、线-线、面-面）</li>
+<li class="">字段名称需匹配（分类/分级渲染时）</li>
+<li class="">栅格图层样式只能在栅格图层间复制</li>
+</ul>
+<p>[推断] 复制样式的限制条件基于通用 GIS 应用行为推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="612-本章小结">6.12 本章小结<a href="#612-本章小结" class="hash-link" aria-label="6.12 本章小结的直接链接" title="6.12 本章小结的直接链接" translate="no">​</a></h2>
+<p>GeoLibre 的符号化系统从简单到复杂提供了完整的能力梯度：</p>
+<ol>
+<li class=""><strong>简单样式</strong>：统一颜色/线宽，适合快速查看</li>
+<li class=""><strong>分类渲染</strong>：按离散值分组着色</li>
+<li class=""><strong>分级渲染</strong>：按数值范围分级着色</li>
+<li class=""><strong>表达式渲染</strong>：基于 Mapbox GL 表达式的动态样式</li>
+<li class=""><strong>规则渲染</strong>（v2.2+）：多条件、比例尺依赖的复合渲染</li>
+<li class=""><strong>热力图/聚类</strong>：点密度可视化</li>
+<li class=""><strong>符号交换</strong>：与 QGIS、OGC 标准互操作</li>
+<li class=""><strong>预设库</strong>：快速复用和标准化样式</li>
+</ol>
+<p>这套符号化系统既满足基础用户的简单需求，也支持高级用户的复杂场景。</p>
+<hr>
+<p><strong>本章信息源</strong></p>
+<ul>
+<li class="">[1] GeoLibre 图层面板：<a href="https://geolibre.app/user-guide/layers/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/layers/</a> [检索日期 2026-09-04]</li>
+<li class="">[2] GeoLibre 样式面板：<a href="https://geolibre.app/user-guide/styling/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/styling/</a> [检索日期 2026-09-04]</li>
+<li class="">[3] GeoLibre Roadmap：<a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> [检索日期 2026-09-04]</li>
+<li class="">[4] Mapbox GL JS 表达式规范：<a href="https://docs.mapbox.com/style-spec/reference/expressions/" target="_blank" rel="noopener noreferrer" class="">https://docs.mapbox.com/style-spec/reference/expressions/</a> [检索日期 2026-09-04]</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>手册维护</b> <!-- -->于 <b><time datetime="2026-09-04T00:00:00.000Z" itemprop="dateModified">2026年9月4日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/geolibre-manual/ch05-adding-data"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">第 5 章：添加数据</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/geolibre-manual/ch07-attribute-table"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">第 7 章：属性表与数据编辑</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#61-图层面板操作" class="table-of-contents__link toc-highlight">6.1 图层面板操作</a><ul><li><a href="#611-图层列表" class="table-of-contents__link toc-highlight">6.1.1 图层列表</a></li><li><a href="#612-显示与隐藏" class="table-of-contents__link toc-highlight">6.1.2 显示与隐藏</a></li><li><a href="#613-排序" class="table-of-contents__link toc-highlight">6.1.3 排序</a></li><li><a href="#614-分组" class="table-of-contents__link toc-highlight">6.1.4 分组</a></li><li><a href="#615-删除图层" class="table-of-contents__link toc-highlight">6.1.5 删除图层</a></li></ul></li><li><a href="#62-图层属性查看" class="table-of-contents__link toc-highlight">6.2 图层属性查看</a><ul><li><a href="#621-图层信息" class="table-of-contents__link toc-highlight">6.2.1 图层信息</a></li><li><a href="#622-缩放到图层" class="table-of-contents__link toc-highlight">6.2.2 缩放到图层</a></li></ul></li><li><a href="#63-符号化基础" class="table-of-contents__link toc-highlight">6.3 符号化基础</a><ul><li><a href="#631-符号化概念" class="table-of-contents__link toc-highlight">6.3.1 符号化概念</a></li><li><a href="#632-打开样式面板" class="table-of-contents__link toc-highlight">6.3.2 打开样式面板</a></li><li><a href="#633-样式属性" class="table-of-contents__link toc-highlight">6.3.3 样式属性</a></li></ul></li><li><a href="#64-分类渲染器categorized" class="table-of-contents__link toc-highlight">6.4 分类渲染器（Categorized）</a><ul><li><a href="#641-什么是分类渲染" class="table-of-contents__link toc-highlight">6.4.1 什么是分类渲染</a></li><li><a href="#642-配置分类渲染" class="table-of-contents__link toc-highlight">6.4.2 配置分类渲染</a></li><li><a href="#643-颜色方案" class="table-of-contents__link toc-highlight">6.4.3 颜色方案</a></li></ul></li><li><a href="#65-分级渲染器graduated" class="table-of-contents__link toc-highlight">6.5 分级渲染器（Graduated）</a><ul><li><a href="#651-什么是分级渲染" class="table-of-contents__link toc-highlight">6.5.1 什么是分级渲染</a></li><li><a href="#652-配置分级渲染" class="table-of-contents__link toc-highlight">6.5.2 配置分级渲染</a></li></ul></li><li><a href="#66-表达式渲染器expression" class="table-of-contents__link toc-highlight">6.6 表达式渲染器（Expression）</a><ul><li><a href="#661-mapbox-gl-表达式" class="table-of-contents__link toc-highlight">6.6.1 Mapbox GL 表达式</a></li><li><a href="#662-表达式构建器v22" class="table-of-contents__link toc-highlight">6.6.2 表达式构建器（v2.2+）</a></li></ul></li><li><a href="#67-热力图与聚类" class="table-of-contents__link toc-highlight">6.7 热力图与聚类</a><ul><li><a href="#671-热力图" class="table-of-contents__link toc-highlight">6.7.1 热力图</a></li><li><a href="#672-聚类" class="table-of-contents__link toc-highlight">6.7.2 聚类</a></li></ul></li><li><a href="#68-规则渲染器rule-basedv22" class="table-of-contents__link toc-highlight">6.8 规则渲染器（Rule-based，v2.2+）</a><ul><li><a href="#681-规则渲染概述" class="table-of-contents__link toc-highlight">6.8.1 规则渲染概述</a></li><li><a href="#682-应用场景" class="table-of-contents__link toc-highlight">6.8.2 应用场景</a></li></ul></li><li><a href="#69-符号交换" class="table-of-contents__link toc-highlight">6.9 符号交换</a><ul><li><a href="#691-支持的交换格式" class="table-of-contents__link toc-highlight">6.9.1 支持的交换格式</a></li><li><a href="#692-导入符号" class="table-of-contents__link toc-highlight">6.9.2 导入符号</a></li><li><a href="#693-导出符号" class="table-of-contents__link toc-highlight">6.9.3 导出符号</a></li></ul></li><li><a href="#610-样式管理器预设库v22" class="table-of-contents__link toc-highlight">6.10 样式管理器预设库（v2.2+）</a><ul><li><a href="#6101-预设库" class="table-of-contents__link toc-highlight">6.10.1 预设库</a></li><li><a href="#6102-符号包v22" class="table-of-contents__link toc-highlight">6.10.2 符号包（v2.2+）</a></li></ul></li><li><a href="#611-图层间样式复制v23" class="table-of-contents__link toc-highlight">6.11 图层间样式复制（v2.3+）</a><ul><li><a href="#6111-复制样式" class="table-of-contents__link toc-highlight">6.11.1 复制样式</a></li><li><a href="#6112-适用条件" class="table-of-contents__link toc-highlight">6.11.2 适用条件</a></li></ul></li><li><a href="#612-本章小结" class="table-of-contents__link toc-highlight">6.12 本章小结</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">文档</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch01-overview">GeoLibre 概述</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch02-installation">安装与部署</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/appendix/glossary">术语表</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">社区</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://geolibre.app" target="_blank" rel="noopener noreferrer" class="footer__link-item">GeoLibre 官方<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://geolibre.app/comparison/" target="_blank" rel="noopener noreferrer" class="footer__link-item">平台对比（含 QGIS）<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">更多</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/wangdwn" target="_blank" rel="noopener noreferrer" class="footer__link-item">作者 GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/wangdwn/geolibre-manual/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">报告问题<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 GeoLibre 手册项目。基于 MIT 协议发布。</div></div></div></footer></div>
+</body>
+</html>

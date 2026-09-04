@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ch07-attribute-table" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">第 7 章：属性表与数据编辑 | GeoLibre 使用手册</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" property="og:url" content="https://wangdwn.github.io/geolibre-manual/ch07-attribute-table"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="第 7 章：属性表与数据编辑 | GeoLibre 使用手册"><meta data-rh="true" name="description" content="[事实与研判分离说明]"><meta data-rh="true" property="og:description" content="[事实与研判分离说明]"><link data-rh="true" rel="icon" href="/geolibre-manual/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://wangdwn.github.io/geolibre-manual/ch07-attribute-table"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch07-attribute-table" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch07-attribute-table" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"第 7 章：属性表与数据编辑","item":"https://wangdwn.github.io/geolibre-manual/ch07-attribute-table"}]}</script><link rel="stylesheet" href="/geolibre-manual/assets/css/styles.0354a724.css">
+<script src="/geolibre-manual/assets/js/runtime~main.36c008b1.js" defer="defer"></script>
+<script src="/geolibre-manual/assets/js/main.d37c321e.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/geolibre-manual/"><div class="navbar__logo"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">GeoLibre 手册</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/geolibre-manual/">文档</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GeoLibre<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/wangdwn/geolibre-manual" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/geolibre-manual/"><span class="linkLabel_WmDU">GeoLibre 使用手册</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/geolibre-manual/ch01-overview"><span class="categoryLinkLabel_W154">入门</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch01-overview"><span class="linkLabel_WmDU">第 1 章：GeoLibre 概述</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch02-installation"><span class="linkLabel_WmDU">第 2 章：安装与部署</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch03-interface"><span class="linkLabel_WmDU">第 3 章：界面与基本操作</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/geolibre-manual/ch04-projects"><span class="categoryLinkLabel_W154">数据</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch04-projects"><span class="linkLabel_WmDU">第 4 章：项目与数据管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch05-adding-data"><span class="linkLabel_WmDU">第 5 章：添加数据</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch06-layers-styling"><span class="linkLabel_WmDU">第 6 章：图层管理与符号化</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/geolibre-manual/ch07-attribute-table"><span class="linkLabel_WmDU">第 7 章：属性表与数据编辑</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/ch08-map-controls"><span class="categoryLinkLabel_W154">分析</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/ch12-plugins"><span class="categoryLinkLabel_W154">扩展</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/appendix/glossary"><span class="categoryLinkLabel_W154">附录</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/geolibre-manual/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">数据</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">第 7 章：属性表与数据编辑</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>第 7 章：属性表与数据编辑</h1></header>
+<blockquote>
+<p>[事实与研判分离说明]
+本章信息源：GeoLibre 官方用户指南属性表（<a href="https://geolibre.app/user-guide/attribute-table/%EF%BC%89%E3%80%81Roadmap" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/attribute-table/）、Roadmap</a>
+标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+手册内容最后更新：2026-09-04</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="71-属性表面板">7.1 属性表面板<a href="#71-属性表面板" class="hash-link" aria-label="7.1 属性表面板的直接链接" title="7.1 属性表面板的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="图层操作右键菜单" src="/geolibre-manual/assets/images/ch07-01-3d514d8acf40679e8855443ea9fec10a.png" width="1280" height="577" class="img_ev3q">
+<em>图层操作右键菜单，包含 Open Attribute Table 等选项</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="711-打开属性表">7.1.1 打开属性表<a href="#711-打开属性表" class="hash-link" aria-label="7.1.1 打开属性表的直接链接" title="7.1.1 打开属性表的直接链接" translate="no">​</a></h3>
+<p>属性表面板是查看和编辑图层属性数据的核心界面。[已核实] <a href="https://geolibre.app/user-guide/attribute-table/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/attribute-table/</a></p>
+<p><strong>打开方式</strong>：</p>
+<ul>
+<li class="">选中图层 -&gt; 右键 -&gt; &quot;Open Attribute Table&quot;</li>
+<li class="">图层面板中点击属性表图标</li>
+<li class="">快捷键（如有配置）</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="712-面板布局">7.1.2 面板布局<a href="#712-面板布局" class="hash-link" aria-label="7.1.2 面板布局的直接链接" title="7.1.2 面板布局的直接链接" translate="no">​</a></h3>
+<p>属性表面板包含：</p>
+<ul>
+<li class=""><strong>数据表格</strong>：分页显示要素属性，可横向滚动查看所有字段</li>
+<li class=""><strong>工具栏</strong>：筛选、排序、选择、计算、导出等操作按钮</li>
+<li class=""><strong>状态栏</strong>：记录数、筛选状态、选择状态</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/user-guide/attribute-table/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/attribute-table/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="713-表格交互">7.1.3 表格交互<a href="#713-表格交互" class="hash-link" aria-label="7.1.3 表格交互的直接链接" title="7.1.3 表格交互的直接链接" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>点击行</strong>：选中对应要素，地图同步高亮</li>
+<li class=""><strong>Shift/Ctrl 多选</strong>：批量选择</li>
+<li class=""><strong>双击单元格</strong>：进入编辑模式（可编辑时）</li>
+<li class=""><strong>右键菜单</strong>：复制、粘贴、删除记录</li>
+</ul>
+<p>[推断] 表格交互行为基于通用数据表格 UI 和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="72-字段计算器">7.2 字段计算器<a href="#72-字段计算器" class="hash-link" aria-label="7.2 字段计算器的直接链接" title="7.2 字段计算器的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="属性表视图" src="/geolibre-manual/assets/images/ch07-02-887f3405014b532c31cd3f3436026be3.png" width="1280" height="577" class="img_ev3q">
+<em>属性表面板，显示要素属性数据与工具栏</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="721-打开字段计算器">7.2.1 打开字段计算器<a href="#721-打开字段计算器" class="hash-link" aria-label="7.2.1 打开字段计算器的直接链接" title="7.2.1 打开字段计算器的直接链接" translate="no">​</a></h3>
+<p>属性表面板工具栏中点击 &quot;Field Calculator&quot; 按钮。[已核实] <a href="https://geolibre.app/user-guide/attribute-table/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/attribute-table/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="722-计算模式">7.2.2 计算模式<a href="#722-计算模式" class="hash-link" aria-label="7.2.2 计算模式的直接链接" title="7.2.2 计算模式的直接链接" translate="no">​</a></h3>
+<p>字段计算器支持两种模式：</p>
+<p><strong>创建新字段</strong>：</p>
+<ul>
+<li class="">输入新字段名称</li>
+<li class="">选择字段类型（字符串、整数、浮点数、布尔值）</li>
+<li class="">输入表达式</li>
+<li class="">点击 &quot;OK&quot; 创建并填充</li>
+</ul>
+<p><strong>更新现有字段</strong>：</p>
+<ul>
+<li class="">选择已有字段</li>
+<li class="">输入表达式</li>
+<li class="">点击 &quot;OK&quot; 更新所有记录</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/user-guide/attribute-table/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/attribute-table/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="723-表达式语法">7.2.3 表达式语法<a href="#723-表达式语法" class="hash-link" aria-label="7.2.3 表达式语法的直接链接" title="7.2.3 表达式语法的直接链接" translate="no">​</a></h3>
+<p>字段计算器支持以下表达式元素：[推断] 基于通用字段计算器和 GeoLibre 的技  术栈推断</p>
+<ul>
+<li class="">字段引用：<code>&quot;field_name&quot;</code></li>
+<li class="">数学运算：<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code>, <code>^</code></li>
+<li class="">字符串函数：<code>concat()</code>, <code>substr()</code>, <code>upper()</code>, <code>lower()</code></li>
+<li class="">数学函数：<code>abs()</code>, <code>round()</code>, <code>floor()</code>, <code>ceil()</code>, <code>sqrt()</code>, <code>log()</code>, <code>sin()</code>, <code>cos()</code></li>
+<li class="">条件表达式：<code>CASE WHEN ... THEN ... ELSE ... END</code></li>
+<li class="">几何函数：<code>$area</code>, <code>$length</code>, <code>$x</code>, <code>$y</code>, <code>$perimeter</code></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="73-图表与统计">7.3 图表与统计<a href="#73-图表与统计" class="hash-link" aria-label="7.3 图表与统计的直接链接" title="7.3 图表与统计的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="731-统计面板">7.3.1 统计面板<a href="#731-统计面板" class="hash-link" aria-label="7.3.1 统计面板的直接链接" title="7.3.1 统计面板的直接链接" translate="no">​</a></h3>
+<p>属性表面板提供字段级别的统计信息：[已核实] <a href="https://geolibre.app/user-guide/attribute-table/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/attribute-table/</a></p>
+<p><strong>数值字段统计</strong>：</p>
+<ul>
+<li class="">计数（Count）</li>
+<li class="">总和（Sum）</li>
+<li class="">平均值（Mean）</li>
+<li class="">最小值（Min）</li>
+<li class="">最大值（Max）</li>
+<li class="">标准差（Std Dev）</li>
+</ul>
+<p><strong>分类字段统计</strong>：</p>
+<ul>
+<li class="">唯一值计数</li>
+<li class="">频数分布</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="732-图表">7.3.2 图表<a href="#732-图表" class="hash-link" aria-label="7.3.2  图表的直接链接" title="7.3.2 图表的直接链接" translate="no">​</a></h3>
+<p>属性表面板可生成以下图表：[已核实] <a href="https://geolibre.app/user-guide/attribute-table/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/attribute-table/</a></p>
+<ul>
+<li class=""><strong>柱状图</strong>（Bar Chart）：分类字段的频数分布</li>
+<li class=""><strong>直方图</strong>（Histogram）：数值字段的分布</li>
+<li class=""><strong>饼图</strong>（Pie Chart）：分类字段的比例</li>
+</ul>
+<p>图表支持导出为图片。</p>
+<p>[推断] 图表类型基于官网&quot;charts&quot;提及和通用 GIS 应用推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="74-数据导出">7.4 数据导出<a href="#74-数据导出" class="hash-link" aria-label="7.4 数据导出的直接链接" title="7.4 数据导出的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="741-导出选项">7.4.1 导出选项<a href="#741-导出选项" class="hash-link" aria-label="7.4.1 导出选项的直接链接" title="7.4.1 导出选项的直接链接" translate="no">​</a></h3>
+<p>属性表面板支持将数据导出为多种格式：[已核实] <a href="https://geolibre.app/user-guide/attribute-table/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/attribute-table/</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>格式</th><th>扩展名</th><th>说明</th></tr></thead><tbody><tr><td>GeoJSON</td><td>.geojson</td><td>包含几何和属性</td></tr><tr><td>GeoParquet</td><td>.parquet</td><td>云优化列式存储</td></tr><tr><td>Shapefile</td><td>.shp</td><td>Esri 标准格式</td></tr><tr><td>GeoPackage</td><td>.gpkg</td><td>OGC SQLite 格式</td></tr><tr><td>CSV</td><td>.csv</td><td>纯属性数据，不含几何</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="742-导出设置">7.4.2 导出设置<a href="#742-导出设置" class="hash-link" aria-label="7.4.2 导出设置的直接链接" title="7.4.2 导出设置的直接链接" translate="no">​</a></h3>
+<p>导出时可配置：</p>
+<ul>
+<li class=""><strong>坐标参考系统</strong>：选择输出 CRS</li>
+<li class=""><strong>字段选择</strong>：全部字段或仅选定字段</li>
+<li class=""><strong>记录筛选</strong>：全部记录或仅选定记录</li>
+<li class=""><strong>编码</strong>：UTF-8 等</li>
+</ul>
+<p>[推断] 导出设置基于通用 GIS 导出行为和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="75-虚拟字段v22">7.5 虚拟字段（v2.2+）<a href="#75-虚拟字段v22" class="hash-link" aria-label="7.5 虚拟字段（v2.2+）的直接链接" title="7.5 虚拟字段（v2.2+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="751-什么是虚拟字段">7.5.1 什么是虚拟字段<a href="#751-什么是虚拟字段" class="hash-link" aria-label="7.5.1 什么是虚拟字段的直接链接" title="7.5.1 什么是虚拟字段的直接链接" translate="no">​</a></h3>
+<p>虚拟字段（Virtual Fields）是 v2.2 引入的功能，其值由表达式动态计算，不存储在数据源中。[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li class="">值随源字段变化自动更新</li>
+<li class="">不修改原始数据文件</li>
+<li class="">仅在 GeoLibre 项目上下文中存在</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="752-创建虚拟字段">7.5.2 创建虚拟字段<a href="#752-创建虚拟字段" class="hash-link" aria-label="7.5.2 创建虚拟字段的直接链接" title="7.5.2 创建虚拟字段的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">打开属性表</li>
+<li class="">字段计算器 -&gt; &quot;Virtual Field&quot; 模式</li>
+<li class="">输入字段名称和表达式</li>
+<li class="">字段类型自动推断或手动指定</li>
+</ol>
+<p>[推断] 虚拟字段的创建流程基于 QGIS 虚拟字段行为和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="76-持久化属性连接v22">7.6 持久化属性连接（v2.2+）<a href="#76-持久化属性连接v22" class="hash-link" aria-label="7.6 持久化属性连接（v2.2+）的直接链接" title="7.6 持久化属性连接（v2.2+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="761-属性连接概述">7.6.1 属性连接概述<a href="#761-属性连接概述" class="hash-link" aria-label="7.6.1 属性连接概述的直接链接" title="7.6.1 属性连接概述的直接链接" translate="no">​</a></h3>
+<p>属性连接（Attribute Join）将外部表的字段按匹配键合并到当前图层。[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<p><strong>应用场景</strong>：</p>
+<ul>
+<li class="">将人口统计表按行政区划代码连接到边界图层</li>
+<li class="">将传感器读数按站点 ID 连接到站点位置图层</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="762-配置连接">7.6.2 配置连接<a href="#762-配置连接" class="hash-link" aria-label="7.6.2 配置连接的直接链接" title="7.6.2 配置连接的直接链接" translate="no">​</a></h3>
+<ol>
+<li class="">选中目标图层</li>
+<li class="">右键 -&gt; &quot;Joins&quot; 或属性表 -&gt; &quot;Joins&quot; 标签</li>
+<li class="">选择连接图层/表</li>
+<li class="">设置目标字段和连接字段</li>
+<li class="">选择要添加的连接字段</li>
+<li class="">设置连接类型（一对一、一对多）</li>
+</ol>
+<p>[推断] 连接配置流程基于通用 GIS 连接行为和官网描述推断。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="763-连接持久化">7.6.3 连接持久化<a href="#763-连接持久化" class="hash-link" aria-label="7.6.3 连接持久化的直接链接" title="7.6.3 连接持久化的直接链接" translate="no">​</a></h3>
+<p>v2.2+ 的连接配置随项目保存，重新打开项目时自动重建连接。[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="77-属性表单设计器v22">7.7 属性表单设计器（v2.2+）<a href="#77-属性表单设计器v22" class="hash-link" aria-label="7.7 属性表单设计器（v2.2+）的直接链接" title="7.7 属性表单设计器（v2.2+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="771-表单设计器">7.7.1 表单设计器<a href="#771-表单设计器" class="hash-link" aria-label="7.7.1 表单设计器的直接链接" title="7.7.1 表单设计器的直接链接" translate="no">​</a></h3>
+<p>v2.2 引入的属性表单设计器允许自定义数据录入界面：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<p><strong>功能</strong>：</p>
+<ul>
+<li class="">拖拽字段到表单布局</li>
+<li class="">设置字段标签和提示文本</li>
+<li class="">配置字段控件类型（文本框、下拉列表、日期选择器等）</li>
+<li class="">设置字段验证规则</li>
+<li class="">分组和标签页</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="772-应用场景">7.7.2 应用场景<a href="#772-应用场景" class="hash-link" aria-label="7.7.2 应用场景的直接链接" title="7.7.2 应用场景的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">野外采集：为 Field Collection 工具设计标准化的数据录入表单</li>
+<li class="">数据质量：通过验证规则减少录入错误</li>
+<li class="">用户体验：简化复杂表单的录入流程</li>
+</ul>
+<p>[推断] 表单设计器的具体功能基于通用表单设计器和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="78-栅格属性表v22">7.8 栅格属性表（v2.2+）<a href="#78-栅格属性表v22" class="hash-link" aria-label="7.8 栅格属性表（v2.2+）的直接链接" title="7.8 栅格属性表（v2.2+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="781-栅格属性表概述">7.8.1 栅格属性表概述<a href="#781-栅格属性表概述" class="hash-link" aria-label="7.8.1 栅格属性表概述的直接链接" title="7.8.1 栅格属性表概述的直接链接" translate="no">​</a></h3>
+<p>v2.2 引入的 Raster Attribute Table（RAT）功能允许栅格图层也有属性表：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li class="">分类栅格（如土地利用分类），每个像元值对应一个类别名称和属性</li>
+<li class="">DEM 栅格的分级高程带</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="782-rat-结构">7.8.2 RAT 结构<a href="#782-rat-结构" class="hash-link" aria-label="7.8.2 RAT 结构的直接链接" title="7.8.2 RAT 结构的直接链接" translate="no">​</a></h3>
+<p>栅格属性表通常包含：</p>
+<ul>
+<li class="">Value：像元值</li>
+<li class="">Count：该值的像元数量</li>
+<li class="">类别名称、颜色、描述等自定义字段</li>
+</ul>
+<p>[推断] RAT 结构基于 GDAL 的 Raster Attribute Table 规范和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="79-数据质量工具v22">7.9 数据质量工具（v2.2+）<a href="#79-数据质量工具v22" class="hash-link" aria-label="7.9 数据质量工具（v2.2+）的直接链接" title="7.9 数据质量工具（v2.2+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="791-数据质量  检查">7.9.1 数据质量检查<a href="#791-数据质量检查" class="hash-link" aria-label="7.9.1 数据质量检查的直接链接" title="7.9.1 数据质量检查的直接链接" translate="no">​</a></h3>
+<p>v2.2 引入的数据质量工具帮助发现和修复数据问题：[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<p><strong>检查类型</strong>：</p>
+<ul>
+<li class=""><strong>检查有效性</strong>（Check Validity）：检测无效几何（如自相交多边形）</li>
+<li class=""><strong>修复几何</strong>（Fix Geometries）：自动修复常见问题</li>
+<li class=""><strong>检查拓扑</strong>（Check Topology）：检测拓扑错误（如重叠面、缝隙）</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="792-修复操作">7.9.2 修复操作<a href="#792-修复操作" class="hash-link" aria-label="7.9.2 修复操作的直接链接" title="7.9.2 修复操作的直接链接" translate="no">​</a></h3>
+<p>修复工具提供以下操作：[推断] 基于通用 GIS 数据质量工具和官网描述推断</p>
+<ul>
+<li class="">删除重复节点</li>
+<li class="">闭合未闭合环</li>
+<li class="">修复自相交</li>
+<li class="">多边形化</li>
+<li class="">简化复杂几何</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="710-本章小结">7.10 本章小结<a href="#710-本章小结" class="hash-link" aria-label="7.10 本章小结的直接链接" title="7.10 本章小结的直接链接" translate="no">​</a></h2>
+<p>GeoLibre 的属性表与数据编辑功能覆盖数据管理的完整生命周期：</p>
+<ol>
+<li class=""><strong>查看</strong>：分页表格、字段统计、图表</li>
+<li class=""><strong>编辑</strong>：单元格编辑、字段计算器</li>
+<li class=""><strong>增强</strong>：虚拟字段、属性连接、表单设计</li>
+<li class=""><strong>导出</strong>：GeoJSON、GeoParquet、Shapefile、GeoPackage、CSV</li>
+<li class=""><strong>质量控制</strong>：几何检查、拓扑检查、自动修复</li>
+</ol>
+<p>这些功能使 GeoLibre 不仅是可视化工具，也是完整的数据管理工作站。</p>
+<hr>
+<p><strong>本章信息源</strong></p>
+<ul>
+<li class="">[1] GeoLibre 属性表文档：<a href="https://geolibre.app/user-guide/attribute-table/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/attribute-table/</a> [检索日期 2026-09-04]</li>
+<li class="">[2] GeoLibre Roadmap：<a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> [检索日期 2026-09-04]</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>手册维护</b> <!-- -->于 <b><time datetime="2026-09-04T00:00:00.000Z" itemprop="dateModified">2026年9月4日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/geolibre-manual/ch06-layers-styling"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">第 6 章：图层管理与符号化</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/geolibre-manual/ch08-map-controls"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">第 8 章：地图控制与工具</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#71-属性表面板" class="table-of-contents__link toc-highlight">7.1 属性表面板</a><ul><li><a href="#711-打开属性表" class="table-of-contents__link toc-highlight">7.1.1 打开属性表</a></li><li><a href="#712-面板布局" class="table-of-contents__link toc-highlight">7.1.2 面板布局</a></li><li><a href="#713-表格交互" class="table-of-contents__link toc-highlight">7.1.3 表格交互</a></li></ul></li><li><a href="#72-字段计算器" class="table-of-contents__link toc-highlight">7.2 字段计算器</a><ul><li><a href="#721-打开字段计算器" class="table-of-contents__link toc-highlight">7.2.1 打开字段计算器</a></li><li><a href="#722-计算模式" class="table-of-contents__link toc-highlight">7.2.2 计算模式</a></li><li><a href="#723-表达式语法" class="table-of-contents__link toc-highlight">7.2.3 表达式语法</a></li></ul></li><li><a href="#73-图表与统计" class="table-of-contents__link toc-highlight">7.3 图表与统计</a><ul><li><a href="#731-统计面板" class="table-of-contents__link toc-highlight">7.3.1 统计面板</a></li><li><a href="#732-图表" class="table-of-contents__link toc-highlight">7.3.2 图表</a></li></ul></li><li><a href="#74-数据导出" class="table-of-contents__link toc-highlight">7.4 数据导出</a><ul><li><a href="#741-导出选项" class="table-of-contents__link toc-highlight">7.4.1 导出选项</a></li><li><a href="#742-导出设置" class="table-of-contents__link toc-highlight">7.4.2 导出设置</a></li></ul></li><li><a href="#75-虚拟字段v22" class="table-of-contents__link toc-highlight">7.5 虚拟字段（v2.2+）</a><ul><li><a href="#751-什么是虚拟字段" class="table-of-contents__link toc-highlight">7.5.1 什么是虚拟字段</a></li><li><a href="#752-创建虚拟字段" class="table-of-contents__link toc-highlight">7.5.2 创建虚拟字段</a></li></ul></li><li><a href="#76-持久化属性连接v22" class="table-of-contents__link toc-highlight">7.6 持久化属性连接（v2.2+）</a><ul><li><a href="#761-属性连接概述" class="table-of-contents__link toc-highlight">7.6.1 属性连接概述</a></li><li><a href="#762-配置连接" class="table-of-contents__link toc-highlight">7.6.2 配置连接</a></li><li><a href="#763-连接持久化" class="table-of-contents__link toc-highlight">7.6.3 连接持久化</a></li></ul></li><li><a href="#77-属性表单设计器v22" class="table-of-contents__link toc-highlight">7.7 属性表单设计器（v2.2+）</a><ul><li><a href="#771-表单设计器" class="table-of-contents__link toc-highlight">7.7.1 表单设计器</a></li><li><a href="#772-应用场景" class="table-of-contents__link toc-highlight">7.7.2 应用场景</a></li></ul></li><li><a href="#78-栅格属性表v22" class="table-of-contents__link toc-highlight">7.8 栅格属性表（v2.2+）</a><ul><li><a href="#781-栅格属性表概述" class="table-of-contents__link toc-highlight">7.8.1 栅格属性表概述</a></li><li><a href="#782-rat-结构" class="table-of-contents__link toc-highlight">7.8.2 RAT 结构</a></li></ul></li><li><a href="#79-数据质量工具v22" class="table-of-contents__link toc-highlight">7.9 数据质量工具（v2.2+）</a><ul><li><a href="#791-数据质量检查" class="table-of-contents__link toc-highlight">7.9.1 数据质量检查</a></li><li><a href="#792-修复操作" class="table-of-contents__link toc-highlight">7.9.2 修复操作</a></li></ul></li><li><a href="#710-本章小结" class="table-of-contents__link toc-highlight">7.10 本章小结</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">文档</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch01-overview">GeoLibre 概述</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch02-installation">安装与部署</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/appendix/glossary">术语表</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">社区</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://geolibre.app" target="_blank" rel="noopener noreferrer" class="footer__link-item">GeoLibre 官方<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://geolibre.app/comparison/" target="_blank" rel="noopener noreferrer" class="footer__link-item">平台对比（含 QGIS）<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">更多</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/wangdwn" target="_blank" rel="noopener noreferrer" class="footer__link-item">作者 GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/wangdwn/geolibre-manual/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">报告问题<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 GeoLibre 手册项目。基于 MIT 协议发布。</div></div></div></footer></div>
+</body>
+</html>

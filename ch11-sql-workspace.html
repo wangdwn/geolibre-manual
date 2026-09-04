@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ch11-sql-workspace" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">第 11 章：SQL 工作区与高级查询 | GeoLibre 使用手册</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" property="og:url" content="https://wangdwn.github.io/geolibre-manual/ch11-sql-workspace"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="第 11 章：SQL 工作区与高级查询 | GeoLibre 使用手册"><meta data-rh="true" name="description" content="[事实与研判分离说明]"><meta data-rh="true" property="og:description" content="[事实与研判分离说明]"><link data-rh="true" rel="icon" href="/geolibre-manual/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://wangdwn.github.io/geolibre-manual/ch11-sql-workspace"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch11-sql-workspace" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch11-sql-workspace" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"第 11 章：SQL 工作区与高级查询","item":"https://wangdwn.github.io/geolibre-manual/ch11-sql-workspace"}]}</script><link rel="stylesheet" href="/geolibre-manual/assets/css/styles.0354a724.css">
+<script src="/geolibre-manual/assets/js/runtime~main.36c008b1.js" defer="defer"></script>
+<script src="/geolibre-manual/assets/js/main.d37c321e.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/geolibre-manual/"><div class="navbar__logo"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">GeoLibre 手册</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/geolibre-manual/">文档</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GeoLibre<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/wangdwn/geolibre-manual" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/geolibre-manual/"><span class="linkLabel_WmDU">GeoLibre 使用手册</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/geolibre-manual/ch01-overview"><span class="categoryLinkLabel_W154">入门</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch01-overview"><span class="linkLabel_WmDU">第 1 章：GeoLibre 概述</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch02-installation"><span class="linkLabel_WmDU">第 2 章：安装与部署</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch03-interface"><span class="linkLabel_WmDU">第 3 章：界面与基本操作</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/geolibre-manual/ch04-projects"><span class="categoryLinkLabel_W154">数据</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch04-projects"><span class="linkLabel_WmDU">第 4 章：项目与数据管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch05-adding-data"><span class="linkLabel_WmDU">第 5 章：添加数据</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch06-layers-styling"><span class="linkLabel_WmDU">第 6 章：图层管理与符号化</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch07-attribute-table"><span class="linkLabel_WmDU">第 7 章：属性表与数据编辑</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/geolibre-manual/ch08-map-controls"><span class="categoryLinkLabel_W154">分析</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch08-map-controls"><span class="linkLabel_WmDU">第 8 章：地图控制与工具</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch09-vector-tools"><span class="linkLabel_WmDU">第 9 章：空间分析 - 矢量工具</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch10-raster-tools"><span class="linkLabel_WmDU">第 10 章：空间分析 - 栅格工具</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/geolibre-manual/ch11-sql-workspace"><span class="linkLabel_WmDU">第 11 章：SQL 工作区与高级查询</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/ch12-plugins"><span class="categoryLinkLabel_W154">扩展</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/appendix/glossary"><span class="categoryLinkLabel_W154">附录</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/geolibre-manual/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">分析</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">第 11 章：SQL 工作区与高级查询</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>第 11 章：SQL 工作区与高级查询</h1></header>
+<blockquote>
+<p>[事实与研判分离说明]
+本章信息源：GeoLibre 官方用户指南 SQL 工作区（<a href="https://geolibre.app/user-guide/sql-workspace/%EF%BC%89%E3%80%81Roadmap" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/）、Roadmap</a>
+标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+手册内容最后更新：2026-09-04</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="111-sql-工作区概览">11.1 SQL 工作区概览<a href="#111-sql-工作区概览" class="hash-link" aria-label="11.1 SQL 工作区概览的直接链接" title="11.1 SQL 工作区概览的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="SQL 工作区" src="/geolibre-manual/assets/images/ch11-01-933aaa477cce49dd660f1933e83849b7.png" width="1280" height="3159" class="img_ev3q">
+<em>SQL 工作区文档页，展示多引擎查询环境</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1111-什么是-sql-工作区">11.1.1 什么是 SQL 工作区<a href="#1111-什么是-sql-工作区" class="hash-link" aria-label="11.1.1 什么是 SQL 工作区的直接链接" title="11.1.1 什么是 SQL 工作区的直接链接" translate="no">​</a></h3>
+<p>SQL 工作区是 GeoLibre 的 SQL 查询执行环境，支持在浏览器内运行空间 SQL 查询，分析已加载图层、本地文件和远程 URL。[已核实] <a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a></p>
+<p><strong>核心特点</strong>：</p>
+<ul>
+<li class="">无需安装数据库服务器</li>
+<li class="">多个 SQL 引擎可选</li>
+<li class="">查询结果可直接添加到地图</li>
+<li class="">支持导出为 CSV 或 GeoParquet</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1112-支持的-sql-引擎">11.1.2 支持的 SQL 引擎<a href="#1112-支持的-sql-引擎" class="hash-link" aria-label="11.1.2 支持的 SQL 引擎的直接链接" title="11.1.2 支持的 SQL 引擎的直接链接" translate="no">​</a></h3>
+<p>GeoLibre 提供三种 SQL 引擎：[已核实] <a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>引擎</th><th>实现</th><th>特点</th></tr></thead><tbody><tr><td>DuckDB Spatial</td><td>DuckDB-WASM + Spatial 扩展</td><td>默认引擎，功能最全面</td></tr><tr><td>PGlite</td><td>PostgreSQL + PostGIS (WASM)</td><td>PostGIS 兼容语法</td></tr><tr><td>Apache Sedona</td><td>Sedona (WASM)</td><td>大数据空间分析</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1113-打开-sql-工作区">11.1.3 打开 SQL 工作区<a href="#1113-打开-sql-工作区" class="hash-link" aria-label="11.1.3 打开 SQL 工作区的直接链接" title="11.1.3 打开 SQL 工作区的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">Tools -&gt; SQL Workspace</li>
+<li class="">或工具栏 SQL 图标</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="112-duckdb-spatial-sql">11.2 DuckDB Spatial SQL<a href="#112-duckdb-spatial-sql" class="hash-link" aria-label="11.2 DuckDB Spatial SQL的直接链接" title="11.2 DuckDB Spatial SQL的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1121-duckdb-spatial-概述">11.2.1 DuckDB Spatial 概述<a href="#1121-duckdb-spatial-概述" class="hash-link" aria-label="11.2.1 DuckDB Spatial 概述的直接链接" title="11.2.1 DuckDB Spatial 概述的直接链接" translate="no">​</a></h3>
+<p>DuckDB Spatial 是 GeoLibre 的默认 SQL 引擎，基于 DuckDB-WASM 运行。[已核实] <a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a></p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li class="">列式存储，查询速度快</li>
+<li class="">支持 GeoParquet 原生读写</li>
+<li class="">空间函数丰富</li>
+<li class="">支持 HTTP 范围请求读取远程文件</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1122-加载空间扩展">11.2.2 加载空间 扩展<a href="#1122-加载空间扩展" class="hash-link" aria-label="11.2.2 加载空间扩展的直接链接" title="11.2.2 加载空间扩展的直接链接" translate="no">​</a></h3>
+<p>首次使用 DuckDB Spatial 时，自动执行：</p>
+<div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain">INSTALL spatial</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">LOAD</span><span class="token plain"> spatial</span><span class="token punctuation" style="color:#393A34">;</span><br></div></code></pre></div></div>
+<p>[已核实] <a href="https://geolibre.app/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1123-核心空间函数">11.2.3 核心空间函数<a href="#1123-核心空间函数" class="hash-link" aria-label="11.2.3 核心空间函数的直接链接" title="11.2.3 核心空间函数的直接链接" translate="no">​</a></h3>
+<p>DuckDB Spatial 提供以下空间函数类别：[推断] 基于 DuckDB Spatial 文档和 GeoLibre 功能推断</p>
+<p><strong>几何构造</strong>：</p>
+<ul>
+<li class=""><code>ST_Point(x, y)</code>：创建点</li>
+<li class=""><code>ST_LineFromText(wkt)</code>：从 WKT 创建线</li>
+<li class=""><code>ST_GeomFromGeoJSON(json)</code>：从 GeoJSON 创建几何</li>
+</ul>
+<p><strong>几何访问</strong>：</p>
+<ul>
+<li class=""><code>ST_X(geom)</code>、<code>ST_Y(geom)</code>：获取坐标</li>
+<li class=""><code>ST_Area(geom)</code>：计算面积</li>
+<li class=""><code>ST_Length(geom)</code>：计算长度</li>
+<li class=""><code>ST_Perimeter(geom)</code>：计算周长</li>
+<li class=""><code>ST_Centroid(geom)</code>：计算质心</li>
+<li class=""><code>ST_Boundary(geom)</code>：获取边界</li>
+</ul>
+<p><strong>空间关系</strong>：</p>
+<ul>
+<li class=""><code>ST_Intersects(a, b)</code>：判断是否相交</li>
+<li class=""><code>ST_Contains(a, b)</code>：判断是否包含</li>
+<li class=""><code>ST_Within(a, b)</code>：判断是否在内部</li>
+<li class=""><code>ST_Distance(a, b)</code>：计算距离</li>
+<li class=""><code>ST_Buffer(geom, distance)</code>：缓冲区</li>
+</ul>
+<p><strong>空间变换</strong>：</p>
+<ul>
+<li class=""><code>ST_Transform(geom, crs)</code>：坐标变换</li>
+<li class=""><code>ST_Simplify(geom, tolerance)</code>：几何简化</li>
+<li class=""><code>ST_Union(a, b)</code>：几何并集</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1124-查询加载的图层">11.2.4 查询加载的图层<a href="#1124-查询加载的图层" class="hash-link" aria-label="11.2.4 查询加载的图层的直接链接" title="11.2.4 查询加载的图层的直接链接" translate="no">​</a></h3>
+<p>已加载的 GeoLibre 图层在 DuckDB 中注册为虚拟表，可直接查询：</p>
+<div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">-- 查看图层所有记录</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> cities</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">-- 条件筛选</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> name</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> population </span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> cities </span><span class="token keyword" style="color:#00009f">WHERE</span><span class="token plain"> population </span><span class="token operator" style="color:#393A34">&gt;</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1000000</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">-- 空间筛选</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> cities </span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">WHERE</span><span class="token plain"> ST_Intersects</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">geom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> ST_Buffer</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">ST_Point</span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">116.4</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">39.9</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">50000</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></div></code></pre></div></div>
+<p>[推断] 图层注册为虚拟表的行为基于 GeoLibre 的 DuckDB-WASM 集成推断。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1125-加载外部文件">11.2.5 加载外部文件<a href="#1125-加载外部文件" class="hash-link" aria-label="11.2.5 加载外部文件的直接链接" title="11.2.5 加载外部文件的直接链接" translate="no">​</a></h3>
+<p>DuckDB Spatial 可直接读取远程和本地文件：</p>
+<div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">-- 读取远程 GeoParquet</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> read_parquet</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">&#x27;https://example.com/data.parquet&#x27;</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">-- 读取远程 FlatGeobuf</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> ST_Read</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">&#x27;https://example.com/data.fgb&#x27;</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">-- 读取本地 Shapefile（桌面端）</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> ST_Read</span><span class="token punctuation" style="color:#393A34">(</span><span class="token string" style="color:#e3116c">&#x27;/path/to/data.shp&#x27;</span><span class="token punctuation" style="color:#393A34">)</span><span class="token punctuation" style="color:#393A34">;</span><br></div></code></pre></div></div>
+<p>[已核实] DuckDB Spatial 的 <code>ST_Read</code> 支持 FlatGeobuf、Shapefile、GeoJSON、KML 等格式。<a href="https://geolibre.app/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1126-自动-url-包装">11.2.6 自动 URL 包装<a href="#1126-自动-url-包装" class="hash-link" aria-label="11.2.6 自动 URL 包装的直接链接" title="11.2.6 自动 URL 包装的直接链接" translate="no">​</a></h3>
+<p>GeoLibre 的 SQL 工作区支持自动 URL 包装：裸 URL 自动匹配到对应读取器并执行 HTTP 范围请求。[已核实] <a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a></p>
+<div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">-- 以下 URL 自动识别为 GeoParquet 并加载</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">*</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">&#x27;https://example.com/data.parquet&#x27;</span><span class="token punctuation" style="color:#393A34">;</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="113-pglite-postgis">11.3 PGlite PostGIS<a href="#113-pglite-postgis" class="hash-link" aria-label="11.3 PGlite PostGIS的直接链接" title="11.3 PGlite PostGIS的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1131-pglite-概述">11.3.1 PGlite 概述<a href="#1131-pglite-概述" class="hash-link" aria-label="11.3.1 PGlite 概述的直接链接" title="11.3.1 PGlite 概述的直接链接" translate="no">​</a></h3>
+<p>PGlite 是在浏览器内运行的 PostgreSQL + PostGIS，通过 WASM 实现。[已核实] <a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a></p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li class="">完全兼容 PostGIS 语法</li>
+<li class="">支持 PostGIS 的全部空间函数</li>
+<li class="">适合已有 PostGIS 经验的用户</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1132-与-duckdb-spatial-的差异">11.3.2 与 DuckDB Spatial 的差异<a href="#1132-与-duckdb-spatial-的差异" class="hash-link" aria-label="11.3.2 与 DuckDB Spatial 的差异的直接链接" title="11.3.2 与 DuckDB Spatial 的差异的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>维度</th><th>DuckDB Spatial</th><th>PGlite PostGIS</th></tr></thead><tbody><tr><td>语法</td><td>DuckDB 方言</td><td>PostgreSQL/PostGIS 方言</td></tr><tr><td>性能</td><td>列式，分析快</td><td>行式，事务强</td></tr><tr><td>空间函数</td><td>核心函数</td><td>PostGIS 全套</td></tr><tr><td>扩展性</td><td>有限</td><td>丰富</td></tr></tbody></table>
+<p>[推断] 差异对比基于两种数据库的公开特性推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="114-apache-sedona">11.4 Apache Sedona<a href="#114-apache-sedona" class="hash-link" aria-label="11.4 Apache Sedona的直接链接" title="11.4 Apache Sedona的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1141-sedona-概述">11.4.1 Sedona 概述<a href="#1141-sedona-概述" class="hash-link" aria-label="11.4.1 Sedona 概述的直接链接" title="11.4.1 Sedona 概述的直接链接" translate="no">​</a></h3>
+<p>Apache Sedona 是 Apache 基金会的开源空间数据处理系统。GeoLibre 通过 WASM 版本集成。[已核实] <a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a></p>
+<p><strong>特点</strong>：</p>
+<ul>
+<li class="">针对大数据优化</li>
+<li class="">支持分布式空间连接</li>
+<li class="">适合复杂的空间分析查询</li>
+</ul>
+<p>[推断] Sedona 的具体功能基于 Apache Sedona 公开文档推断，GeoLibre 中 WASM 版本的功能可能有所裁剪。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="115-示例查询库">11.5 示例查询库<a href="#115-示例查询库" class="hash-link" aria-label="11.5 示例查询库的直接链接" title="11.5 示例查询库的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1151-官方示例">11.5.1 官方示例<a href="#1151-官方示例" class="hash-link" aria-label="11.5.1 官 方示例的直接链接" title="11.5.1 官方示例的直接链接" translate="no">​</a></h3>
+<p>SQL 工作区提供示例查询库，帮助用户快速上手：[已核实] <a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a></p>
+<p>示例类别：</p>
+<ul>
+<li class="">基础 SELECT 查询</li>
+<li class="">空间筛选</li>
+<li class="">空间连接</li>
+<li class="">几何运算</li>
+<li class="">聚合统计</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1152-常用查询模板">11.5.2 常用查询模板<a href="#1152-常用查询模板" class="hash-link" aria-label="11.5.2 常用查询模板的直接链接" title="11.5.2 常用查询模板的直接链接" translate="no">​</a></h3>
+<div class="language-sql codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-sql codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic">-- 1. 缓冲区查询</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> name</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> ST_Buffer</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">geom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1000</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">AS</span><span class="token plain"> buffer_geom </span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> facilities</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">-- 2. 空间连接：查找每个城市最近的机场</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> c</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">name </span><span class="token keyword" style="color:#00009f">AS</span><span class="token plain"> city</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> a</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">name </span><span class="token keyword" style="color:#00009f">AS</span><span class="token plain"> nearest_airport</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">       ST_Distance</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">c</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">geom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> a</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">geom</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">AS</span><span class="token plain"> distance</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> cities c</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">CROSS</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">JOIN</span><span class="token plain"> LATERAL </span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> name</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> geom</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> airports</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token keyword" style="color:#00009f">ORDER</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">BY</span><span class="token plain"> c</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">geom </span><span class="token operator" style="color:#393A34">&lt;</span><span class="token operator" style="color:#393A34">-</span><span class="token operator" style="color:#393A34">&gt;</span><span class="token plain"> geom</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">  </span><span class="token keyword" style="color:#00009f">LIMIT</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> a</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">-- 3. 范围内计数：统计每个区域内的点数</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> z</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">COUNT</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">p</span><span class="token punctuation" style="color:#393A34">.</span><span class="token operator" style="color:#393A34">*</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">AS</span><span class="token plain"> point_count</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> zones z</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">LEFT</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">JOIN</span><span class="token plain"> points p </span><span class="token keyword" style="color:#00009f">ON</span><span class="token plain"> ST_Intersects</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">z</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">geom</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> p</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">geom</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">GROUP</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">BY</span><span class="token plain"> z</span><span class="token punctuation" style="color:#393A34">.</span><span class="token plain">name</span><span class="token punctuation" style="color:#393A34">;</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic">-- 4. 面积计算与排序</span><span class="token plain"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">SELECT</span><span class="token plain"> name</span><span class="token punctuation" style="color:#393A34">,</span><span class="token plain"> ST_Area</span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">geom</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">/</span><span class="token plain"> </span><span class="token number" style="color:#36acaa">1000000</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">AS</span><span class="token plain"> area_km2</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">FROM</span><span class="token plain"> districts</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token keyword" style="color:#00009f">ORDER</span><span class="token plain"> </span><span class="token keyword" style="color:#00009f">BY</span><span class="token plain"> area_km2 </span><span class="token keyword" style="color:#00009f">DESC</span><span class="token punctuation" style="color:#393A34">;</span><br></div></code></pre></div></div>
+<p>[推断] 查询模板基于通用空间 SQL 和 DuckDB Spatial 语法推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="116-查询历史">11.6 查询历史<a href="#116-查询历史" class="hash-link" aria-label="11.6 查询历史的直接链接" title="11.6 查询历史的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1161-历史记录">11.6.1 历史记录<a href="#1161-历史记录" class="hash-link" aria-label="11.6.1 历史记录的直接链接" title="11.6.1 历史记录的直接链接" translate="no">​</a></h3>
+<p>SQL 工作区自动保存查询历史：[已核实] <a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a></p>
+<p><strong>功能</strong>：</p>
+<ul>
+<li class="">查看最近执行的查询</li>
+<li class="">重新执行历史查询</li>
+<li class="">收藏常用查询</li>
+<li class="">清除历史记录</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1162-查询管理">11.6.2 查询管理<a href="#1162-查询管理" class="hash-link" aria-label="11.6.2 查询管理的直接链接" title="11.6.2 查询管理的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">  每条历史记录显示执行时间和结果行数</li>
+<li class="">失败的查询显示错误信息</li>
+<li class="">可编辑历史查询后重新执行</li>
+</ul>
+<p>[推断] 查询管理功能基于通用 SQL 客户端和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="117-结果添加到地图">11.7 结果添加到地图<a href="#117-结果添加到地图" class="hash-link" aria-label="11.7 结果添加到地图的直接链接" title="11.7 结果添加到地图的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1171-空间结果可视化">11.7.1 空间结果可视化<a href="#1171-空间结果可视化" class="hash-link" aria-label="11.7.1 空间结果可视化的直接链接" title="11.7.1 空间结果可视化的直接链接" translate="no">​</a></h3>
+<p>包含几何列的查询结果可直接添加到地图：[已核实] <a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a></p>
+<p><strong>操作</strong>：</p>
+<ol>
+<li class="">执行查询</li>
+<li class="">结果面板显示数据预览</li>
+<li class="">点击 &quot;Add to Map&quot;</li>
+<li class="">选择图层名称和样式</li>
+<li class="">结果作为新图层添加到图层面板</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1172-非空间结果">11.7.2 非空间结果<a href="#1172-非空间结果" class="hash-link" aria-label="11.7.2 非空间结果的直接链接" title="11.7.2 非空间结果的直接链接" translate="no">​</a></h3>
+<p>不含几何列的结果可导出为表格，或通过 JOIN 关联到空间数据后可视化。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="118-结果导出">11.8 结果导出<a href="#118-结果导出" class="hash-link" aria-label="11.8 结果导出的直接链接" title="11.8 结果导出的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1181-导出格式">11.8.1 导出格式<a href="#1181-导出格式" class="hash-link" aria-label="11.8.1 导出格式的直接链接" title="11.8.1 导出格式的直接链接" translate="no">​</a></h3>
+<p>SQL 工作区支持将查询结果导出为：[已核实] <a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>格式</th><th>说明</th></tr></thead><tbody><tr><td>CSV</td><td>逗号分隔文本，无几何</td></tr><tr><td>GeoParquet</td><td>云优化地理空间格式，含几何</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1182-导出设置">11.8.2 导出设置<a href="#1182-导出设置" class="hash-link" aria-label="11.8.2 导出设置的直接链接" title="11.8.2 导出设置的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">坐标参考系统选择</li>
+<li class="">字段筛选</li>
+<li class="">记录筛选（全部或仅前 N 条）</li>
+</ul>
+<p>[推断] 导出设置基于通用数据导出功能和官网描述推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="119-表达式构建器expression-builderv22">11.9 表达式构建器（Expression Builder，v2.2+）<a href="#119-表达式构建器expression-builderv22" class="hash-link" aria-label="11.9 表达式构建器（Expression Builder，v2.2+）的直接链接" title="11.9 表达式构建器（Expression Builder，v2.2+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1191-概述">11.9.1 概述<a href="#1191-概述" class="hash-link" aria-label="11.9.1 概述的直接链接" title="11.9.1 概述的直接链接" translate="no">​</a></h3>
+<p>v2.2 引入的 Expression Builder 是一个可视化的表达式编辑工具，集成在 SQL 工作区、筛选器和样式面板中。[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<p><strong>功能</strong>：</p>
+<ul>
+<li class="">拖拽字段和函数构建表达式</li>
+<li class="">实时语法检查</li>
+<li class="">实时结果预览</li>
+<li class="">保存和复用表达式</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1192-应用场景">11.9.2 应用场景<a href="#1192-应用场景" class="hash-link" aria-label="11.9.2 应用场景的直接链接" title="11.9.2 应用场景的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">复杂的 SQL WHERE 条件</li>
+<li class="">样式面板中的动态表达式</li>
+<li class="">字段计算器的计算表达式</li>
+<li class="">筛选器的条件表达式</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1110-按表达式选择select-by-expressionv22">11.10 按表达式选择（Select by Expression，v2.2+）<a href="#1110-按表达式选择select-by-expressionv22" class="hash-link" aria-label="11.10 按表达式选择（Select by Expression，v2.2+）的直接链接" title="11.10 按表达式选择（Select by Expression，v2.2+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="11101-功能说明">11.10.1 功能说明<a href="#11101-功能说明" class="hash-link" aria-label="11.10.1 功能说明的直接链接" title="11.10.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>v2.2 引入的 Select by Expression 功能，使用 Expression Builder 按条件选择要素。[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v2.2 更新）</p>
+<p><strong>操作</strong>：</p>
+<ol>
+<li class="">选中图层</li>
+<li class="">属性表或地图 -&gt; &quot;Select by Expression&quot;</li>
+<li class="">使用 Expression Builder 构建条件</li>
+<li class="">执行选择</li>
+<li class="">选中的要素在地图和属性表中高亮</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="11102-与-sql-工作  区的关系">11.10.2 与 SQL 工作区的关系<a href="#11102-与-sql-工作区的关系" class="hash-link" aria-label="11.10.2 与 SQL 工作区的关系的直接链接" title="11.10.2 与 SQL 工作区的关系的直接链接" translate="no">​</a></h3>
+<p>Select by Expression 使用与 SQL 工作区相同的表达式语法，但作用于当前图层而非执行完整 SQL 查询。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1111-本章小结">11.11 本章小结<a href="#1111-本章小结" class="hash-link" aria-label="11.11 本章小结的直接链接" title="11.11 本章小结的直接链接" translate="no">​</a></h2>
+<p>GeoLibre 的 SQL 工作区是一个强大的空间数据分析环境：</p>
+<ol>
+<li class=""><strong>多引擎支持</strong>：DuckDB Spatial（默认）、PGlite PostGIS、Apache Sedona</li>
+<li class=""><strong>浏览器内执行</strong>：无需服务器，WASM 驱动</li>
+<li class=""><strong>丰富的空间函数</strong>：几何构造、访问、关系、变换</li>
+<li class=""><strong>自动 URL 包装</strong>：裸 URL 自动识别格式并加载</li>
+<li class=""><strong>查询历史</strong>：自动保存、收藏、复用</li>
+<li class=""><strong>结果可视化</strong>：空间查询结果直接添加到地图</li>
+<li class=""><strong>灵活导出</strong>：CSV、GeoParquet</li>
+<li class=""><strong>Expression Builder</strong>（v2.2+）：可视化表达式编辑</li>
+<li class=""><strong>Select by Expression</strong>（v2.2+）：图层内条件选择</li>
+</ol>
+<p>SQL 工作区使 GeoLibre 超越了纯 GUI 工具，为熟悉 SQL 的用户提供了高效的数据分析入口。</p>
+<hr>
+<p><strong>本章信息源</strong></p>
+<ul>
+<li class="">[1] GeoLibre SQL 工作区文档：<a href="https://geolibre.app/user-guide/sql-workspace/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/sql-workspace/</a> [检索日期 2026-09-04]</li>
+<li class="">[2] GeoLibre Roadmap：<a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> [检索日期 2026-09-04]</li>
+<li class="">[3] DuckDB Spatial 文档：<a href="https://duckdb.org/docs/stable/core_extensions/spatial/overview" target="_blank" rel="noopener noreferrer" class="">https://duckdb.org/docs/stable/core_extensions/spatial/overview</a> [检索日期 2026-09-04]</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>手册维护</b> <!-- -->于 <b><time datetime="2026-09-04T00:00:00.000Z" itemprop="dateModified">2026年9月4日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/geolibre-manual/ch10-raster-tools"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">第 10 章：空间分析 - 栅格工具</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/geolibre-manual/ch12-plugins"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">第 12 章：插件系统与市场</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#111-sql-工作区概览" class="table-of-contents__link toc-highlight">11.1 SQL 工作区概览</a><ul><li><a href="#1111-什么是-sql-工作区" class="table-of-contents__link toc-highlight">11.1.1 什么是 SQL 工作区</a></li><li><a href="#1112-支持的-sql-引擎" class="table-of-contents__link toc-highlight">11.1.2 支持的 SQL 引擎</a></li><li><a href="#1113-打开-sql-工作区" class="table-of-contents__link toc-highlight">11.1.3 打开 SQL 工作区</a></li></ul></li><li><a href="#112-duckdb-spatial-sql" class="table-of-contents__link toc-highlight">11.2 DuckDB Spatial SQL</a><ul><li><a href="#1121-duckdb-spatial-概述" class="table-of-contents__link toc-highlight">11.2.1 DuckDB Spatial 概述</a></li><li><a href="#1122-加载空间扩展" class="table-of-contents__link toc-highlight">11.2.2 加载空间扩展</a></li><li><a href="#1123-核心空间函数" class="table-of-contents__link toc-highlight">11.2.3 核心空间函数</a></li><li><a href="#1124-查询加载的图层" class="table-of-contents__link toc-highlight">11.2.4 查询加载的图层</a></li><li><a href="#1125-加载外部文件" class="table-of-contents__link toc-highlight">11.2.5 加载外部文件</a></li><li><a href="#1126-自动-url-包装" class="table-of-contents__link toc-highlight">11.2.6 自动 URL 包装</a></li></ul></li><li><a href="#113-pglite-postgis" class="table-of-contents__link toc-highlight">11.3 PGlite PostGIS</a><ul><li><a href="#1131-pglite-概述" class="table-of-contents__link toc-highlight">11.3.1 PGlite 概述</a></li><li><a href="#1132-与-duckdb-spatial-的差异" class="table-of-contents__link toc-highlight">11.3.2 与 DuckDB Spatial 的差异</a></li></ul></li><li><a href="#114-apache-sedona" class="table-of-contents__link toc-highlight">11.4 Apache Sedona</a><ul><li><a href="#1141-sedona-概述" class="table-of-contents__link toc-highlight">11.4.1 Sedona 概述</a></li></ul></li><li><a href="#115-示例查询库" class="table-of-contents__link toc-highlight">11.5 示例查询库</a><ul><li><a href="#1151-官方示例" class="table-of-contents__link toc-highlight">11.5.1 官方示例</a></li><li><a href="#1152-常用查询模板" class="table-of-contents__link toc-highlight">11.5.2 常用查询模板</a></li></ul></li><li><a href="#116-查询历史" class="table-of-contents__link toc-highlight">11.6 查询历史</a><ul><li><a href="#1161-历史记录" class="table-of-contents__link toc-highlight">11.6.1 历史记录</a></li><li><a href="#1162-查询管理" class="table-of-contents__link toc-highlight">11.6.2 查 询管理</a></li></ul></li><li><a href="#117-结果添加到地图" class="table-of-contents__link toc-highlight">11.7 结果添加到地图</a><ul><li><a href="#1171-空间结果可视化" class="table-of-contents__link toc-highlight">11.7.1 空间结果可视化</a></li><li><a href="#1172-非空间结果" class="table-of-contents__link toc-highlight">11.7.2 非空间结果</a></li></ul></li><li><a href="#118-结果导出" class="table-of-contents__link toc-highlight">11.8 结果导出</a><ul><li><a href="#1181-导出格式" class="table-of-contents__link toc-highlight">11.8.1 导出格式</a></li><li><a href="#1182-导出设置" class="table-of-contents__link toc-highlight">11.8.2 导出设置</a></li></ul></li><li><a href="#119-表达式构建器expression-builderv22" class="table-of-contents__link toc-highlight">11.9 表达式构建器（Expression Builder，v2.2+）</a><ul><li><a href="#1191-概述" class="table-of-contents__link toc-highlight">11.9.1 概述</a></li><li><a href="#1192-应用场景" class="table-of-contents__link toc-highlight">11.9.2 应用场景</a></li></ul></li><li><a href="#1110-按表达式选择select-by-expressionv22" class="table-of-contents__link toc-highlight">11.10 按表达式选择（Select by Expression，v2.2+）</a><ul><li><a href="#11101-功能说明" class="table-of-contents__link toc-highlight">11.10.1 功能说明</a></li><li><a href="#11102-与-sql-工作区的关系" class="table-of-contents__link toc-highlight">11.10.2 与 SQL 工作区的关系</a></li></ul></li><li><a href="#1111-本章小结" class="table-of-contents__link toc-highlight">11.11 本章小结</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">文档</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch01-overview">GeoLibre 概述</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch02-installation">安装与部署</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/appendix/glossary">术语表</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">社区</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://geolibre.app" target="_blank" rel="noopener noreferrer" class="footer__link-item">GeoLibre 官方<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://geolibre.app/comparison/" target="_blank" rel="noopener noreferrer" class="footer__link-item">平台对比（含 QGIS）<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">更多</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/wangdwn" target="_blank" rel="noopener noreferrer" class="footer__link-item">作者 GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/wangdwn/geolibre-manual/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">报告问题<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 GeoLibre 手册项目。基于 MIT 协议发布。</div></div></div></footer></div>
+</body>
+</html>

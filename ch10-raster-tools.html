@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ch10-raster-tools" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">第 10 章：空间分析 - 栅格工具 | GeoLibre 使用手册</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" name="twitter:image" content="https://wangdwn.github.io/geolibre-manual/img/social-card.png"><meta data-rh="true" property="og:url" content="https://wangdwn.github.io/geolibre-manual/ch10-raster-tools"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="第 10 章：空间分析 - 栅格工具 | GeoLibre 使用手册"><meta data-rh="true" name="description" content="[事实与研判分离说明]"><meta data-rh="true" property="og:description" content="[事实与研判分离说明]"><link data-rh="true" rel="icon" href="/geolibre-manual/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://wangdwn.github.io/geolibre-manual/ch10-raster-tools"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch10-raster-tools" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://wangdwn.github.io/geolibre-manual/ch10-raster-tools" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"第 10 章：空间分析 - 栅格工具","item":"https://wangdwn.github.io/geolibre-manual/ch10-raster-tools"}]}</script><link rel="stylesheet" href="/geolibre-manual/assets/css/styles.0354a724.css">
+<script src="/geolibre-manual/assets/js/runtime~main.36c008b1.js" defer="defer"></script>
+<script src="/geolibre-manual/assets/js/main.d37c321e.js" defer="defer"></script>
+</head>
+<body>
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/geolibre-manual/"><div class="navbar__logo"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/geolibre-manual/img/logo.svg" alt="GeoLibre" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">GeoLibre 手册</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/geolibre-manual/">文档</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GeoLibre<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><a href="https://github.com/wangdwn/geolibre-manual" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/geolibre-manual/"><span class="linkLabel_WmDU">GeoLibre 使用手册</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/geolibre-manual/ch01-overview"><span class="categoryLinkLabel_W154">入门</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch01-overview"><span class="linkLabel_WmDU">第 1 章：GeoLibre 概述</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch02-installation"><span class="linkLabel_WmDU">第 2 章：安装与部署</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch03-interface"><span class="linkLabel_WmDU">第 3 章：界面与基本操作</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="true" href="/geolibre-manual/ch04-projects"><span class="categoryLinkLabel_W154">数据</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch04-projects"><span class="linkLabel_WmDU">第 4 章：项目与数据管理</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch05-adding-data"><span class="linkLabel_WmDU">第 5 章：添加数据</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch06-layers-styling"><span class="linkLabel_WmDU">第 6 章：图层管理与符号化</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch07-attribute-table"><span class="linkLabel_WmDU">第 7 章：属性表与数据编辑</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/geolibre-manual/ch08-map-controls"><span class="categoryLinkLabel_W154">分析</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch08-map-controls"><span class="linkLabel_WmDU">第 8 章：地图控制与工具</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch09-vector-tools"><span class="linkLabel_WmDU">第 9 章：空间分析 - 矢量工具</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/geolibre-manual/ch10-raster-tools"><span class="linkLabel_WmDU">第 10 章：空间分析 - 栅格工具</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/geolibre-manual/ch11-sql-workspace"><span class="linkLabel_WmDU">第 11 章：SQL 工作区与高级查询</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/ch12-plugins"><span class="categoryLinkLabel_W154">扩展</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/geolibre-manual/appendix/glossary"><span class="categoryLinkLabel_W154">附录</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/geolibre-manual/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">分析</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">第 10 章：空间分析 - 栅格工具</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>第 10 章：空间分析 - 栅格工具</h1></header>
+<blockquote>
+<p>[事实与研判分离说明]
+本章信息源：GeoLibre 官方用户指南处理工具（<a href="https://geolibre.app/user-guide/processing/%EF%BC%89%E3%80%81Roadmap" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/）、Roadmap</a>
+标注说明：[已核实] = 有明确来源；[待核实] = 来源单一或存疑；[推断] = 合理推测
+手册内容最后更新：2026-09-04</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="101-栅格工具概览">10.1 栅格工具概览<a href="#101-栅格工具概览" class="hash-link" aria-label="10.1 栅格工具概览的直接链接" title="10.1 栅格工具概览的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="栅格子菜单分类" src="/geolibre-manual/assets/images/ch10-01-9cb3c62c1b58b476ab25261d1cc5eba2.png" width="1280" height="577" class="img_ev3q">
+<em>Raster 子菜单分类：地形分析、变换、转换、统计、代数等</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1011-栅格分析引擎">10.1.1 栅格分析引擎<a href="#1011-栅格分析引擎" class="hash-link" aria-label="10.1.1 栅格分析引擎的直接链接" title="10.1.1 栅格分析引擎的直接链接" translate="no">​</a></h3>
+<p>GeoLibre 的栅格分析通过可选的 Python sidecar 运行 rasterio 实现：[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>执行模式</strong>：</p>
+<ul>
+<li class=""><strong>Sidecar 模式</strong>（推荐）：本地 rasterio，功能完整</li>
+<li class=""><strong>客户端回退</strong>：部分简单操作在浏览器内完成</li>
+</ul>
+<p>[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1012-工具分类">10.1.2 工具分类<a href="#1012-工具分类" class="hash-link" aria-label="10.1.2 工具分类的直接链接" title="10.1.2 工具分类的直接链接" translate="no">​</a></h3>
+<p>Processing -&gt; Raster 包含以下工具类别：[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<ul>
+<li class="">地形分析（Hillshade、Slope、Aspect）</li>
+<li class="">栅格变换（Reproject、Resample、Clip）</li>
+<li class="">栅格转换（Polygonize、Contour）</li>
+<li class="">栅格统计（Zonal、Focal Statistics）</li>
+<li class="">栅格代数（Raster Calculator、Reclassify）</li>
+<li class="">镶嵌（Mosaic）</li>
+<li class="">光谱指数（Spectral Index Toolbox）</li>
+<li class="">地理配准（Georeferencer）</li>
+<li class="">插值（IDW / Kriging，v1.3+）</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="102-山体阴影hillshade">10.2 山体阴影（Hillshade）<a href="#102-山体阴影hillshade" class="hash-link" aria-label="10.2 山体阴影（Hillshade）的直接链接" title="10.2 山体阴影（Hillshade）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1021-功能说明">10.2.1 功能说明<a href="#1021-功能说明" class="hash-link" aria-label="10.2.1 功能说明的直接链接" title="10.2.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>山体阴影通过模拟光照效果增强地形可视化。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>输入</strong>：DEM（数字高程模型）栅格
+<strong>输出</strong>：灰度山体阴影栅格</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1022-参数">10.2.2 参数<a href="#1022-参数" class="hash-link" aria-label="10.2.2 参数的直接链接" title="10.2.2 参数的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数</th><th>说明</th><th>典型值</th></tr></thead><tbody><tr><td>太阳方位角</td><td>光源方向（0-360度）</td><td>315（西北）</td></tr><tr><td>太阳高度角</td><td>光源仰角（0-90度）</td><td>45</td></tr><tr><td>Z 因子</td><td>高程缩放因子</td><td>1</td></tr></tbody></table>
+<p>[推断] 参数基于通用山体阴影算法和 GeoLibre 功能推断。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1023-应用场景">10.2.3 应用场景<a href="#1023-应用场景" class="hash-link" aria-label="10.2.3 应用场景的直接链接" title="10.2.3 应用场景的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">地形图制作</li>
+<li class="">地貌特征识别</li>
+<li class="">与彩色 DEM 叠加增强立体感</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="103-坡度slope">10.3 坡度（Slope）<a href="#103-坡度slope" class="hash-link" aria-label="10.3 坡度（Slope）的直接链接" title="10.3 坡度（Slope）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1031-功能说明">10.3.1 功能说明<a href="#1031-功能说明" class="hash-link" aria-label="10.3.1 功能说明的直接链接" title="10.3.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>计算每个像元的坡度（坡面与水平面的夹角）。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>输入</strong>：DEM 栅格
+<strong>输出</strong>：坡度栅格（单位：度或百分比）</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1032-输出值">10.3.2 输出值<a href="#1032-输出值" class="hash-link" aria-label="10.3.2 输出值的直接链接" title="10.3.2 输出值的直接链接" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>度</strong>（Degrees）：0-90 度，0 为平地，90 为垂直</li>
+<li class=""><strong>百分比</strong>（Percent）：rise/run * 100，0% 为平地</li>
+</ul>
+<p>[推断] 输出单位基于通用坡度算法推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="104-坡向aspect">10.4 坡向（Aspect）<a href="#104-坡向aspect" class="hash-link" aria-label="10.4 坡向（Aspect）的直接链接" title="10.4 坡向（Aspect）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1041-功能说明">10.4.1 功能说明<a href="#1041-功能说明" class="hash-link" aria-label="10.4.1 功能说明的直接链接" title="10.4.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>计算每个像元的坡向（坡面朝向下坡方向）。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>输入</strong>：DEM 栅格
+<strong>输出</strong>：坡向栅格（单位：度，0=北，90=东，180=南，270=西）</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1042-特殊情况">10.4.2 特殊情况<a href="#1042-特殊情况" class="hash-link" aria-label="10.4.2 特殊情况的直接链接" title="10.4.2 特殊情况的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">平地（坡度为 0）的坡向值为 -1 或 NoData</li>
+<li class="">北向坡（0度）和南向坡（180度）的植被、日照条件差异显著</li>
+</ul>
+<p>[推断] 平地坡向处理基于通用坡向算法推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="105-重投影reproject">10.5 重投影（Reproject）<a href="#105-重投影reproject" class="hash-link" aria-label="10.5 重投影（Reproject）的直接链接" title="10.5 重投影（Reproject）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1051-功能说明">10.5.1 功能说明<a href="#1051-功能说明" class="hash-link" aria-label="10.5.1 功能说明的直接链接" title="10.5.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>将栅格数据从一个坐标参考系统转换到另一个。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>参数</strong>：</p>
+<ul>
+<li class="">目标 CRS（EPSG 代码或 WKT）</li>
+<li class="">重采样方法</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1052-重采样方法">10.5.2 重采样方法<a href="#1052-重采样方法" class="hash-link" aria-label="10.5.2 重采样方法的直接链接" title="10.5.2 重采样方法的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>方法</th><th>适用场景</th></tr></thead><tbody><tr><td>最近邻（Nearest Neighbor）</td><td>分类数据，保持原始值</td></tr><tr><td>双线性（Bilinear）</td><td>连续数据，平滑结果</td></tr><tr><td>立方卷积（Cubic Convolution）</td><td>连续数据，更平滑</td></tr></tbody></table>
+<p>[推断] 重采样方法基于 rasterio 标准方法和 GeoLibre 功能推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="106-重采样resample">10.6 重采样（Resample）<a href="#106-重采样resample" class="hash-link" aria-label="10.6 重采样（Resample）的直接链接" title="10.6 重采样（Resample）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1061-功能说明">10.6.1 功能说明<a href="#1061-功能说明" class="hash-link" aria-label="10.6.1 功能说明的直接链接" title="10.6.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>改变栅格的空间分辨率（像元大小）。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>升采样</strong>（增大分辨率/减小像元）：增加像元数量，需要插值
+<strong>降采样</strong>（减小分辨率/增大像元）：减少像元数量，需要聚合</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1062-参数">10.6.2 参数<a href="#1062-参数" class="hash-link" aria-label="10.6.2 参数的直接链接" title="10.6.2 参数的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">目标分辨率：输出像元大小</li>
+<li class="">重采样方法：同上</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="107-裁剪clip">10.7 裁剪（Clip）<a href="#107-裁剪clip" class="hash-link" aria-label="10.7 裁剪（Clip）的直接链接" title="10.7 裁剪（Clip）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1071-功能说明">10.7.1 功能说明<a href="#1071-功能说明" class="hash-link" aria-label="10.7.1 功能说明的直接链接" title="10.7.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>用矢量要素裁剪栅格，只保留裁剪范围内的像元。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>输入</strong>：</p>
+<ul>
+<li class="">栅格图层</li>
+<li class="">矢量图层（裁剪边界）</li>
+</ul>
+<p><strong>输出</strong>：裁剪后的栅格</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="108-矢量化polygonize">10.8 矢量化（Polygonize）<a href="#108-矢量化polygonize" class="hash-link" aria-label="10.8 矢量化（Polygonize）的直接链接" title="10.8 矢量化（Polygonize）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1081-功能说明">10.8.1 功能说明<a href="#1081-功能说明" class="hash-link" aria-label="10.8.1 功能说明的直接链接" title="10.8.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>将分类栅格转换为矢量多边形。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>输入</strong>：分类栅格（如土地利用分类）
+<strong>输出</strong>：面图层，每个类别一个多边形（或多个，如果有不连续区域）</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1082-参数">10.8.2 参数<a href="#1082-参数" class="hash-link" aria-label="10.8.2 参数的直接链接" title="10.8.2 参数的直接链接" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>字段名称</strong>：存储类别值的字段名</li>
+<li class=""><strong>8连通/4连通</strong>：像元连接性定义</li>
+</ul>
+<p>[推断] 参数基于 GDAL polygonize 工具和 GeoLibre 功能推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="109-等高线contour">10.9 等高线（Contour）<a href="#109-等高线contour" class="hash-link" aria-label="10.9 等高线（Contour）的直接链接" title="10.9 等高线（Contour）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1091-功能说明">10.9.1 功能说明<a href="#1091-功能说明" class="hash-link" aria-label="10.9.1 功能说明的直接链接" title="10.9.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>从 DEM 栅格提取等高线。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>输入</strong>：DEM 栅格
+<strong>输出</strong>：线图层（等高线）</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1092-参数">10.9.2 参数<a href="#1092-参数" class="hash-link" aria-label="10.9.2 参数的直接链接" title="10.9.2 参数的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数</th><th>说明</th></tr></thead><tbody><tr><td>等高距</td><td>相邻等高线的高程差</td></tr><tr><td>起始高程</td><td>第一条等高线的高程</td></tr><tr><td>最大/最小高程</td><td>生成范围限制</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1010-分区统计zonal-statistics">10.10 分区统计（Zonal Statistics）<a href="#1010-分区统计zonal-statistics" class="hash-link" aria-label="10.10 分区统计（Zonal Statistics）的直接链接" title="10.10 分区统计（Zonal Statistics）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10101-功能说明">10.10.1 功能说明<a href="#10101-功能说明" class="hash-link" aria-label="10.10.1 功能说明的直接链接" title="10.10.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>计算矢量区域范围内栅格的统计值。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>输入</strong>：</p>
+<ul>
+<li class="">栅格图层（数值数据）</li>
+<li class="">矢量图层（区域边界，面类型）</li>
+</ul>
+<p><strong>输出</strong>：矢量图层，新增统计字段</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10102-统计指标">10.10.2 统计指标<a href="#10102-统计指标" class="hash-link" aria-label="10.10.2 统计指标的直接链接" title="10.10.2 统计指标的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>指标</th><th>说明</th></tr></thead><tbody><tr><td>Mean</td><td>平均值</td></tr><tr><td>Median</td><td>中位数</td></tr><tr><td>Std Dev</td><td>标准差</td></tr><tr><td>Min</td><td>最小值</td></tr><tr><td>Max</td><td>最大值</td></tr><tr><td>Range</td><td>范围</td></tr><tr><td>Sum</td><td>总和</td></tr><tr><td>Count</td><td>像元数</td></tr></tbody></table>
+<p>[推断] 统计指标基于通用分区统计工具和 GeoLibre 功能推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1011-焦点统计focal-statistics">10.11 焦点统计（Focal Statistics）<a href="#1011-焦点统计focal-statistics" class="hash-link" aria-label="10.11 焦点统计（Focal Statistics）的直接链接" title="10.11 焦点统计（Focal Statistics）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10111-功能说明">10.11.1 功能说明<a href="#10111-功能说明" class="hash-link" aria-label="10.11.1 功能说明的直接链接" title="10.11.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>对每个像元，计算其邻域内的统计值。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>邻域定义</strong>：</p>
+<ul>
+<li class="">矩形：3x3、5x5 等</li>
+<li class="">圆形：指定半径</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10112-统计方法">10.11.2 统计方法<a href="#10112-统计方法" class="hash-link" aria-label="10.11.2 统计方法的直接链接" title="10.11.2 统计方法的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">Mean、Median、Mode</li>
+<li class="">Min、Max、Range</li>
+<li class="">Std Dev、Variety</li>
+</ul>
+<p>[推断] 焦点统计方法基于通用焦点统计工具和 GeoLibre 功能推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1012-栅格计算器raster-calculator">10.12 栅格计算器（Raster Calculator）<a href="#1012-栅格计算器raster-calculator" class="hash-link" aria-label="10.12 栅格计算器（Raster Calculator）的直接链接" title="10.12 栅格计算器（Raster Calculator）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10121-功能说明">10.12.1 功能说明<a href="#10121-功能说明" class="hash-link" aria-label="10.12.1 功能说明的直接链接" title="10.12.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>基于像元值的代数运算生成新栅格。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>支持的运算</strong>：</p>
+<ul>
+<li class="">算术：+、-、*、/、^、%</li>
+<li class="">逻辑：AND、OR、NOT、XOR</li>
+<li class="">比较：=、!=、&lt;、&gt;、&lt;=、&gt;=</li>
+<li class="">条件：IF/THEN/ELSE</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10122-表达式示例">10.12.2 表达式示例<a href="#10122-表达式示例" class="hash-link" aria-label="10.12.2 表达式示例的直接链接" title="10.12.2 表达式示例的直接链接" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#393A34"><span class="token plain"># NDVI 计算</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">(band4 - band3) / (band4 + band3)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># 坡度筛选（只保留坡度 &lt; 15 度的区域）</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">IF(slope &lt; 15, 1, 0)</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#393A34"><span class="token plain"># 多波段合成</span><br></div><div class="token-line" style="color:#393A34"><span class="token plain">band1 * 0.3 + band2 * 0.5 + band3 * 0.2</span><br></div></code></pre></div></div>
+<p>[推断] 表达式语法基于通用栅格计算器和 GeoLibre 功能推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1013-重分类reclassify">10.13 重分类（Reclassify）<a href="#1013-重分类reclassify" class="hash-link" aria-label="10.13 重分类（Reclassify）的直接链接" title="10.13 重分类（Reclassify）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10131-功能说明">10.13.1 功能说明<a href="#10131-功能说明" class="hash-link" aria-label="10.13.1 功能说明的直接链接" title="10.13.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>将栅格像元值按规则重新分类。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>重分类方式</strong>：</p>
+<ul>
+<li class="">单值映射：旧值 -&gt; 新值</li>
+<li class="">范围映射：最小值-最大值 -&gt; 新值</li>
+<li class="">表映射：从 CSV/表加载映射规则</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1014-镶嵌mosaic">10.14 镶嵌（Mosaic）<a href="#1014-镶嵌mosaic" class="hash-link" aria-label="10.14 镶嵌（Mosaic）的直接链接" title="10.14 镶嵌（Mosaic）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10141-功能说明">10.14.1 功能说明<a href="#10141-功能说明" class="hash-link" aria-label="10.14.1 功能说明的直接链接" title="10.14.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>将多个栅格图层合并为一个连续图层。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>处理重叠</strong>：</p>
+<ul>
+<li class="">第一个/最后一个优先</li>
+<li class="">平均值</li>
+<li class="">最小值/最大值</li>
+</ul>
+<p>[推断] 重叠处理方式基于通用镶嵌工具和 GeoLibre 功能推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1015-光谱指数工具箱ndvindwievi">10.15 光谱指数工具箱（NDVI、NDWI、EVI）<a href="#1015-光谱指数工具箱ndvindwievi" class="hash-link" aria-label="10.15 光谱指数工具箱（NDVI、NDWI、EVI）的直接链接" title="10.15 光谱指数工具箱（NDVI、NDWI、EVI）的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="栅格 GeoLibre 工具列表" src="/geolibre-manual/assets/images/ch10-02-2a13307008c997e18b464bbac6350968.png" width="1280" height="577" class="img_ev3q">
+<em>栅格 GeoLibre 工具列表，Spectral Index 中包含 NDVI 等指数</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10151-功能说明">10.15.1 功能说明<a href="#10151-功能说明" class="hash-link" aria-label="10.15.1 功能说明的直接链接" title="10.15.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>光谱指数工具箱提供遥感常用植被/水体指数的一键计算。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>内置指数</strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>指数</th><th>公式</th><th>用途</th></tr></thead><tbody><tr><td>NDVI</td><td>(NIR - Red) / (NIR + Red)</td><td>植被健康度</td></tr><tr><td>NDWI</td><td>(NIR - SWIR) / (NIR + SWIR)</td><td>水体识别</td></tr><tr><td>EVI</td><td>2.5 * (NIR - Red) / (NIR + 6<em>Red - 7.5</em>Blue + 1)</td><td>增强植被指数</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10152-波段预设">10.15.2 波段预设<a href="#10152-波段预设" class="hash-link" aria-label="10.15.2 波段预设的直接链接" title="10.15.2 波段预设的直接链接" translate="no">​</a></h3>
+<p>工具箱提供常见卫星传感器的波段预设：[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<ul>
+<li class="">Landsat 8/9</li>
+<li class="">Sentinel-2</li>
+<li class="">自定义波段配置</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1016-地理配准器georeferencer">10.16 地理配准器（Georeferencer）<a href="#1016-地理配准器georeferencer" class="hash-link" aria-label="10.16 地理配准器（Georeferencer）的直接链接" title="10.16 地理配准器（Georeferencer）的直接链接" translate="no">​</a></h2>
+<p><img decoding="async" loading="lazy" alt="1000+ 地理处理工具箱" src="/geolibre-manual/assets/images/ch10-03-e021a67377c05d831ec4b1212a9bd285.png" width="1280" height="7657" class="img_ev3q">
+<em>1000+ 地理处理工具箱总览</em></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10161-功能说明">10.16.1 功能说明<a href="#10161-功能说明" class="hash-link" aria-label="10.16.1 功能说明的直接链接" title="10.16.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>为未配准的栅格图像（如扫描地图、历史航拍图）添加地理参考。[已核实] <a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a></p>
+<p><strong>工作流</strong>：</p>
+<ol>
+<li class="">加载未配准图像</li>
+<li class="">在图像上标记控制点（GCP）</li>
+<li class="">为每个 GCP 输入对应的地理坐标</li>
+<li class="">选择变换模型</li>
+<li class="">执行配准</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10162-变换模型">10.16.2 变换模型<a href="#10162-变换模型" class="hash-link" aria-label="10.16.2 变换模型的直接链接" title="10.16.2 变换模型的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>模型</th><th>最少 GCP</th><th>适用场景</th></tr></thead><tbody><tr><td>仿射（Affine）</td><td>3</td><td>一般情况</td></tr><tr><td>投影（Projective）</td><td>4</td><td>透视变形</td></tr><tr><td>多项式 1 阶</td><td>3</td><td>简单变形</td></tr><tr><td>多项式 2 阶</td><td>6</td><td>复杂变形</td></tr></tbody></table>
+<p>[推断] 变换模型基于通用地理配准工具和 GeoLibre 功能推断。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10163-配准精度">10.16.3 配准精度<a href="#10163-配准精度" class="hash-link" aria-label="10.16.3 配准精度的直接链接" title="10.16.3 配准精度的直接链接" translate="no">​</a></h3>
+<ul>
+<li class="">RMS 误差（均方根误差）评估配准精度</li>
+<li class="">建议 RMS &lt; 1 个像元</li>
+<li class="">可删除误差过大的 GCP 后重新计算</li>
+</ul>
+<p>[推断] 配准精度评估基于通用地理配准工具推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1017-idw--kriging-插值v13">10.17 IDW / Kriging 插值（v1.3+）<a href="#1017-idw--kriging-插值v13" class="hash-link" aria-label="10.17 IDW / Kriging 插值（v1.3+）的直接链接" title="10.17 IDW / Kriging 插值（v1.3+）的直接链接" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10171-功能说明">10.17.1 功能说明<a href="#10171-功能说明" class="hash-link" aria-label="10.17.1 功能说明的直接链接" title="10.17.1 功能说明的直接链接" translate="no">​</a></h3>
+<p>v1.3 引入的点图层到连续栅格表面的插值工具。[已核实] <a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> （v1.3 更新）</p>
+<p><strong>IDW（反距离加权）</strong>：</p>
+<ul>
+<li class="">基于已知点距离的加权平均</li>
+<li class="">距离越近权重越大</li>
+<li class="">简单、计算快</li>
+</ul>
+<p><strong>Kriging（克里金）</strong>：</p>
+<ul>
+<li class="">基于变异函数的最优无偏插值</li>
+<li class="">提供预测方差估计</li>
+<li class="">更精确但计算复杂</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="10172-参数">10.17.2 参数<a href="#10172-参数" class="hash-link" aria-label="10.17.2 参数的直接链接" title="10.17.2 参数的直接链接" translate="no">​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数</th><th>IDW</th><th>Kriging</th></tr></thead><tbody><tr><td>幂指数</td><td>距离权重衰减速率</td><td>-</td></tr><tr><td>搜索半径</td><td>参与计算的最大距离</td><td>变程（Range）</td></tr><tr><td>最小点数</td><td>参与计算的最少点数</td><td>最少点数</td></tr><tr><td>变异函数模型</td><td>-</td><td>球形、指数、高斯</td></tr></tbody></table>
+<p>[推断] 参数基于通用插值算法和 GeoLibre 功能推断。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1018-本章小结">10.18 本章小结<a href="#1018-本章小结" class="hash-link" aria-label="10.18 本章小结的直接链接" title="10.18 本章小结的直接链接" translate="no">​</a></h2>
+<p>GeoLibre 的栅格工具集覆盖地形分析、栅格变换、统计分析和遥感指数：</p>
+<ol>
+<li class=""><strong>地形分析</strong>：Hillshade、Slope、Aspect</li>
+<li class=""><strong>栅格变换</strong>：Reproject、Resample、Clip</li>
+<li class=""><strong>栅格转换</strong>：Polygonize、Contour</li>
+<li class=""><strong>栅格统计</strong>：Zonal Statistics、Focal Statistics</li>
+<li class=""><strong>栅格代数</strong>：Raster Calculator、Reclassify</li>
+<li class=""><strong>镶嵌</strong>：多栅格合并</li>
+<li class=""><strong>遥感指数</strong>：NDVI、NDWI、EVI 工具箱</li>
+<li class=""><strong>地理配准</strong>：扫描图像的地理参考</li>
+<li class=""><strong>插值</strong>：IDW、Kriging（v1.3+）</li>
+</ol>
+<p>栅格分析依赖 Python sidecar（桌面端）或客户端回退，功能完整度受执行环境限制。</p>
+<hr>
+<p><strong>本章信息源</strong></p>
+<ul>
+<li class="">[1] GeoLibre 处理工具文档：<a href="https://geolibre.app/user-guide/processing/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/user-guide/processing/</a> [检索日期 2026-09-04]</li>
+<li class="">[2] GeoLibre Roadmap：<a href="https://geolibre.app/roadmap/" target="_blank" rel="noopener noreferrer" class="">https://geolibre.app/roadmap/</a> [检索日期 2026-09-04]</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"></div><div class="col lastUpdated_JAkA"><span class="theme-last-updated">最后<!-- -->由 <b>手册维护</b> <!-- -->于 <b><time datetime="2026-09-04T00:00:00.000Z" itemprop="dateModified">2026年9月4日</time></b> <!-- -->更新</span></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/geolibre-manual/ch09-vector-tools"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">第 9 章：空间分析 - 矢量工具</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/geolibre-manual/ch11-sql-workspace"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">第 11 章：SQL 工作区与高级查询</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#101-栅格工具概览" class="table-of-contents__link toc-highlight">10.1 栅格工具概览</a><ul><li><a href="#1011-栅格分析引擎" class="table-of-contents__link toc-highlight">10.1.1 栅格分析引擎</a></li><li><a href="#1012-工具分类" class="table-of-contents__link toc-highlight">10.1.2 工具分类</a></li></ul></li><li><a href="#102-山体阴影hillshade" class="table-of-contents__link toc-highlight">10.2 山体阴影（Hillshade）</a><ul><li><a href="#1021-功能说明" class="table-of-contents__link toc-highlight">10.2.1 功能说明</a></li><li><a href="#1022-参数" class="table-of-contents__link toc-highlight">10.2.2 参数</a></li><li><a href="#1023-应用场景" class="table-of-contents__link toc-highlight">10.2.3 应用场景</a></li></ul></li><li><a href="#103-坡度slope" class="table-of-contents__link toc-highlight">10.3 坡度（Slope）</a><ul><li><a href="#1031-功能说明" class="table-of-contents__link toc-highlight">10.3.1 功能说明</a></li><li><a href="#1032-输出值" class="table-of-contents__link toc-highlight">10.3.2 输出值</a></li></ul></li><li><a href="#104-坡向aspect" class="table-of-contents__link toc-highlight">10.4 坡向（Aspect）</a><ul><li><a href="#1041-功能说明" class="table-of-contents__link toc-highlight">10.4.1 功能说明</a></li><li><a href="#1042-特殊情况" class="table-of-contents__link toc-highlight">10.4.2 特殊情况</a></li></ul></li><li><a href="#105-重投影reproject" class="table-of-contents__link toc-highlight">10.5 重投影（Reproject）</a><ul><li><a href="#1051-功能说明" class="table-of-contents__link toc-highlight">10.5.1 功能说明</a></li><li><a href="#1052-重采样方法" class="table-of-contents__link toc-highlight">10.5.2 重采样方法</a></li></ul></li><li><a href="#106-重采样resample" class="table-of-contents__link toc-highlight">10.6 重采样（Resample）</a><ul><li><a href="#1061-功能说明" class="table-of-contents__link toc-highlight">10.6.1 功能说明</a></li><li><a href="#1062-参数" class="table-of-contents__link toc-highlight">10.6.2 参数</a></li></ul></li><li><a href="#107-裁剪clip" class="table-of-contents__link toc-highlight">10.7 裁剪（Clip）</a><ul><li><a href="#1071-功能说明" class="table-of-contents__link toc-highlight">10.7.1 功能说明</a></li></ul></li><li><a href="#108-矢量化polygonize" class="table-of-contents__link toc-highlight">10.8 矢量化（Polygonize）</a><ul><li><a href="#1081-功能说明" class="table-of-contents__link toc-highlight">10.8.1 功能说明</a></li><li><a href="#1082-参数" class="table-of-contents__link toc-highlight">10.8.2 参数</a></li></ul></li><li><a href="#109-等高线contour" class="table-of-contents__link toc-highlight">10.9 等高线（Contour）</a><ul><li><a href="#1091-功能说明" class="table-of-contents__link toc-highlight">10.9.1 功能说明</a></li><li><a href="#1092-参数" class="table-of-contents__link toc-highlight">10.9.2 参数</a></li></ul></li><li><a href="#1010-分区统计zonal-statistics" class="table-of-contents__link toc-highlight">10.10  分区统计（Zonal Statistics）</a><ul><li><a href="#10101-功能说明" class="table-of-contents__link toc-highlight">10.10.1 功能说明</a></li><li><a href="#10102-统计指标" class="table-of-contents__link toc-highlight">10.10.2 统计指标</a></li></ul></li><li><a href="#1011-焦点统计focal-statistics" class="table-of-contents__link toc-highlight">10.11 焦点统计（Focal Statistics）</a><ul><li><a href="#10111-功能说明" class="table-of-contents__link toc-highlight">10.11.1 功能说明</a></li><li><a href="#10112-统计方法" class="table-of-contents__link toc-highlight">10.11.2 统计方法</a></li></ul></li><li><a href="#1012-栅格计算器raster-calculator" class="table-of-contents__link toc-highlight">10.12 栅格计算器（Raster Calculator）</a><ul><li><a href="#10121-功能说明" class="table-of-contents__link toc-highlight">10.12.1 功能说明</a></li><li><a href="#10122-表达式示例" class="table-of-contents__link toc-highlight">10.12.2 表达式示例</a></li></ul></li><li><a href="#1013-重分类reclassify" class="table-of-contents__link toc-highlight">10.13 重分类（Reclassify）</a><ul><li><a href="#10131-功能说明" class="table-of-contents__link toc-highlight">10.13.1 功能说明</a></li></ul></li><li><a href="#1014-镶嵌mosaic" class="table-of-contents__link toc-highlight">10.14 镶嵌（Mosaic）</a><ul><li><a href="#10141-功能说明" class="table-of-contents__link toc-highlight">10.14.1 功能说明</a></li></ul></li><li><a href="#1015-光谱指数工具箱ndvindwievi" class="table-of-contents__link toc-highlight">10.15 光谱指数工具箱（NDVI、NDWI、EVI）</a><ul><li><a href="#10151-功能说明" class="table-of-contents__link toc-highlight">10.15.1 功能说明</a></li><li><a href="#10152-波段预设" class="table-of-contents__link toc-highlight">10.15.2 波段预设</a></li></ul></li><li><a href="#1016-地理配准器georeferencer" class="table-of-contents__link toc-highlight">10.16 地理配准器（Georeferencer）</a><ul><li><a href="#10161-功能说明" class="table-of-contents__link toc-highlight">10.16.1 功能说明</a></li><li><a href="#10162-变换模型" class="table-of-contents__link toc-highlight">10.16.2 变换模型</a></li><li><a href="#10163-配准精度" class="table-of-contents__link toc-highlight">10.16.3 配准精度</a></li></ul></li><li><a href="#1017-idw--kriging-插值v13" class="table-of-contents__link toc-highlight">10.17 IDW / Kriging 插值（v1.3+）</a><ul><li><a href="#10171-功能说明" class="table-of-contents__link toc-highlight">10.17.1 功能说明</a></li><li><a href="#10172-参数" class="table-of-contents__link toc-highlight">10.17.2 参数</a></li></ul></li><li><a href="#1018-本章小结" class="table-of-contents__link toc-highlight">10.18 本章小结</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">文档</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch01-overview">GeoLibre 概述</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/ch02-installation">安装与部署</a></li><li class="footer__item"><a class="footer__link-item" href="/geolibre-manual/appendix/glossary">术语表</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">社区</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://geolibre.app" target="_blank" rel="noopener noreferrer" class="footer__link-item">GeoLibre 官方<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://geolibre.app/comparison/" target="_blank" rel="noopener noreferrer" class="footer__link-item">平台对比（含 QGIS）<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/opengeos/GeoLibre" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">更多</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/wangdwn" target="_blank" rel="noopener noreferrer" class="footer__link-item">作者 GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://github.com/wangdwn/geolibre-manual/issues" target="_blank" rel="noopener noreferrer" class="footer__link-item">报告问题<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 GeoLibre 手册项目。基于 MIT 协议发布。</div></div></div></footer></div>
+</body>
+</html>
